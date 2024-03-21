@@ -1,28 +1,24 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <title th:text="${title}"/>
+    <title th:text="${title}"></title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <base href="https://itchief.ru">
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <base href="https://itchief.ru">
     <!-- Подключаем CSS слайдера -->
     <link rel="stylesheet" href="/examples/libs/simple-adaptive-slider/simple-adaptive-slider.min.css">
-    <!-- Подключаем JS слайдера -->
-    <script defer src="/examples/libs/simple-adaptive-slider/simple-adaptive-slider.min.js"></script>
-    <!-- Подключение jQuery (необходимо для работы Bootstrap JavaScript) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- Подключение Bootstrap JavaScript (Popper.js включен в Bootstrap JavaScript) -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY" defer></script>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap JavaScript Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+<!-- Ваш контент здесь -->
+<!-- Подключение jQuery (необходимо для работы Bootstrap JavaScript) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Bootstrap JavaScript Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Подключаем JS слайдера -->
+<script defer src="/examples/libs/simple-adaptive-slider/simple-adaptive-slider.min.js"></script>
 
-    <!-- Запуск функции инициализации карты после загрузки страницы -->
+
+<!-- Запуск функции инициализации карты после загрузки страницы -->
     <script>
 
         document.addEventListener('DOMContentLoaded', function () {
@@ -243,7 +239,7 @@
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
         <div>
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="#" class="nav-link px-2 link-secondary">LOGO</a></li>
+                <li><a class="nav-link px-2 link-secondary" href="/">LOGO</a></li>
                 <li><a href="#" class="nav-link px-2">Сейчас в кино</a></li>
                 <li><a href="#" class="nav-link px-2">Акции и скидки</a></li>
                 <li><a href="#" class="nav-link px-2">Кинотеатры</a></li>
@@ -275,7 +271,7 @@
                         <li><a class="dropdown-item" href="#">Удаление аккаунта</a></li>
                         <li><a class="dropdown-item" href="#">Технические сложности</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Вход</a></li>
+                        <li><a class="dropdown-item" onclick="location.href='registration.html';">Вход</a></li>
 
                     </ul>
                 </div>

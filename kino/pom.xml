@@ -1,57 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
+
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.2.2</version>
-		<relativePath/>
+		<!-- Обновленная версия Spring Boot Starter Parent -->
+		<version>2.7.0</version>
 	</parent>
+
 	<groupId>com.example</groupId>
 	<artifactId>kino</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>kino</name>
 	<description>Clone Cinema</description>
+
 	<properties>
+		<!-- Обновленная версия Java -->
 		<java.version>17</java.version>
 	</properties>
-	<dependencies>
 
+	<dependencies>
+		<!-- Spring Boot Starter для Thymeleaf -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
+
+		<!-- Spring Boot Starter для веб-приложения -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+		<!-- Spring Boot DevTools -->
 		<dependency>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-devtools</artifactId>
-		<scope>runtime</scope>
-		<optional>true</optional>
-	</dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+
+		<!-- Spring Boot Starter для FreeMarker -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-freemarker</artifactId>
 		</dependency>
 
+		<!-- Spring Boot Starter для работы с базой данных JPA -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 
+		<!-- Коннектор MySQL -->
 		<dependency>
-			<groupId>com.mysql</groupId>
-			<artifactId>mysql-connector-j</artifactId>
-			<version>8.0.28</version> <!-- Замените на актуальную версию -->
-			<scope>runtime</scope>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.28</version>
 		</dependency>
 
-
+		<!-- Spring Boot Starter для тестирования -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -64,13 +76,16 @@
 			</exclusions>
 		</dependency>
 
+		<!-- Spring Security для тестирования -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+
 	<repositories>
+		<!-- Центральный репозиторий Maven -->
 		<repository>
 			<id>central</id>
 			<url>https://repo.maven.apache.org/maven2</url>
@@ -79,13 +94,16 @@
 			</snapshots>
 		</repository>
 	</repositories>
+
 	<build>
 		<plugins>
+			<!-- Плагин Maven Compiler -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.11.8</version> <!-- Используйте поддерживаемую версию -->
+				<version>3.10.1</version>
 				<configuration>
+					<!-- Установка исходной и целевой версии компиляции Java -->
 					<source>17</source>
 					<target>17</target>
 				</configuration>
@@ -93,21 +111,5 @@
 		</plugins>
 	</build>
 
-	<!-- Если вы используете прокси-сервер, добавьте соответствующие настройки сюда -->
-	<!-- Пример настройки прокси -->
-	<!--
-    <proxies>
-        <proxy>
-            <id>example-proxy</id>
-            <active>true</active>
-            <protocol>http</protocol>
-            <host>proxy.example.com</host>
-            <port>8080</port>
-            <username>proxyuser</username>
-            <password>proxypass</password>
-            <nonProxyHosts>localhost|127.0.0.1</nonProxyHosts>
-        </proxy>
-    </proxies>
-    -->
-
 </project>
+

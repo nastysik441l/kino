@@ -4,13 +4,18 @@
 <head>
     <title>Кинотеатр</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 </head>
 
 <body>
 <header th:insert="blocks/header :: header"></header>
 <div class="container mt-5">
     <h1>Кинотеатр</h1>
+    <div th:each="post : ${posts}" class="alert alert-info mt-2">
+        <h3 th:text="${post.title}"></h3>
+        <p th:text="${post.anons}"></p>
+        <a th:href="'/theaters/add' + ${post.id}">Вход</a>
+    </div>
 </div>
 
 <div th:insert="blocks/footer :: footer "></div>

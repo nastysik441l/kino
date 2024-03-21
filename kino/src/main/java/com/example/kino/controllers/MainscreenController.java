@@ -19,10 +19,10 @@ public class MainscreenController {
         return "about";
     }
 
-    @GetMapping("/theaters")
+    @GetMapping("//theaters/add")
     public String theaters(Model model) {
         model.addAttribute("title", "Театры");
-        return "theaters";
+        return "/theaters/add";
     }
 
 

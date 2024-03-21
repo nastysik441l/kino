@@ -1,15 +1,346 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="">
-<head>
-    <title th:text="${title}"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<title th:text="${title}"></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="styles.css">
+<!-- Подключаем CSS слайдера -->
+<link rel="stylesheet" href="/examples/libs/simple-adaptive-slider/simple-adaptive-slider.min.css">
 </head>
+
+<!-- Ваш контент здесь -->
+<!-- Подключение jQuery (необходимо для работы Bootstrap JavaScript) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Bootstrap JavaScript Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Подключаем JS слайдера -->
+<script defer src="/examples/libs/simple-adaptive-slider/simple-adaptive-slider.min.js"></script>
+
+
+<!-- Запуск функции инициализации карты после загрузки страницы -->
+<script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+        // инициализация слайдера
+        var slider = new SimpleAdaptiveSlider('.slider', {
+            autoplay: true,
+            interval: 5000,
+        });
+    });
+</script>
+<style>
+    .nav-link {
+        color: black; /* Черный цвет текста */
+    }
+    .carousel-item img {
+        height: 550px; /* Новая высота изображений */
+        object-fit: cover; /* Масштабирование изображения с сохранением пропорций и обрезкой до размеров родительского контейнера */
+    }
+    #cityButton {
+        width: 200px; /* Ширина кнопки */
+        height: 40px; /* Высота кнопки */
+        border-radius: 20px; /* Радиус скругления для создания эффекта овальной формы */
+        background-color: #ffffff; /* Белый цвет фона */
+        color: #000000; /* Черный цвет текста */
+        font-size: 16px; /* Размер шрифта */
+        border: none; /* Убираем границы */
+        cursor: pointer; /* Задаем курсор при наведении */
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Добавляем тень */
+    }
+    /*слайдер*/
+    .img-fluid {
+        display: inline-block;
+        height: auto;
+        max-width: 100%;
+    }
+    .btn {
+        margin: 10px;
+    }
+
+
+
+
+    .city-list__poster img {
+        width: 375px;
+        height: 215px;
+        object-fit: cover;
+    }
+
+    /* Style the dropdown button */
+    .dropbtn {
+        background-color: transparent;
+        color: black;
+        padding: 0;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+
+    /* Dropdown container (hidden by default) */
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+    /* Links inside the dropdown */
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    /* Change color of dropdown links on hover */
+    .dropdown-content a:hover {background-color: #f1f1f1;}
+
+    /* Show the dropdown menu on hover */
+    .dropdown:hover .dropdown-content {display: block;}
+
+    /* Change the background color of the dropdown button when the dropdown content is shown */
+    .dropdown:hover .dropbtn {background-color: transparent;}
+    .search-container {
+        position: relative;
+        width: 473px;
+        height: 37px;
+        background-color: #ffffff; /* Белый цвет фона */
+        color: #000000; /* Черный цвет текста */
+        font-size: 16px; /* Размер шрифта */
+        border: none; /* Убираем границы */
+        cursor: pointer; /* Задаем курсор при наведении */
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Добавляем тень */
+        border-radius: 20px;
+    }
+
+    .oval-search {
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 20px;
+        outline: none;
+    }
+
+    .oval-search:focus::placeholder {
+        color: transparent;
+    }
+
+    .oval-search:focus {
+        caret-color: #151515;
+    }
+    /* Стили для модального окна */
+    /* Стили для модального окна */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.4);
+    }
+
+    .modal-content {
+        background-color: black;
+        color: white;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }.modal-content ul li {
+         border-bottom: 1px solid #000; /* Горизонтальная граница между каждым элементом списка */
+         padding-bottom: 4px; /* Отступ вниз от границы */
+         margin-bottom: 4px; /* Отступ между каждым элементом списка */
+     }
+    .modal-content ul li::after {
+        content: ""; /* Создаем пустой псевдоэлемент */
+        display: block; /* Делаем его блочным элементом */
+        border-bottom: 1px solid #000; /* Горизонтальная граница */
+        margin-left: 5px; /* Отступ слева от границы */
+        width: calc(100% - 50px); /* Ширина границы, учитывая длину текста "Киев:" */
+    }
+
+    .modal-content ul {
+        list-style-type: none; /* Убираем круги впереди текста */
+
+        margin-bottom: 4px;   }
+</style>
+
 <body>
-    <header th:insert="blocks/header :: header"></header>
-  <div class="container mt-5">
-  <h1 th:text="${title}"/>
-  </div>
-<div th:insert="blocks/footer :: footer "></div>
+
+<div class="container">
+    <header class="d-flex flex-wrap align-items-center justify-content-between py-3 mb-4 border-bottom">
+        <div class="col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            <ul class="nav">
+                <li><a class="nav-link px-2 link-secondary" href="/">LOGO</a></li>
+
+            </ul>
+        </div>
+        <!---menu--->
+        <div class="dropdown">
+            <button class="dropbtn">
+                <img src="https://img.icons8.com/material-sharp/24/menu--v1.png" alt="menu--v1"/>
+            </button>
+            <div class="dropdown-content">
+                <a href="#">Галерея Концерт-холл</a>
+                <a href="#">Галерея Театр-балет</a>
+            </div>
+        </div>
+        <div class="search-container">
+            <input type="text" id="searchInput" class="oval-search"  placeholder="поиск мероприятия">
+        </div>
+
+        <script>const searchInput = document.getElementById("searchInput");
+
+        searchInput.addEventListener("input", function() {
+            if (this.value.trim() !== "") {
+                this.placeholder = "";
+            } else {
+                this.placeholder = "поиск мероприятия";
+            }
+        });</script>
+
+        <!--city---->
+
+        <div class="col-md-3 text-end">
+            <button type="button" class="btn btn-outline-primary me-2" onclick="toggleCityModal()" id="cityButton">Выбрать город</button>
+            <div id="cityModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="toggleCityModal()">&times;</span>
+                    <ul>
+                        <li> <b>Киев:</b> адрес</li>
+                        <li> <b>Днепр:</b> адрес</li>
+                        <li><b>Львов:</b> адрес</li>
+                        <li><b>Одесса:</b> адрес</li>
+                        <li><b>Николаев:</b> адрес</li>
+                        <li><b>Херсон:</b> адрес</li>
+                        <li><b>Харьков:</b> адрес</li>
+                        <li><b>Житомир:</b> адрес</li>
+                        <li><b>Чернигов:</b> адрес</li>
+                        <li><b>Полтава:</b> адрес</li>
+                        <li><b>Луцк:</b> адрес</li>
+                        <li><b>Черкассы:</b> адрес</li>
+                        <li><b>Ужгород:</b> адрес</li>
+                        <li><b>Кривой рог:</b> адрес</li>
+                        <li><b>Хмельницкий:</b> адрес</li>
+                        <li><b>Запорожье:</b> адрес</li>
+                    </ul>
+                </div>
+            </div>  <script>function toggleCityModal() {
+            var modal = document.getElementById("cityModal");
+            modal.style.display = modal.style.display === "block" ? "none" : "block";
+        }
+
+        window.onclick = function(event) {
+            var modal = document.getElementById("cityModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        document.getElementById("closeButton").addEventListener("mouseenter", function() {
+            toggleCityModal();
+
+
+        });
+
+
+        </script>
+        </div>
+
+
+
+
+        <!---sing up--->
+        <div class="text-center">
+            <div class="container">
+                <div class="text-center">
+                    <!-- Иконка "SIGN UP" с ссылкой и классом для открытия dropdown -->
+                    <a href="#" class="d-block link-body-emphasis text-decoration-none" aria-expanded="false" id="dropdownMenuLink">
+                        <img src="https://t3.ftcdn.net/jpg/05/53/79/60/360_F_553796090_XHrE6R9jwmBJUMo9HKl41hyHJ5gqt9oz.jpg"  width="32" height="32" class="rounded-circle">
+                    </a>
+                    <span class="mt-1">SIGN UP</span>
+                </div>
+                <!-- Dropdown меню -->
+                <div class="dropdown text-end">
+                    <ul class="dropdown-menu text-small" aria-labelledby="dropdownMenuLink">
+                        <li><a class="dropdown-item" href="#">Консультация</a></li>
+                        <li><a class="dropdown-item" href="#">Удаление аккаунта</a></li>
+                        <li><a class="dropdown-item" href="#">Технические сложности</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" onclick="location.href='registration.html';">Вход</a></li>
+
+                    </ul>
+                </div>
+            </div>
+            <!-- JavaScript код для открытия dropdown по клику на иконку "SIGN UP" -->
+            <script>
+                document.getElementById("dropdownMenuLink").addEventListener("click", function(event) {
+                    event.preventDefault(); // Предотвращаем переход по ссылке
+                    var dropdownMenu = document.querySelector(".dropdown-menu");
+                    dropdownMenu.classList.toggle("show"); // Переключаем класс для отображения/скрытия dropdown
+                });
+            </script>
+        </div>
+
+    </header>
+</div>
+
+
+<!--Разметка слайдов-->
+<div id="myCarousel" class="carousel slide mb-6" data-ride="carousel" data-interval="3000">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="https://d2q8nf5aywi2aj.cloudfront.net/uploads/resize/shows/logo/630x891_1708962545.webp" class="d-block w-100" alt="Slide 1">
+        </div>
+        <div class="carousel-item">
+            <img src="https://d2q8nf5aywi2aj.cloudfront.net/uploads/resize/shows/logo/630x891_1709042424.webp" class="d-block w-100" alt="Slide 2">
+        </div>
+        <div class="carousel-item">
+            <img src="https://d2q8nf5aywi2aj.cloudfront.net/uploads/resize/shows/logo/630x891_show_UBg0L0qPnGO8Fy4bCkmx6tNX6ac_2TVE.webp" class="d-block w-100" alt="Slide 3">
+        </div>
+        <div class="carousel-item">
+            <img src="https://d2q8nf5aywi2aj.cloudfront.net/uploads/resize/shows/logo/630x891_1710931018.webp" class="d-block w-100" alt="Slide 4">
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only"></span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only"></span>
+    </a>
+</div>
+
+
+
 </body>
+
 </html>
