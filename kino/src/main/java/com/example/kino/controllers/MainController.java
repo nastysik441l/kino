@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 
 public class MainController {
     @GetMapping("/menu")
-    public String menuMain(Model model){
+    public String menuMain(){
 return "menu-main";
     }
 }
