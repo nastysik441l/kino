@@ -350,7 +350,29 @@
         bottom: 0; /* Выравниваем кнопку по нижнему краю */
         margin-top: 127px; /* Задаем отступ сверху */
     }
+    .textcolumn3 {
+        width: 303px; /* Задаем ширину блока */
+    }
 
+    .textcolumn3 .per {
+        flex-basis: 40%;
+        flex-grow: 4;
+    }
+    .date {
+        color: red; /* Красный цвет текста */
+        margin-left: 300px; /* Отступ слева */
+    }     table {
+              width: 100%;
+              border-collapse: collapse;
+          }
+    th, td {
+        border: 1px solid black;
+        padding: 5px;
+        text-align: center;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
 
 </style>
 
@@ -556,26 +578,18 @@
             <img src="https://yt3.googleusercontent.com/ytc/AIdro_nHv3NnFpDnyr4YsHTzly2vM5YzB2guOD8d6tU_=s900-c-k-c0x00ffffff-no-rj" alt="Image" width="375" height="215">
         </div>
         <div class="textcolumn3">
-            <p>Riviera ScreenX
-                Одесса
-                Южная дорога, 101А,
-            </p>
+            <p class="per"><sub>Мумий Тролль Music Bar
+                BAGMET. ДНЕВНИК ТРУБАДУРЫ
+                "ДНЕВНИК ТРУБАДУРЫ" - театрализованное концертное шоу музыкального проекта актрисы, певицы - Анны Багмет, которое сама артистка называет mono</sub></p>
+
 
             <div class="button">
                 <a href="#">Купить</a>
             </div>
         </div>
-
+<div class="date">  <p ><sub>8 февраля 20:00, четверг</sub></p>   </div>
     </div>
-    <div class="column5">
 
-        <div class="textcolumn5">
-            <p>Оазис
-                Хмельницкий
-                ул. Степана Бандеры, 2А</p>
-
-        </div>
-    </div>
 </div>
 <!-5--->
 <div class="conta4">
@@ -584,25 +598,18 @@
             <img src="https://yt3.googleusercontent.com/ytc/AIdro_nHv3NnFpDnyr4YsHTzly2vM5YzB2guOD8d6tU_=s900-c-k-c0x00ffffff-no-rj" alt="Image" width="375" height="215">
         </div>
         <div class="textcolumn4">
-            <p>Аврора
-                Запорожье
-                пр. Соборный, 83/85</p>
+            <p class="per"><sub>Мумий Тролль Music Bar
+                BAGMET. ДНЕВНИК ТРУБАДУРЫ
+                "ДНЕВНИК ТРУБАДУРЫ" - театрализованное концертное шоу музыкального проекта актрисы, певицы - Анны Багмет, которое сама артистка называет mono</sub></p>
 
             <div class="button">
                 <a href="#">Купить</a>
             </div>
         </div>
 
+        <div class="date">  <p ><sub>8 февраля 20:00, четверг</sub></p>   </div>
     </div>
-    <div class="column5">
 
-        <div class="textcolumn5">
-            <p>Оазис
-                Хмельницкий
-                ул. Степана Бандеры, 2А</p>
-
-        </div>
-    </div>
 </div>
 <!-6--->
 <div class="conta5">
@@ -611,27 +618,62 @@
             <img src="https://yt3.googleusercontent.com/ytc/AIdro_nHv3NnFpDnyr4YsHTzly2vM5YzB2guOD8d6tU_=s900-c-k-c0x00ffffff-no-rj" alt="Image" width="375" height="215">
         </div>
         <div class="textcolumn5">
-            <p>Оазис
-                Хмельницкий
-                ул. Степана Бандеры, 2А</p>
+            <p class="per"><sub>Мумий Тролль Music Bar
+                BAGMET. ДНЕВНИК ТРУБАДУРЫ
+                "ДНЕВНИК ТРУБАДУРЫ" - театрализованное концертное шоу музыкального проекта актрисы, певицы - Анны Багмет, которое сама артистка называет mono</sub></p>
 
             <div class="button">
                 <a href="#">Купить</a>
             </div>
         </div>
 
+        <div class="date">  <p ><sub>8 февраля 20:00, четверг</sub></p>   </div>
     </div>
-    <div class="column5">
 
-        <div class="textcolumn5">
-            <p>Оазис
-                Хмельницкий
-                ул. Степана Бандеры, 2А</p>
-
-        </div>
-    </div>
 </div>
+<script>
+    // Function to create a calendar
+    function createCalendar(month, year) {
+        const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+        const firstDayOfMonth = new Date(year, month, 1).getDay();
 
+        // Create table
+        const calendar = document.createElement('table');
+
+        // Table header
+        const headerRow = document.createElement('tr');
+        daysOfWeek.forEach(day => {
+            const headerCell = document.createElement('th');
+            headerCell.textContent = day;
+            headerRow.append(headerCell);
+        });
+        calendar.append(headerRow);
+
+        // Empty cells before the first day of the month
+        for (let i = 0; i < firstDayOfMonth; i++) {
+            const emptyCell = document.createElement('td');
+            headerRow.append(emptyCell);
+        }
+
+        // Days in the month
+        let currentDay = 1;
+        for (let i = firstDayOfMonth; i <daysOfWeek.length; i++) {
+            const dayCell = document.createElement('td');
+            dayCell.textContent = currentDay;
+            headerRow.append(dayCell);
+
+            if (currentDay === daysInMonth) break;
+            currentDay++;
+        }
+
+        // Add the calendar to the body
+        document.body.append(calendar);
+    }
+
+    // Create the calendar for January 2024
+    createCalendar(0, 2024);
+</script>
 
 </body>
 
