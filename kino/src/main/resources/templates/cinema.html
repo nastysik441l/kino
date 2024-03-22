@@ -16,26 +16,11 @@
 <!-- Подключаем JS слайдера -->
 <script defer src="/examples/libs/simple-adaptive-slider/simple-adaptive-slider.min.js"></script>
 
-
-<!-- Запуск функции инициализации карты после загрузки страницы -->
-<script>
-
-    document.addEventListener('DOMContentLoaded', function () {
-        // инициализация слайдера
-        var slider = new SimpleAdaptiveSlider('.slider', {
-            autoplay: true,
-            interval: 5000,
-        });
-    });
-</script>
 <style>
     .nav-link {
         color: black; /* Черный цвет текста */
     }
-    .carousel-item img {
-        height: 550px; /* Новая высота изображений */
-        object-fit: cover; /* Масштабирование изображения с сохранением пропорций и обрезкой до размеров родительского контейнера */
-    }
+
     #cityButton {
         width: 200px; /* Ширина кнопки */
         height: 40px; /* Высота кнопки */
@@ -47,28 +32,8 @@
         cursor: pointer; /* Задаем курсор при наведении */
         box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Добавляем тень */
     }
-    /*слайдер*/
-.img-fluid {
-    display: inline-block;
-    height: auto;
-    max-width: 100%;
-}
-    .btn {
-        margin: 10px;
-    }
-
-    .t474__descr,
-    .t474__comment {
-        font-size: 24px;
-
-        text-align: left;
 
 
-    }
-    .custom-container {
-        padding-left: 100px;
-        padding-right: 100px;
-    }
     .triangle-line {
         position: relative;
         border: none;
@@ -97,17 +62,14 @@
     }
 
 
+
     .city-list__poster img {
         width: 375px;
         height: 215px;
         object-fit: cover;
     }
 
-    .city-list__content {
-        margin-left: 38px; /* Отступ от изображения */
-    }
-
-/* Style the dropdown button */
+    /* Style the dropdown button */
     .dropbtn {
         background-color: transparent;
         color: black;
@@ -172,6 +134,8 @@
     .oval-search:focus {
         caret-color: #151515;
     }
+    /* Стили для модального окна */
+
     .modal {
         display: none;
         position: fixed;
@@ -229,12 +193,116 @@
     .left-column {
         width: 100%; /* Ширина левой колонки */
     }
-
-    .right-column {
-        width: 100%; /* Ширина правой колонки */
-        text-align: right; /* Выравнивание текста по правому краю */
+    .container {
+        display: flex;
+        justify-content: space-between; /* Выравнивание по горизонтали */
+        align-items: flex-start; /* Выравнивание по вертикали */
+        margin-bottom: 20px; /* Добавляем отступ снизу для разделения блоков */
     }
-    /*3*********************/
+    .context-container {
+
+        flex-direction: column;
+        align-items: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px; /* Расстояние между колонками */
+    }
+
+    .context-container > div {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    .context-container h2 {
+        margin: 0;
+        font-size: 16px;
+    }
+    .context-container ol {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    .context-container ol li {
+        font-size: 14px;
+        margin-left: 20px;
+    }
+    /*1******************************/
+
+    .contain1,
+    .conta  {
+    justify-content: space-between;
+    width: 1000px;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        display: grid;
+        grid-template-columns: 2fr 2fr 1fr;
+        gap: 350px; /* Расстояние между колонками */
+
+    }
+
+    .contain1   .column,
+    .conta   .column1{
+        position: relative;
+        max-width: 450px;
+        margin: 10px;
+        padding: 15px;
+        display: flex;
+    }
+    .contain1   .column .ima
+    {
+        max-width: 150px;
+        flex:0 0 150px;
+    }
+
+    .conta   .column1 .ima1{
+        max-width: 150px;
+        flex:0 0 150px;
+    }
+    .conta   .column1 .ima1 img{
+        max-width: 400%;
+        margin-left: 250px;
+    }
+    .contain1   .column .ima  img{
+        max-width: 400%;
+        margin-left: 250px;
+    }
+    .contain1   .column .textcolumn, .conta   .column1 .textcolumn1{
+        margin-left: 550px;
+
+    }
+    /*2******************************/
+    .conta2   .column2{
+        position: relative;
+        max-width: 450px;
+        margin: 10px;
+        padding: 15px;
+        display: flex;
+    }
+    .conta2   .column2 .ima2
+    {
+        max-width: 150px;
+        flex:0 0 150px;
+    }
+    .conta2{ justify-content: space-between;
+        width: 1000px;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        display: grid;
+        grid-template-columns: 2fr 2fr 1fr;
+        gap: 350px; /* Расстояние между колонками */
+    }
+    .conta2   .column2 .ima2 img{
+        max-width: 400%;
+        margin-left: 250px;
+    }
+
+    .conta2   .column2 .textcolumn2{
+        margin-left: 550px;
+
+    }
+/*3*********************/
     .conta3{ justify-content: space-between;
         width: 1000px;
         flex-wrap: wrap;
@@ -267,7 +335,7 @@
 
     }
 
-    /*4******************/
+/*4******************/
     .conta4{ justify-content: space-between;
         width: 1000px;
         flex-wrap: wrap;
@@ -332,7 +400,7 @@
         margin-left: 550px;
 
     }
-    /**knopa*/
+   /**knopa*/
     .button {
         width: 178px;
         height: 41px;
@@ -351,43 +419,64 @@
         margin-top: 127px; /* Задаем отступ сверху */
     }
 
+/***концовка***/
+    .left-side {
+        display: flex;
+        justify-content: center;
+        display: grid;
+        grid-template-columns: 2fr 2fr 1fr;
+        gap: 350px;
+    }
+
+    .leside {
+        margin-left: 550px;
+    }
+
+    .right-side {
+        text-align: left;
+    }
+
+    .gray-circles {
+        display: flex;
+        margin-bottom: 20px;
+    }
+
+    .circle {
+        width: 73px;
+        height: 73px;
+        background-color: #888888;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    .subscribe-button a {
+        display: inline-block;
+        width: 573px;
+        height: 59px;
+        line-height: 59px;
+        background-color: #888888;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        border: none;
+        border-radius: 2px;
+        font-size: 16px;
+    }
 
 </style>
 
 <body>
 
 <div class="container">
-    <header class="d-flex flex-wrap align-items-center justify-content-between py-3 mb-4 border-bottom">
-        <div class="col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <ul class="nav">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between ">
+        <div>
+            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                 <li><a class="nav-link px-2 link-secondary" href="/">LOGO</a></li>
-
+                <li><a href="#" class="nav-link px-2">Сейчас в кино</a></li>
+                <li><a href="#" class="nav-link px-2">Акции и скидки</a></li>
+                <li><a href="/cinema" class="nav-link px-2">Кинотеатры</a></li>
             </ul>
         </div>
-
-        <div class="dropdown">
-            <button class="dropbtn">
-                <img src="https://img.icons8.com/material-sharp/24/menu--v1.png" alt="menu--v1"/>
-            </button>
-            <div class="dropdown-content">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-            </div>
-        </div>
-        <div class="search-container">
-            <input type="text" id="searchInput" class="oval-search"  placeholder="поиск мероприятия">
-        </div>
-
-      <script>const searchInput = document.getElementById("searchInput");
-
-      searchInput.addEventListener("input", function() {
-          if (this.value.trim() !== "") {
-              this.placeholder = "";
-          } else {
-              this.placeholder = "поиск мероприятия";
-          }
-      });</script>
 
         <!--city---->
 
@@ -472,84 +561,157 @@
             </script>
         </div>
 
+
     </header>
+</div><div>
+    <hr style="border: 0; border-top: 1px solid black; width: 1500px;" class="triangle-line">
 </div>
 
+<div class="context-container">
+    <div>
+        <h2>Город:</h2>
+        <select class="cotainer" style="width: 149px; height: 32px; margin: 0 auto;background-color: #D3D3D3;">
+            <option value="1">Киев</option>
+            <option value="2">Харьков</option>
+            <option value="3">Львов</option>
+            <option value="4">Одесса</option>
+            <option value="5">Николаев</option>
+            <option value="6">Херсон</option>
+            <option value="7">Харьков</option>
+            <option value="8">Житомир</option>
+            <option value="9">Чернигов</option>
+            <option value="10">Полтава</option>
+            <option value="11">Луцк</option>
+            <option value="12">Черкассы</option>
+            <option value="13">Ужгород</option>
+            <option value="14">Кривой рог</option>
+            <option value="15">Хмельницкий</option>
+            <option value="16">Запорожье</option>
+        </select>
+    </div>
 
-<!--Разметка слайдов-->
-<div id="myCarousel" class="carousel slide mb-6" data-ride="carousel" data-interval="3000">
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-        <li data-target="#myCarousel" data-slide-to="3"></li>
-    </ol>
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="https://d2q8nf5aywi2aj.cloudfront.net/uploads/resize/shows/logo/630x891_Viddayte_TILO_leters-poster-site.webp" class="d-block w-100" alt="Slide 1">
+    <div>
+        <h2>Комфорт:</h2>
+        <ol>
+            <li>Easy pass</li>
+            <li>VIP</li>
+            <li>LUX</li>
+            <li>Места для людей с инвалидностью</li>
+            <li>Chill out</li>
+        </ol>
+    </div>
+    <div>
+        <h2>Технологии:</h2>
+        <ol>
+            <li>TWINS</li>
+            <li>IMAX</li>
+            <li>LASER</li>
+            <li>Screenx</li>
+        </ol>
+    </div>
+</div>
+
+<div class="row mt-3">
+    <hr style="border: 0; border-top: 1px solid black; width: 1500px;" class="triangle-line">
+</div>
+<!----картины с кнопкой---->
+<div class="contain1">
+    <div class="column">
+        <div class="ima">
+            <img src="https://yt3.googleusercontent.com/ytc/AIdro_nHv3NnFpDnyr4YsHTzly2vM5YzB2guOD8d6tU_=s900-c-k-c0x00ffffff-no-rj" alt="Image" width="375" height="215">
         </div>
-        <div class="carousel-item">
-            <img src="https://d2q8nf5aywi2aj.cloudfront.net/uploads/resize/shows/logo/630x891_show_GAe0Gs08EP1wOnn1ASrVYpw9AJpqzkoA.webp" class="d-block w-100" alt="Slide 2">
-        </div>
-        <div class="carousel-item">
-            <img src="https://d2q8nf5aywi2aj.cloudfront.net/uploads/resize/shows/logo/630x891_1607007952.webp" class="d-block w-100" alt="Slide 3">
-        </div>
-        <div class="carousel-item">
-            <img src="https://d2q8nf5aywi2aj.cloudfront.net/uploads/resize/shows/logo/630x891_1710171307.webp" class="d-block w-100" alt="Slide 4">
+    <div class="textcolumn">
+
+            <p>Lavina IMAX Лазер<br>
+            Киев  ул. Берковецкая, 6Д</p>
+
+        <div class="button">
+            <a href="#">Cмотреть расписание</a>
         </div>
     </div>
-    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only"></span>
-    </a>
-    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only"></span>
-    </a>
-</div>
+    </div>
+    <div class="column">
+        <div class="ima">
+            <img src="https://yt3.googleusercontent.com/ytc/AIdro_nHv3NnFpDnyr4YsHTzly2vM5YzB2guOD8d6tU_=s900-c-k-c0x00ffffff-no-rj" alt="Image" width="375" height="215">
+        </div>
+        <div class="textcolumn">
 
-<!---текст-->
-<div class="t474">
-    <div class="t-container">
-        <div class="row">
-            <div class="col-10 offset-1" style="padding-left: 200px; padding-right: 1015px;">
-                <div class="t474__descr t-descr t-descr_xxxl t-margin_auto" field="descr">
-                    <br>Билеты в театр</br>
-                </div>
+            <p>Lavina IMAX Лазер<br>
+                Киев  ул. Берковецкая, 6Д</p>
+
+            <div class="button">
+                <a href="#">Cмотреть расписание</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-2--->
+<div class="conta">
+    <div class="column1">
+        <div class="ima1">
+            <img src="https://yt3.googleusercontent.com/ytc/AIdro_nHv3NnFpDnyr4YsHTzly2vM5YzB2guOD8d6tU_=s900-c-k-c0x00ffffff-no-rj" alt="Image" width="375" height="215">
+        </div>
+        <div class="textcolumn1">
+            <p>Дафи IMAX<br>
+                Днепр
+                бул. Звездный, 1А</p>
+
+            <div class="button">
+                <a href="#">Cмотреть расписание</a>
+            </div>
+        </div>
+
+    </div>
+    <div class="column1">
+        <div class="ima1">
+            <img src="https://yt3.googleusercontent.com/ytc/AIdro_nHv3NnFpDnyr4YsHTzly2vM5YzB2guOD8d6tU_=s900-c-k-c0x00ffffff-no-rj" alt="Image" width="375" height="215">
+        </div>
+        <div class="textcolumn1">
+            <p>Дафи IMAX<br>
+                Днепр
+                бул. Звездный, 1А</p>
+   <div class="button">
+                <a href="#">Cмотреть расписание</a>
             </div>
         </div>
     </div>
 </div>
-<hr style="border: 0; border-top: 1px solid black; width: 1200px;"class="triangle-line">
-    <!-- Контент страницы -->
-<div class="container-fluid text-center custom-container" style="padding-left: 100px; padding-right: 100px;">
-        <button type="button" class="btn btn-outline-dark  custom-btn"style="height: 39px; width: 178px;">Все</button>
-        <!-- тема secondary -->
-        <button type="button" class="btn btn-outline-dark  custom-btn"style="height: 39px; width: 178px;">Комедия</button>
-        <!-- тема success -->
-        <button type="button" class="btn btn-outline-dark  custom-btn"style="height: 39px; width: 178px;">Мюзикл</button>
-        <!-- тема danger -->
-        <button type="button" class="btn btn-outline-dark  custom-btn"style="height: 39px; width: 178px;">Опера</button>
-        <!-- тема warning -->
-        <button type="button" class="btn btn-outline-dark  custom-btn"style="height: 39px; width: 178px;">Драма</button>
-        <!-- тема info -->
-        <button type="button" class="btn btn-outline-dark  custom-btn"style="height: 39px; width: 178px;">Баллет</button>
-    </div> <div class="row mt-3">
 
-    <div class="container-fluid text-center custom-container" style="padding-left: 20px; padding-right: 840px;">
-        <div class="row">
-            <div class="col">
-                <button type="button" class="btn btn-outline-dark custom-btn" style="height: 39px; width: 178px;">Спектакль</button>
+<!-3--->
+<div class="conta2">
+    <div class="column2">
+        <div class="ima2">
+            <img src="https://yt3.googleusercontent.com/ytc/AIdro_nHv3NnFpDnyr4YsHTzly2vM5YzB2guOD8d6tU_=s900-c-k-c0x00ffffff-no-rj" alt="Image" width="375" height="215">
+        </div>
+        <div class="textcolumn2">
+            <p>Spartak
+                Львов
+                ул. Гетьмана Мазепы, 1Б</p>
 
-                <button type="button" class="btn btn-outline-dark custom-btn"style="height: 39px; width: 178px;">Детям</button>
+            <div class="button">
+                <a href="#">Cмотреть расписание</a>
             </div>
         </div>
+
+    </div>
+    <div class="column2">
+        <div class="ima2">
+            <img src="https://yt3.googleusercontent.com/ytc/AIdro_nHv3NnFpDnyr4YsHTzly2vM5YzB2guOD8d6tU_=s900-c-k-c0x00ffffff-no-rj" alt="Image" width="375" height="215">
+        </div>
+        <div class="textcolumn2">
+            <p>Spartak
+                Львов
+                ул. Гетьмана Мазепы, 1Б</p>
+
+            <div class="button">
+                <a href="#">Cмотреть расписание</a>
+            </div>
+        </div>
+
     </div>
 </div>
-</div> <hr style="border: 0; border-top: 1px solid black; width: 1200px;"class="triangle-line">
-
-
-<!------kartin------>
+<!-4-->
 <div class="conta3">
     <div class="column3">
         <div class="ima3">
@@ -559,21 +721,26 @@
             <p>Riviera ScreenX
                 Одесса
                 Южная дорога, 101А,
-            </p>
+               </p>
 
             <div class="button">
-                <a href="#">Купить</a>
+                <a href="#">Cмотреть расписание</a>
             </div>
         </div>
 
     </div>
-    <div class="column5">
-
-        <div class="textcolumn5">
-            <p>Оазис
-                Хмельницкий
-                ул. Степана Бандеры, 2А</p>
-
+    <div class="column3">
+        <div class="ima3">
+            <img src="https://yt3.googleusercontent.com/ytc/AIdro_nHv3NnFpDnyr4YsHTzly2vM5YzB2guOD8d6tU_=s900-c-k-c0x00ffffff-no-rj" alt="Image" width="375" height="215">
+        </div>
+        <div class="textcolumn3">
+            <p>Riviera ScreenX
+                Одесса
+                Южная дорога, 101А,
+             </p>
+            <div class="button">
+                <a href="#">Cмотреть расписание</a>
+            </div>
         </div>
     </div>
 </div>
@@ -589,18 +756,22 @@
                 пр. Соборный, 83/85</p>
 
             <div class="button">
-                <a href="#">Купить</a>
+                <a href="#">Cмотреть расписание</a>
             </div>
         </div>
 
     </div>
-    <div class="column5">
-
-        <div class="textcolumn5">
-            <p>Оазис
-                Хмельницкий
-                ул. Степана Бандеры, 2А</p>
-
+    <div class="column4">
+        <div class="ima4">
+            <img src="https://yt3.googleusercontent.com/ytc/AIdro_nHv3NnFpDnyr4YsHTzly2vM5YzB2guOD8d6tU_=s900-c-k-c0x00ffffff-no-rj" alt="Image" width="375" height="215">
+        </div>
+        <div class="textcolumn4">
+            <p>Аврора
+                Запорожье
+                пр. Соборный, 83/85</p>
+            <div class="button">
+                <a href="#">Cмотреть расписание</a>
+            </div>
         </div>
     </div>
 </div>
@@ -616,23 +787,47 @@
                 ул. Степана Бандеры, 2А</p>
 
             <div class="button">
-                <a href="#">Купить</a>
+                <a href="#">Cмотреть расписание</a>
             </div>
         </div>
 
     </div>
     <div class="column5">
-
+        <div class="ima5">
+            <img src="https://yt3.googleusercontent.com/ytc/AIdro_nHv3NnFpDnyr4YsHTzly2vM5YzB2guOD8d6tU_=s900-c-k-c0x00ffffff-no-rj" alt="Image" width="375" height="215">
+        </div>
         <div class="textcolumn5">
             <p>Оазис
                 Хмельницкий
                 ул. Степана Бандеры, 2А</p>
-
+            <div class="button">
+                <a href="#">Cмотреть расписание</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <hr style="border: 0; border-top: 1px solid black; width: 1500px;" class="triangle-line">
+</div>
+<div class="left-side">
+    <div class="leside">
+        <p>Бронируйте билеты на мероприятия.<br> Мы в соц.сетях</p>
+        <div class="gray-circles">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+        </div>
+    </div>
+    <div class="right-side">
+        <p>Подпишитесь на новости</p>
+        <p>Подпишитесь на нашу рассылку новостей и анонсов мероприятий</p>
+        <div class="subscribe-button">
+            <a href="#">Подписаться</a>
         </div>
     </div>
 </div>
 
-
 </body>
+
 
 </html>

@@ -132,7 +132,7 @@
         caret-color: #151515;
     }
     /* Стили для модального окна */
-    /* Стили для модального окна */
+
     .modal {
         display: none;
         position: fixed;
@@ -142,7 +142,7 @@
         width: 100%;
         height: 100%;
         overflow: auto;
-        background-color: rgba(0,0,0,0.4);
+
     }
 
     .modal-content {
@@ -155,7 +155,7 @@
     }
 
     .close {
-        color: #aaa;
+
         float: right;
         font-size: 28px;
         font-weight: bold;
@@ -166,11 +166,14 @@
         color: black;
         text-decoration: none;
         cursor: pointer;
-    }.modal-content ul li {
-         border-bottom: 1px solid #000; /* Горизонтальная граница между каждым элементом списка */
-         padding-bottom: 4px; /* Отступ вниз от границы */
-         margin-bottom: 4px; /* Отступ между каждым элементом списка */
-     }
+    }
+    .modal-content ul li {
+        border-bottom: 1px solid #000; /* Горизонтальная граница между каждым элементом списка */
+        padding-bottom: 4px; /* Отступ вниз от границы */
+        margin-bottom: 4px; /* Отступ между каждым элементом списка */
+        display: flex; /* Используем Flexbox */
+        justify-content: space-between;
+    }
     .modal-content ul li::after {
         content: ""; /* Создаем пустой псевдоэлемент */
         display: block; /* Делаем его блочным элементом */
@@ -181,8 +184,17 @@
 
     .modal-content ul {
         list-style-type: none; /* Убираем круги впереди текста */
-
+        padding: 0;
+        margin: 0;
         margin-bottom: 4px;   }
+    .left-column {
+        width: 100%; /* Ширина левой колонки */
+    }
+
+    .right-column {
+        width: 100%; /* Ширина правой колонки */
+        text-align: right; /* Выравнивание текста по правому краю */
+    }
 </style>
 
 <body>
@@ -223,26 +235,26 @@
 
         <div class="col-md-3 text-end">
             <button type="button" class="btn btn-outline-primary me-2" onclick="toggleCityModal()" id="cityButton">Выбрать город</button>
-            <div id="cityModal" class="modal">
+            <div id="cityModal" class="modal" style="width: 393px; height: 833px;">
                 <div class="modal-content">
                     <span class="close" onclick="toggleCityModal()">&times;</span>
                     <ul>
-                        <li> <b>Киев:</b> адрес</li>
-                        <li> <b>Днепр:</b> адрес</li>
-                        <li><b>Львов:</b> адрес</li>
-                        <li><b>Одесса:</b> адрес</li>
-                        <li><b>Николаев:</b> адрес</li>
-                        <li><b>Херсон:</b> адрес</li>
-                        <li><b>Харьков:</b> адрес</li>
-                        <li><b>Житомир:</b> адрес</li>
-                        <li><b>Чернигов:</b> адрес</li>
-                        <li><b>Полтава:</b> адрес</li>
-                        <li><b>Луцк:</b> адрес</li>
-                        <li><b>Черкассы:</b> адрес</li>
-                        <li><b>Ужгород:</b> адрес</li>
-                        <li><b>Кривой рог:</b> адрес</li>
-                        <li><b>Хмельницкий:</b> адрес</li>
-                        <li><b>Запорожье:</b> адрес</li>
+                        <li> <b class="left-column">Киев: </b><div class="right-column">адрес</div></li>
+                        <li> <b class="left-column">Днепр: </b><div class="right-column">адрес</div></li>
+                        <li><b  class="left-column">Львов: </b> <div class="right-column">адрес</div></li>
+                        <li><b class="left-column">Одесса:  </b><div class="right-column">адрес</div></li>
+                        <li><b class="left-column">Николаев:</b> <div class="right-column">адрес</div></li>
+                        <li><b class="left-column">Херсон:  </b> <div class="right-column">адрес</div></li>
+                        <li><b class="left-column">Харьков:</b> <div class="right-column">адрес</div></li>
+                        <li><b class="left-column">Житомир:</b> <div class="right-column">адрес</div></li>
+                        <li><b class="left-column">Чернигов:</b> <div class="right-column">адрес</div></li>
+                        <li><b class="left-column">Полтава:</b> <div class="right-column">адрес</div></li>
+                        <li><b class="left-column">Луцк:</b> <div class="right-column">адрес</div></li>
+                        <li><b class="left-column">Черкассы:</b><div class="right-column">адрес</div></li>
+                        <li><b class="left-column">Ужгород:</b> <div class="right-column">адрес</div></li>
+                        <li><b class="left-column">Кривой рог:</b> <div class="right-column">адрес</div></li>
+                        <li><b class="left-column">Хмельницкий:</b><div class="right-column">адрес</div></li>
+                        <li><b class="left-column">Запорожье:</b> <div class="right-column">адрес</div></li>
                     </ul>
                 </div>
             </div>  <script>function toggleCityModal() {

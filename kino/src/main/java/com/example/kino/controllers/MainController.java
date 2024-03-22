@@ -19,7 +19,11 @@ public class MainController {
         model.addAttribute("posts", posts);
         return "menu-main";
     }
-
+    @GetMapping("/cinema")
+    public String cinemas(Model model) {
+        model.addAttribute("title", "Кинотеатры");
+        return "cinema";
+    }
     @GetMapping("/theaters/add")
     public String theatersAdd(Model model){
         return "theaters-add";
