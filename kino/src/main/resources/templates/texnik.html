@@ -19,7 +19,15 @@
 
 
 <style>
-
+    .red-text {
+        color: red;
+    }
+    .wait-text{
+        color: white;
+    }
+    .center-text {
+        text-align: center;
+    }
     .rules {
         max-width: 1000px;
         margin: 0 auto;
@@ -135,17 +143,17 @@
 
     /* Стили для столбца */
     .column {
-        width: 277px;
-        height: 264px;
-        border: 1px solid #000; /* Добавьте границу для наглядности */
+        width: 200px;
+        height: 200px;
+        border: 1px solid #888888; /* Добавьте границу для наглядности */
     }
 
     /* Стили для кнопки */
     .my-button {
         width: 100%;
         height: 100%;
-        background-color: #007bff;
-        color: #fff;
+        background-color: #888888;
+
         border: none;
         border-radius: 5px;
         cursor: pointer;
@@ -156,21 +164,22 @@
 
     /* Стили для всплывающего окна */
     .popup {
+
         display: none;
         position: fixed;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        padding: 20px;
-        background-color: #fff;
+        padding: 50px;
+        background-color: #000000;
         border: 1px solid #ccc;
-        border-radius: 5px;
+        border-radius: 2px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         z-index: 9999;
     }
 
     /* Стили для затемненного фона */
-    .overlay {
+    .overlay   {
         display: none;
         position: fixed;
         top: 0;
@@ -289,7 +298,7 @@
     </ol>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="https://zeflix.online/uploads/posts/2024-01/1705016931_voz-ograb.jpg" class="d-block w-100" alt="Slide 1">
+            <img src="https://img.pravda.com/images/doc/8/f/8fb87dc-kino485.jpg" class="d-block w-100" alt="Slide 1">
         </div>
 
     </div>
@@ -315,8 +324,6 @@
 
 </div>
 
-
-
 <div class="column-container">
     <div class="column">
         <button class="my-button" onclick="openPopup('popup1', 'Возврат билетов')">Возврат билетов</button>
@@ -334,48 +341,169 @@
         <button class="my-button" onclick="openPopup('popup5', 'Жалобы')">Жалобы</button>
     </div>
 </div>
-
+<!---1-------->
 <div class="overlay" id="overlay" onclick="closePopup()"></div>
-
-<div class="popup" id="popup1">
-    <h2>Возврат билетов</h2>
-    <div>
-        <p>Какой кинотеатр</p>
-        <select class="cotainer" style="width: 149px; height: 32px; margin: 0 auto;background-color: #D3D3D3;">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
+<div class="popup" id="popup1" style="width: 500px;border-radius: 10px; padding: 10px;height: 900px;">
+    <h2 style="color: #ffffff;">Автоматический возврат билетов</h2>
+    <br>
+    <div class="container" style="display: flex; border-radius: 10px; padding: 10px;align-items: center;">
+        <select class="container" style="width: 800px;border-radius: 10px; padding: 10px; height: 50px; margin-right: 10px; margin-left: 10px; background-color: #D3D3D3;">
+            <option value="1">Кинотеатр 1</option>
+            <option value="2">Кинотеатр 2</option>
+            <option value="3">Кинотеатр 3</option>
 
         </select>
     </div>
-    <button onclick="closePopup()">Закрыть</button>
-</div>
+    <br>
+    <input type="text" placeholder="Номер заказа" style="width: 440px; border-radius: 10px; padding: 10px;height: 50px; margin-left: 21px; margin-right: 15px;">
+    <br><br>
+    <input type="text" placeholder="Номер карты" style="width: 440px; border-radius: 10px; padding: 10px;height: 50px; margin-left: 21px; margin-right: 15px;">
+    <br><br>
+    <div style="margin-left: 18px; margin-right: 10px;">
+        <p class="red-text center-text">У меня нет всех необходимых данных</p>
+        <p class="wait-text center-text">!!! Обратите внимание, что оформить заявку на возврат возможно не раньше чем через 10 мин после покупки. <br>
+            Вернуть билеты возможно до начала сеанса, и если они не были просканированы при входе в кинозал. Во время военного положения средства за билеты на счет не возвращаются. На почтовый ящик будут отправлены промокоды на следующий визит. <br>
+            Продукция бара по-прежнему возвращается средствами на ту же карту, с которой была произведена оплата в течение трех дней (зависит от вашего банка). Билеты на благотворительные сеансы за 1 грн не подлежат возврату.</p>
+    </div>
+    <br><br>
+    <div style="display: flex; justify-content: space-between; margin: 20px;">
+        <div>
+            <button style="border-radius: 10px; border: 1px solid black; padding: 10px; margin-right: auto;" onclick="closePopup()">Отмена</button>
+        </div>
+        <div>
+            <button style="border-radius: 10px; border: 1px solid black; padding: 10px; margin-left: auto;" onclick="closePopup()"> Подтвердить</button>
+        </div>
+    </div>
 
-<div class="popup" id="popup2">
-    <h2>Поддержка</h2>
-    <p>Это текст всплывающего окна для поддержки.</p>
-    <button onclick="closePopup()">Закрыть</button>
-</div>
+    <!---2-------->
+    <div class="overlay" id="overlay2" onclick="closePopup()"></div>
+    <div class="popup" id="popup2"style="width: 500px;border-radius: 10px; padding: 10px;height: 900px;">
+        <h2 style="color: #ffffff;">Жалобы и предложения</h2>
+        <br>
+        <div class="container" style="display: flex; border-radius: 10px; padding: 10px;align-items: center;">
+            <select class="container" style="width: 800px;border-radius: 10px; padding: 10px; height: 50px; margin-right: 10px; margin-left: 10px; background-color: #D3D3D3;">
+                <option value="1">Кинотеатр 1</option>
+                <option value="2">Кинотеатр 2</option>
+                <option value="3">Кинотеатр 3</option>
+            </select>
+        </div>
+        <br>
+        <input type="text" placeholder="Как к Вам обращаться" style="width: 440px; border-radius: 10px; padding: 10px;height: 50px; margin-left: 21px; margin-right: 15px;">
+        <br><br>
+        <input type="text" placeholder="Введите свой электр. адрес" style="width: 440px; border-radius: 10px; padding: 10px;height: 50px; margin-left: 21px; margin-right: 15px;">
+        <br><br>
+        <input type="text" placeholder="Телефон" style="width: 440px; border-radius: 10px; padding: 10px;height: 50px; margin-left: 21px; margin-right: 15px;">
+        <br><br>
+        <br><br>
+        <input type="text" placeholder="Тип обращения" style="width: 440px; border-radius: 10px; padding: 10px;height: 50px; margin-left: 21px; margin-right: 15px;">
+        <br><br>
 
-<div class="popup" id="popup3">
-    <h2>Реклама</h2>
-    <p>Это текст всплывающего окна для рекламы.</p>
-    <button onclick="closePopup()">Закрыть</button>
-</div>
+        <input type="text" placeholder="Введите сообщение" style="width: 440px; border-radius: 10px; padding: 10px;height: 50px; margin-left: 21px; margin-right: 15px;">
+        <br><br>
+        <div style="display: flex; justify-content: space-between; margin: 20px;">
+            <div>
+                <button style="border-radius: 10px; border: 1px solid black; padding: 10px; margin-right: auto;" onclick="closePopup()">Отмена</button>
+            </div>
+            <div>
+                <button style="border-radius: 10px; border: 1px solid black; padding: 10px; margin-left: auto;" onclick="closePopup()"> Подтвердить</button>
+            </div>
+        </div>
+        <!---3-------->
+<div class="popup" id="popup3"style="width: 500px;border-radius: 10px; padding: 10px;height: 900px;">
+    <h2 style="color: #ffffff;">Автоматический возврат билетов</h2>
+    <br>
+    <div class="container" style="display: flex; border-radius: 10px; padding: 10px;align-items: center;">
+        <select class="container" style="width: 800px;border-radius: 10px; padding: 10px; height: 50px; margin-right: 10px; margin-left: 10px; background-color: #D3D3D3;">
+            <option value="1">Кинотеатр 1</option>
+            <option value="2">Кинотеатр 2</option>
+            <option value="3">Кинотеатр 3</option>
+        </select>
+    </div>
+    <br>
+    <input type="text" placeholder="Номер заказа" style="width: 440px; border-radius: 10px; padding: 10px;height: 50px; margin-left: 21px; margin-right: 15px;">
+    <br><br>
+    <input type="text" placeholder="Номер карты" style="width: 440px; border-radius: 10px; padding: 10px;height: 50px; margin-left: 21px; margin-right: 15px;">
+    <br><br>
+    <div style="margin-left: 18px; margin-right: 10px;">
+        <p class="red-text center-text">У меня нет всех необходимых данных</p>
+        <p class="wait-text center-text">!!! Обратите внимание, что оформить заявку на возврат возможно не раньше чем через 10 мин после покупки. <br>
+            Вернуть билеты возможно до начала сеанса, и если они не были просканированы при входе в кинозал. Во время военного положения средства за билеты на счет не возвращаются. На почтовый ящик будут отправлены промокоды на следующий визит. <br>
+            Продукция бара по-прежнему возвращается средствами на ту же карту, с которой была произведена оплата в течение трех дней (зависит от вашего банка). Билеты на благотворительные сеансы за 1 грн не подлежат возврату.</p>
+    </div>
+    <br><br>
+    <div style="display: flex; justify-content: space-between; margin: 20px;">
+        <div>
+            <button style="border-radius: 10px; border: 1px solid black; padding: 10px; margin-right: auto;" onclick="closePopup()">Отмена</button>
+        </div>
+        <div>
+            <button style="border-radius: 10px; border: 1px solid black; padding: 10px; margin-left: auto;" onclick="closePopup()"> Подтвердить</button>
+        </div>
+    </div>
 
-<div class="popup" id="popup4">
-    <h2>Карьера</h2>
-    <p>Это текст всплывающего окна для карьеры.</p>
-    <button onclick="closePopup()">Закрыть</button>
-</div>
+    <!---4-------->
+<div class="popup" id="popup4"style="width: 500px;border-radius: 10px; padding: 10px;height: 900px;">
+    <h2 style="color: #ffffff;">Автоматический возврат билетов</h2>
+    <br>
+    <div class="container" style="display: flex; border-radius: 10px; padding: 10px;align-items: center;">
+        <select class="container" style="width: 800px;border-radius: 10px; padding: 10px; height: 50px; margin-right: 10px; margin-left: 10px; background-color: #D3D3D3;">
+            <option value="1">Кинотеатр 1</option>
+            <option value="2">Кинотеатр 2</option>
+            <option value="3">Кинотеатр 3</option>
+        </select>
+    </div>
+    <br>
+    <input type="text" placeholder="Номер заказа" style="width: 440px; border-radius: 10px; padding: 10px;height: 50px; margin-left: 21px; margin-right: 15px;">
+    <br><br>
+    <input type="text" placeholder="Номер карты" style="width: 440px; border-radius: 10px; padding: 10px;height: 50px; margin-left: 21px; margin-right: 15px;">
+    <br><br>
+    <div style="margin-left: 18px; margin-right: 10px;">
+        <p class="red-text center-text">У меня нет всех необходимых данных</p>
+        <p class="wait-text center-text">!!! Обратите внимание, что оформить заявку на возврат возможно не раньше чем через 10 мин после покупки. <br>
+            Вернуть билеты возможно до начала сеанса, и если они не были просканированы при входе в кинозал. Во время военного положения средства за билеты на счет не возвращаются. На почтовый ящик будут отправлены промокоды на следующий визит. <br>
+            Продукция бара по-прежнему возвращается средствами на ту же карту, с которой была произведена оплата в течение трех дней (зависит от вашего банка). Билеты на благотворительные сеансы за 1 грн не подлежат возврату.</p>
+    </div>
+    <br><br>
+    <div style="display: flex; justify-content: space-between; margin: 20px;">
+        <div>
+            <button style="border-radius: 10px; border: 1px solid black; padding: 10px; margin-right: auto;" onclick="closePopup()">Отмена</button>
+        </div>
+        <div>
+            <button style="border-radius: 10px; border: 1px solid black; padding: 10px; margin-left: auto;" onclick="closePopup()"> Подтвердить</button>
+        </div>
+    </div>
 
-<div class="popup" id="popup5">
-    <h2>Жалобы</h2>
-    <p>Это текст всплывающего окна для жалоб.</p>
-    <button onclick="closePopup()">Закрыть</button>
-</div>
+    <!---5-------->
+<div class="popup" id="popup5"style="width: 500px;border-radius: 10px; padding: 10px;height: 900px;">
+    <h2 style="color: #ffffff;">Автоматический возврат билетов</h2>
+    <br>
+
+    <div class="container" style="display: flex; border-radius: 10px; padding: 10px;align-items: center;">
+        <select class="container" style="width: 800px;border-radius: 10px; padding: 10px; height: 50px; margin-right: 10px; margin-left: 10px; background-color: #D3D3D3;">
+            <option value="1">Кинотеатр 1</option>
+            <option value="2">Кинотеатр 2</option>
+            <option value="3">Кинотеатр 3</option>
+        </select>
+    </div>
+    <br>
+    <input type="text" placeholder="Номер заказа" style="width: 440px; border-radius: 10px; padding: 10px;height: 50px; margin-left: 21px; margin-right: 15px;">
+    <br><br>
+    <input type="text" placeholder="Номер карты" style="width: 440px; border-radius: 10px; padding: 10px;height: 50px; margin-left: 21px; margin-right: 15px;">
+    <br><br>
+    <div style="margin-left: 18px; margin-right: 10px;">
+        <p class="red-text center-text">У меня нет всех необходимых данных</p>
+        <p class="wait-text center-text">!!! Обратите внимание, что оформить заявку на возврат возможно не раньше чем через 10 мин после покупки. <br>
+            Вернуть билеты возможно до начала сеанса, и если они не были просканированы при входе в кинозал. Во время военного положения средства за билеты на счет не возвращаются. На почтовый ящик будут отправлены промокоды на следующий визит. <br>
+            Продукция бара по-прежнему возвращается средствами на ту же карту, с которой была произведена оплата в течение трех дней (зависит от вашего банка). Билеты на благотворительные сеансы за 1 грн не подлежат возврату.</p>
+    </div>
+    <br><br>
+    <div style="display: flex; justify-content: space-between; margin: 20px;">
+        <div>
+            <button style="border-radius: 10px; border: 1px solid black; padding: 10px; margin-right: auto;" onclick="closePopup()">Отмена</button>
+        </div>
+        <div>
+            <button style="border-radius: 10px; border: 1px solid black; padding: 10px; margin-left: auto;" onclick="closePopup()"> Подтвердить</button>
+        </div>
+    </div>
 
 <script>
     function openPopup(popupId, buttonText) {
