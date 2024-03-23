@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="">
+<title th:text="${title}"></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="styles.css">
+<!-- Подключаем CSS слайдера -->
+<link rel="stylesheet" href="/examples/libs/simple-adaptive-slider/simple-adaptive-slider.min.css">
+</head>
+
+<!-- Ваш контент здесь -->
+<!-- Подключение jQuery (необходимо для работы Bootstrap JavaScript) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Bootstrap JavaScript Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Подключаем JS слайдера -->
+<script defer src="/examples/libs/simple-adaptive-slider/simple-adaptive-slider.min.js"></script>
+
+
+<style>
+  .nav-link {
+    color: black; /* Черный цвет текста */
+  }
+
+  .contact-info {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .contact-info p {
+    text-align: right;
+  }
+  .rules {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+  }
+  .special-offer {
+    text-align: center;
+  }
+  .carousel-item img {
+    height: 550px; /* Новая высота изображений */
+    object-fit: cover; /* Масштабирование изображения с сохранением пропорций и обрезкой до размеров родительского контейнера */
+  }
+  #cityButton {
+    width: 200px; /* Ширина кнопки */
+    height: 40px; /* Высота кнопки */
+    border-radius: 20px; /* Радиус скругления для создания эффекта овальной формы */
+    background-color: #ffffff; /* Белый цвет фона */
+    color: #000000; /* Черный цвет текста */
+    font-size: 16px; /* Размер шрифта */
+    border: none; /* Убираем границы */
+    cursor: pointer; /* Задаем курсор при наведении */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Добавляем тень */
+  }
+
+  .nav-link {
+    color: black; /* Черный цвет текста */
+  }
+
+  /*слайдер*/
+  .img-fluid {
+    display: inline-block;
+    height: auto;
+    max-width: 100%;
+  }
+  /* кнопка подробнее */
+  .movie-poster-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .learn-more-button {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    color:darkred;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: none; /* Делаем кнопку невидимой */
+    position: absolute; /* Позиционируем текст абсолютно внутри родительского контейнера */
+    font-size: 16px;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px; /* Закруглим углы границы */
+  }
+
+  .movie-poster:hover .learn-more-button {
+    display: block; /* Показываем кнопку при наведении на постер */
+  }
+
+  .movie-poster:hover .learn-more-text {
+    display: block; /* Показываем текст при наведении на постер */
+  }
+
+  .learn-more-text {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    display: none; /* Делаем текст невидимым */
+  }
+  .movie-poster {
+    width: 277px; /* Измененная ширина */
+    height: 400px; /* Измененная высота */
+    margin: 10px;
+    position: relative;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+  }
+
+  .movie-poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .t474__descr,
+  .t474__comment {
+    font-size: 24px; /* Пример размера шрифта */
+  }
+
+  /* Добавление дистанции со всех сторон */
+  #rec722497803 {
+    padding: 30px;
+  }
+
+  /**концерт*/
+
+  .containe,
+  .containe1 {
+    display: flex;
+    justify-content: center; /* Выравниваем контейнеры по горизонтали */
+    align-items: stretch; /* Выравниваем контейнеры по вертикали */
+    margin-bottom: 50px; /* Уменьшенный отступ между контейнерами */
+  }
+
+  .button {
+    position: absolute;
+    bottom: 10px;
+    color:darkred;
+    right: 10px;
+    font-size: 16px;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+
+  .contai,
+  .contai4 {
+    width: 671px; /* Задаем размеры для первого контейнера */
+    height: 355px;
+    margin-right: 24px; /* Отступ между контейнерами */
+    padding: 20px; /* Добавляем отступы внутри контейнера */
+    position: relative; /* Добавляем относительное позиционирование */
+  }
+
+  .contai2,
+  .contai3 {
+    position: relative;
+    width: 471px; /* Задаем размеры для второго контейнера */
+    height: 355px;
+    margin-left: 24px; /* Отступ между контейнерами */
+    padding: 20px; /* Добавляем отступы внутри контейнера */
+    position: relative; /* Добавляем относительное позиционирование */
+  }
+
+  .button2 {
+    position: absolute;
+    top: 10px; /* Размещаем кнопку вверху контейнера */
+    left: 10px; /* Размещаем кнопку слева контейнера */
+    font-size: 16px;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    color:darkred;
+  }
+
+  .button3 {
+    position: absolute;
+    bottom: 10px;
+    color:darkred;
+    right: 10px;
+    font-size: 16px;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+
+  .button4 {
+    position: absolute;
+    bottom: 10px;
+    color:darkred;
+    right: 10px;
+    font-size: 16px;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+
+  /******/
+  contai img,
+  .contai2 img,
+  .contai3 img,
+  .contai4 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .image-container {
+    position: relative;
+  }
+
+  .image-container img {
+    width: 100%;
+    height: auto;
+  }
+
+  .read-more-button {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #cccccc;
+    color: #333333;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: block;
+    margin-top: 10px;
+  }
+
+  .read-more-button:hover {
+    background-color: #dddddd;
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+
+  }
+
+  .modal-content {
+    background-color: black;
+    color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+
+  .close {
+
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .modal-content ul li {
+    border-bottom: 1px solid #000; /* Горизонтальная граница между каждым элементом списка */
+    padding-bottom: 4px; /* Отступ вниз от границы */
+    margin-bottom: 4px; /* Отступ между каждым элементом списка */
+    display: flex; /* Используем Flexbox */
+    justify-content: space-between;
+  }
+  .modal-content ul li::after {
+    content: ""; /* Создаем пустой псевдоэлемент */
+    display: block; /* Делаем его блочным элементом */
+    border-bottom: 1px solid #000; /* Горизонтальная граница */
+    margin-left: 5px; /* Отступ слева от границы */
+    width: calc(100% - 50px); /* Ширина границы, учитывая длину текста "Киев:" */
+  }
+
+  .modal-content ul {
+    list-style-type: none; /* Убираем круги впереди текста */
+    padding: 0;
+    margin: 0;
+    margin-bottom: 4px;
+  }
+  .left-column {
+    width: 100%; /* Ширина левой колонки */
+  }
+
+  .right-column {
+    width: 100%; /* Ширина правой колонки */
+    text-align: right; /* Выравнивание текста по правому краю */
+  }
+
+  .left-side {
+    display: flex;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr;
+    gap: 350px;
+  }
+
+  .leside {
+    margin-left: 550px;
+  }
+
+  .right-side {
+    text-align: left;
+  }
+
+  .gray-circles {
+    display: flex;
+    margin-bottom: 20px;
+  }
+
+  .circle {
+    width: 73px;
+    height: 73px;
+    background-color: #888888;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+
+  .subscribe-button a {
+    display: inline-block;
+    width: 573px;
+    height: 59px;
+    line-height: 59px;
+    background-color: #888888;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 2px;
+    font-size: 16px;
+  }
+
+</style>
+
+
+<body>
+<div class="container">
+  <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+    <div>
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a class="nav-link px-2 link-secondary" href="/">LOGO</a></li>
+        <li><a href="#" class="nav-link px-2">Сейчас в кино</a></li>
+        <li><a href="/action" class="nav-link px-2">Акции и скидки</a></li>
+        <li><a href="/cinema" class="nav-link px-2">Кинотеатры</a></li>
+      </ul>
+    </div>
+
+    <!--city---->
+
+    <div class="col-md-3 text-end">
+      <button type="button" class="btn btn-outline-primary me-2" onclick="toggleCityModal()" id="cityButton">Выбрать город</button>
+      <div id="cityModal" class="modal" style="width: 393px; height: 833px;">
+        <div class="modal-content">
+          <span class="close" onclick="toggleCityModal()">&times;</span>
+          <ul>
+            <li> <b class="left-column">Киев: </b><div class="right-column">адрес</div></li>
+            <li> <b class="left-column">Днепр: </b><div class="right-column">адрес</div></li>
+            <li><b  class="left-column">Львов: </b> <div class="right-column">адрес</div></li>
+            <li><b class="left-column">Одесса:  </b><div class="right-column">адрес</div></li>
+            <li><b class="left-column">Николаев:</b> <div class="right-column">адрес</div></li>
+            <li><b class="left-column">Херсон:  </b> <div class="right-column">адрес</div></li>
+            <li><b class="left-column">Харьков:</b> <div class="right-column">адрес</div></li>
+            <li><b class="left-column">Житомир:</b> <div class="right-column">адрес</div></li>
+            <li><b class="left-column">Чернигов:</b> <div class="right-column">адрес</div></li>
+            <li><b class="left-column">Полтава:</b> <div class="right-column">адрес</div></li>
+            <li><b class="left-column">Луцк:</b> <div class="right-column">адрес</div></li>
+            <li><b class="left-column">Черкассы:</b><div class="right-column">адрес</div></li>
+            <li><b class="left-column">Ужгород:</b> <div class="right-column">адрес</div></li>
+            <li><b class="left-column">Кривой рог:</b> <div class="right-column">адрес</div></li>
+            <li><b class="left-column">Хмельницкий:</b><div class="right-column">адрес</div></li>
+            <li><b class="left-column">Запорожье:</b> <div class="right-column">адрес</div></li>
+          </ul>
+        </div>
+      </div>  <script>function toggleCityModal() {
+      var modal = document.getElementById("cityModal");
+      modal.style.display = modal.style.display === "block" ? "none" : "block";
+    }
+
+    window.onclick = function(event) {
+      var modal = document.getElementById("cityModal");
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+
+    document.getElementById("closeButton").addEventListener("mouseenter", function() {
+      toggleCityModal();
+
+
+    });
+
+
+    </script>
+    </div>
+
+    <div class="text-center">
+      <div class="container">
+        <div class="text-center">
+          <!-- Иконка "SIGN UP" с ссылкой и классом для открытия dropdown -->
+          <a href="#" class="d-block link-body-emphasis text-decoration-none" aria-expanded="false" id="dropdownMenuLink">
+            <img src="https://t3.ftcdn.net/jpg/05/53/79/60/360_F_553796090_XHrE6R9jwmBJUMo9HKl41hyHJ5gqt9oz.jpg"  width="32" height="32" class="rounded-circle">
+          </a>
+          <span class="mt-1">SIGN UP</span>
+        </div>
+        <!-- Dropdown меню -->
+        <div class="dropdown text-end">
+          <ul class="dropdown-menu text-small" aria-labelledby="dropdownMenuLink">
+            <li><a class="dropdown-item" href="/konsol">Консультация</a></li>
+            <li><a class="dropdown-item" href="/delete">Удаление аккаунта</a></li>
+            <li><a class="dropdown-item" href="/texnik">Технические сложности</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" onclick="location.href='registration.html';">Вход</a></li>
+
+
+          </ul>
+        </div>
+      </div>
+      <!-- JavaScript код для открытия dropdown по клику на иконку "SIGN UP" -->
+      <script>
+        document.getElementById("dropdownMenuLink").addEventListener("click", function(event) {
+          event.preventDefault(); // Предотвращаем переход по ссылке
+          var dropdownMenu = document.querySelector(".dropdown-menu");
+          dropdownMenu.classList.toggle("show"); // Переключаем класс для отображения/скрытия dropdown
+        });
+      </script>
+    </div>
+
+  </header>
+</div>
+
+
+
+
+<div class="special-offer">
+  <h3>Специальные тарифы школьникам, студентам и пенсионерам!</h3>
+</div>
+
+<br>
+<div class="rules">
+  <p>ПРАВИЛА ПРОДАЖИ БИЛЕТОВ ПО СПЕЦИАЛЬНЫМ ТАРИФАМ ДЛЯ ДЕТЕЙ, СТУДЕНТОВ, ШКОЛЬНИКОВ И ПЕНСИОНЕРОВ (сектор GOOD*)</p>
+
+  <p>СТОИМОСТЬ БИЛЕТОВ**:</p>
+  <p>
+    Тарифы для дошкольников/школьников/студентов - это скидка в размере 10 грн от стандартной стоимости билета на сеансы и действуют только на места сектора GOOD. Тарифы действуют после первого уикенда проката фильма и не суммируются с другими акциями.
+  </p>
+
+  <p>
+    Специальный тариф предоставляется студентам только стационарной формы обучения, и только при наличии оригинального студенческого билета, выданного вузов Украины (1 студенческий билет = 1 билет в кино со скидкой).
+  </p>
+
+  <p>
+    Акционный тариф для школьников предоставляется при наличии ученического билета или документа, который его заменяет (1 ученический билет = 1 билет в кино со скидкой).
+  </p>
+
+  <p>
+    Тариф «Детский» действует исключительно на фильмы с возрастным ограничением ЗА (0+) и предоставляет выбор: либо родители держат детей на руках и не оплачивают билет, или же покупают ребенку билет по тарифу минус 10 грн.
+  </p>
+
+  <p>
+    Билеты по тарифу «Пенсионер» можно приобрести только при наличии пенсионного удостоверения, подтверждающего личность и статус (1 пенсионное удостоверение = 1 билет в кино со скидкой).
+  </p>
+
+  <p>
+    Билеты для людей с нарушением опорно-двигательной системы бесплатны при наличии соответствующего удостоверения, подтверждающего личность и его статус (1 удостоверения = 1 билет в кино). Акция действует только в кинотеатрах, в которых предусмотрены специальные места для данной категории людей ***
+  </p>
+
+  <p>
+    <strong>Важно:</strong> Продажа билетов по тарифам «Детский», «Школьник», «Студент», «Пенсионер» и «Люди с инвалидностью» происходит исключительно через кассы кинотеатров.
+  </p>
+
+  <p>
+    * Это классические комфортные кресла для просмотра фильмов.<br>
+    ** Цена по акционному тарифу не может быть ниже минимальной цены, указанной в договоре с правообладателем фильма.
+  </p>
+</div>
+
+<div class="contact-info">
+  <p><strong>Наш адрес:</strong> г.Харьков ул. Маршала Жукова 4</p>
+  <p><strong>Билетный стол:</strong> (000) 000-000-00</p>
+  <p><strong>По вопросам сотрудничества:</strong> premier123@.ua</p>
+</div>
+
+<hr style="border: 0; border-top: 1px solid black; width: 1500px;"class="triangle-line">
+<div class="left-side">
+  <div class="leside">
+    <p>Бронируйте билеты на мероприятия.<br> Мы в соц.сетях</p>
+    <div class="gray-circles">
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+    </div>
+  </div>
+  <div class="right-side">
+    <p>Подпишитесь на новости</p>
+    <p>Подпишитесь на нашу рассылку новостей и анонсов мероприятий</p>
+    <div class="subscribe-button">
+      <a href="#">     </a>
+    </div>
+  </div>
+</div>
+</body></html>

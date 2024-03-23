@@ -193,12 +193,7 @@
     .left-column {
         width: 100%; /* Ширина левой колонки */
     }
-    .container {
-        display: flex;
-        justify-content: space-between; /* Выравнивание по горизонтали */
-        align-items: flex-start; /* Выравнивание по вертикали */
-        margin-bottom: 20px; /* Добавляем отступ снизу для разделения блоков */
-    }
+
     .context-container {
 
         flex-direction: column;
@@ -468,12 +463,12 @@
 <body>
 
 <div class="container">
-    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between ">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
         <div>
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                 <li><a class="nav-link px-2 link-secondary" href="/">LOGO</a></li>
                 <li><a href="#" class="nav-link px-2">Сейчас в кино</a></li>
-                <li><a href="#" class="nav-link px-2">Акции и скидки</a></li>
+                <li><a href="/action" class="nav-link px-2">Акции и скидки</a></li>
                 <li><a href="/cinema" class="nav-link px-2">Кинотеатры</a></li>
             </ul>
         </div>
@@ -526,10 +521,6 @@
         </script>
         </div>
 
-
-
-
-        <!---sing up--->
         <div class="text-center">
             <div class="container">
                 <div class="text-center">
@@ -542,11 +533,12 @@
                 <!-- Dropdown меню -->
                 <div class="dropdown text-end">
                     <ul class="dropdown-menu text-small" aria-labelledby="dropdownMenuLink">
-                        <li><a class="dropdown-item" href="#">Консультация</a></li>
-                        <li><a class="dropdown-item" href="#">Удаление аккаунта</a></li>
-                        <li><a class="dropdown-item" href="#">Технические сложности</a></li>
+                        <li><a class="dropdown-item" href="/konsol">Консультация</a></li>
+                        <li><a class="dropdown-item" href="/delete">Удаление аккаунта</a></li>
+                        <li><a class="dropdown-item" href="/texnik">Технические сложности</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" onclick="location.href='registration.html';">Вход</a></li>
+
 
                     </ul>
                 </div>
@@ -561,9 +553,10 @@
             </script>
         </div>
 
-
     </header>
-</div><div>
+</div>
+
+<div class="row mt-3">
     <hr style="border: 0; border-top: 1px solid black; width: 1500px;" class="triangle-line">
 </div>
 
@@ -822,7 +815,7 @@
         <p>Подпишитесь на новости</p>
         <p>Подпишитесь на нашу рассылку новостей и анонсов мероприятий</p>
         <div class="subscribe-button">
-            <a href="#">Подписаться</a>
+            <a href="#"></a>
         </div>
     </div>
 </div>
