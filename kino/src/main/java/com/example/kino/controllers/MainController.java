@@ -45,6 +45,12 @@ public class MainController {
         model.addAttribute("title", "Технические сложности");
         return "action";
     }
+    @GetMapping("/registration")
+    public String registrations(Model model) {
+        model.addAttribute("title", "вход в личный кабинет");
+        return "registration";
+    }
+
     @GetMapping("/action2")
     public String actionfs(Model model) {
         model.addAttribute("title", "Акции и скидки");
