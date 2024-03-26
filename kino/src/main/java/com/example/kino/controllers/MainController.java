@@ -50,6 +50,16 @@ public class MainController {
         model.addAttribute("title", "вход в личный кабинет");
         return "registration";
     }
+    @GetMapping("/sekino")
+    public String sekinos(Model model) {
+        model.addAttribute("title", "Сейчас в кино");
+        return "sekino";
+    }
+    @GetMapping("/vozrat")
+    public String vozrats(Model model) {
+        model.addAttribute("title", "Возрат билетов");
+        return "vozrat";
+    }
 
     @GetMapping("/action2")
     public String actionfs(Model model) {

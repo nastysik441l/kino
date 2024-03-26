@@ -25,6 +25,12 @@ public class MainscreenController {
         return "/theaters/add";
     }
 
+    @GetMapping("/film")
+    public String films(Model model) {
+        model.addAttribute("title", "Кино");
+        return "film";
+    }
+
 
 }
 

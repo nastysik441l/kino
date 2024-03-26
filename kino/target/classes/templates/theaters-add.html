@@ -31,13 +31,31 @@
     });
 </script>
 <style>
+
+    /******menu*************/
     .dropdown {
         position: relative;
         display: inline-block;
     }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        width: 1350px; /* Установите желаемую ширину контейнера */
+        text-align: left; /* Выравнивание по левому краю */
+        margin-left: -350px; /* Сдвигаем контейнер влево на половину его ширины */
+        left: 50%; /* Позиционируем контейнер по центру */
+        z-index: 1;
+        height: 1000px; /* Высота полосы */
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
     .vertical-line {
         border-left: 1px solid black;
-        height: 254px; /* Высота полосы */
+        height: 100px; /* Высота полосы */
         position: absolute;
         top: 0; /* Положение полосы по верхнему краю */
     }
@@ -79,14 +97,7 @@
         cursor: pointer;
     }
 
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-        min-width: 160px;
-    }
+
 
     .dropdown-content .column {
         float: left;
@@ -118,14 +129,6 @@
         top: 0; /* Положение полосы по вертикали */
     }
 
-    .column {
-        float: left;
-        width: 25%;
-        height: 100%;
-        box-sizing: border-box;
-        padding: 20px;
-        position: relative;
-    }
 
 
     .show {
@@ -749,72 +752,106 @@
             </ul>
 
         </div>
-
         <div class="dropdown">
             <button class="dropbtn">
                 <img src="https://img.icons8.com/material-sharp/24/menu--v1.png" alt="menu--v1"/>
             </button>
             <div class="dropdown-content" id="menuContent">
-                <div class="row" style="width: 1566px; height: 1000px;">
-                    <div class="column">
-                        <h3>Кинотеатр</h3>
-                        <a href="#">Сейчас в кино</a>
-                        <a href="#">Акции и скидки</a>
-                        <a href="#">Кинотеатры</a>
+                <div class="row" style="width: 1366px; height:956px;">
+                    <div class="column" style="padding: 20px 40px 0;">
+                        <h3 style="margin-top: 20px;">Кинотеатр</h3>
+                        <a href="/sekino" style="margin-top: 10px;">Сейчас в кино</a>
+                        <a href="/action" style="margin-top: 10px;">Акции и скидки</a>
+                        <a href="/cinema" style="margin-top: 10px;">Кинотеатры</a>
                     </div>
 
-                    <div class="column">
-                        <h3>Концерт-холл</h3>
-                        <a href="#">Афиша</a>
-                        <a href="#">ФанClub</a>
-                        <a href="#">Акции и скидки</a>
-                        <a href="#">Галерея</a>
+                    <div class="column" style="padding: 20px 20px 0;">
+                        <h3 style="margin-top: 20px;">Концерт-холл</h3>
+                        <a href="#" style="margin-top: 10px;">Афиша</a>
+                        <a href="#" style="margin-top: 10px;">ФанClub</a>
+                        <a href="/action" style="margin-top: 10px;">Акции и скидки</a>
+                        <a href="#" style="margin-top: 10px;">Галерея</a>
                         <!-- Вертикальная полоса -->
-                        <div class="vertical-line"></div>
+                        <div class="vertical-line" style="left: -20px;height:400px;margin-top: 20px;"></div>
                     </div>
-                    <div class="column">
-                        <h3>Театр-Балет</h3>
-                        <a href="#">Афиша</a>
-                        <a href="#">Колектив</a>
-                        <a href="#">Про театр</a>
-                        <a href="#">Новости</a>
-                        <a href="#">Акции и скидки</a>
-                        <a href="#">Галерея</a>
+                    <div class="column" style="padding: 20px 20px 0;">
+                        <h3 style="margin-top: 20px;">Театр-Балет</h3>
+                        <a href="#" style="margin-top: 10px;">Афиша</a>
+                        <a href="#" style="margin-top: 10px;">Колектив</a>
+                        <a href="#" style="margin-top: 10px;">Про театр</a>
+                        <a href="#" style="margin-top: 10px;">Новости</a>
+                        <a href="/action" style="margin-top: 10px;">Акции и скидки</a>
+                        <a href="#" style="margin-top: 10px;">Галерея</a>
                         <!-- Вертикальная полоса -->
-                        <div class="vertical-line"></div>
+                        <div class="vertical-line" style="left: -20px;height:400px;margin-top: 20px;"></div>
                     </div>
-                    <div class="column">
-                        <h3>О нас</h3>
-                        <a href="#">Возврат билетов</a>
-                        <a href="#">Поддержка</a>
-                        <a href="#">Карьера</a>
-                        <a href="#">Реклама</a>
-                        <a href="#">Жалобы</a>
+                    <div class="column" style="padding: 20px 40px 0;">
+                        <h3 style="margin-top: 20px;">О нас</h3>
+                        <a href="/texnik" style="margin-top: 10px;">Возврат билетов</a>
+                        <a href="/texnik" style="margin-top: 10px;">Поддержка</a>
+                        <a href="/texnik" style="margin-top: 10px;">Карьера</a>
+                        <a href="/texnik" style="margin-top: 10px;">Реклама</a>
+                        <a href="/texnik" style="margin-top: 10px;">Жалобы</a>
                         <!-- Вертикальная полоса -->
-                        <div class="vertical-line"></div>
+                        <div class="vertical-line" style="left: -20px;height:400px;margin-top: 20px;"></div>
+                    </div>
+
+                    <!-- Добавленный блок -->
+                    <div class="column" href="/vozrat" style="padding: 0 40px 0; margin-top: -200px;">
+                        <div class="column">
+                            <button style="background-color: red; color: black; padding: 10px;" onclick="window.location.href='/vozrat'">Как купить билет</button>
+                        </div>
+                        <div class="column" style="padding: 0 40px 20px; margin-top: -10px; float: right;">
+                            <div style="padding-top: 10px; right: 50px;">
+                                <p>Наш адрес: г.Харьков ул. Маршала Жукова 4</p>
+                                <p style="margin-bottom: 5px;">Билетный стол: <u>(0412) 408-408</u></p>
+                                <p style="margin-bottom: 5px;">По вопросам сотрудничества: <u>premier67@bk.сom</u></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr style="border: 0; border-top: 1px solid black; width: 1200px; margin-top: -360px;" class="triangle-line">
+                <div class="left-side"style=" width: 1200px;">
+                    <div class="leside">
+                        <p>Бронируйте билеты на мероприятия.<br> Мы в соц.сетях</p>
+                        <div class="gray-circles">
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                    <div class="right-side">
+                        <p>Подпишитесь на новости</p>
+                        <p>Подпишитесь на нашу рассылку новостей и анонсов мероприятий</p>
+                        <div class="subscribe-button">
+                            <a href="#">     </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
 
-        <script>document.querySelector('.dropbtn').addEventListener('click', function() {
-    document.getElementById('menuContent').classList.toggle('show');
-});
 
-// Close the dropdown menu if the user clicks outside of it
-window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-        var dropdowns = document.getElementsByClassName('dropdown-content');
-        for (var i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
-                openDropdown.classList.remove('show');
+        <script>
+            document.querySelector('.dropbtn').addEventListener('click', function() {
+                document.getElementById('menuContent').classList.toggle('show');
+            });
+
+            // Close the dropdown menu if the user clicks outside of it
+            window.onclick = function(event) {
+                if (!event.target.matches('.dropbtn')) {
+                    var dropdowns = document.getElementsByClassName('dropdown-content');
+                    for (var i = 0; i < dropdowns.length; i++) {
+                        var openDropdown = dropdowns[i];
+                        if (openDropdown.classList.contains('show')) {
+                            openDropdown.classList.remove('show');
+                        }
+                    }
+                }
             }
-        }
-    }
-}
-</script>
+        </script>
         <div class="search-container">
             <input type="text" id="searchInput" class="oval-search"  placeholder="поиск мероприятия">
         </div>
