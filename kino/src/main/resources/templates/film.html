@@ -1,10 +1,916 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<html xmlns:th="http://www.thymeleaf.org" lang="">
+<title th:text="${title}"></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="styles.css">
+<!-- Подключаем CSS слайдера -->
+<link rel="stylesheet" href="/examples/libs/simple-adaptive-slider/simple-adaptive-slider.min.css">
 </head>
+
+<!-- Ваш контент здесь -->
+<!-- Подключение jQuery (необходимо для работы Bootstrap JavaScript) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Bootstrap JavaScript Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Подключаем JS слайдера -->
+<script defer src="/examples/libs/simple-adaptive-slider/simple-adaptive-slider.min.js"></script>
+
+<style>
+
+    .cor {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .text3 {
+        flex: 1;
+        margin-right: 10px;
+        max-width: 400%;
+        margin-left: 250px;
+    }
+
+    .button1-group {
+        display: flex;
+    }
+
+
+    .button1 {
+        padding: 10px 20px;
+        background-color: #f0f0f0;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        margin-right: 10px;
+        background-color: transparent; /* Делает кнопку прозрачной */
+        max-width: 400%;
+        margin-right: 250px;
+    }
+
+    .left-arrow-icon {
+        background-image: url('https://img.icons8.com/?size=50&id=39944&format=png');
+        background-repeat: no-repeat;
+        background-position: left center;
+        padding-left: 40px;
+    }
+
+    .right-arrow-icon {
+        background-image: url('https://img.icons8.com/?size=50&id=39969&format=png');
+        background-repeat: no-repeat;
+        background-position: right center;
+        padding-right: 40px;
+    }
+
+
+    /******************/
+    .nav-link {
+        color: black; /* Черный цвет текста */
+    }
+
+    #cityButton {
+        width: 200px; /* Ширина кнопки */
+        height: 40px; /* Высота кнопки */
+        border-radius: 20px; /* Радиус скругления для создания эффекта овальной формы */
+        background-color: #ffffff; /* Белый цвет фона */
+        color: #000000; /* Черный цвет текста */
+        font-size: 16px; /* Размер шрифта */
+        border: none; /* Убираем границы */
+        cursor: pointer; /* Задаем курсор при наведении */
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Добавляем тень */
+    }
+
+
+    .triangle-line {
+        position: relative;
+        border: none;
+        height: 0;
+    }
+
+    .triangle-line::before,
+    .triangle-line::after {
+        content: "";
+        position: absolute;
+        top: -5px; /* Регулирует положение по вертикали */
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 5px; /* Регулирует размер треугольника */
+    }
+
+    .triangle-line::before {
+        left: 0; /* Треугольник смотрит влево */
+        border-color: transparent transparent transparent black;
+    }
+
+    .triangle-line::after {
+        right: 0; /* Треугольник смотрит вправо */
+        border-color: transparent black transparent transparent;
+    }
+
+
+
+    .city-list__poster img {
+        width: 375px;
+        height: 215px;
+        object-fit: cover;
+    }
+
+    /* Style the dropdown button */
+    .dropbtn {
+        background-color: transparent;
+        color: black;
+        padding: 0;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+
+    /* Dropdown container (hidden by default) */
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+    /* Links inside the dropdown */
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    /* Change color of dropdown links on hover */
+    .dropdown-content a:hover {background-color: #f1f1f1;}
+
+    /* Show the dropdown menu on hover */
+    .dropdown:hover .dropdown-content {display: block;}
+
+    /* Change the background color of the dropdown button when the dropdown content is shown */
+    .dropdown:hover .dropbtn {background-color: transparent;}
+    .search-container {
+        position: relative;
+        width: 473px;
+        height: 37px;
+        background-color: #ffffff; /* Белый цвет фона */
+        color: #000000; /* Черный цвет текста */
+        font-size: 16px; /* Размер шрифта */
+        border: none; /* Убираем границы */
+        cursor: pointer; /* Задаем курсор при наведении */
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Добавляем тень */
+        border-radius: 20px;
+    }
+
+    .oval-search {
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 20px;
+        outline: none;
+    }
+
+    .oval-search:focus::placeholder {
+        color: transparent;
+    }
+
+    .oval-search:focus {
+        caret-color: #151515;
+    }
+    /* Стили для модального окна */
+
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+
+    }
+
+    .modal-content {
+        background-color: black;
+        color: white;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+    }
+
+    .close {
+
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .modal-content ul li {
+        border-bottom: 1px solid #000; /* Горизонтальная граница между каждым элементом списка */
+        padding-bottom: 4px; /* Отступ вниз от границы */
+        margin-bottom: 4px; /* Отступ между каждым элементом списка */
+        display: flex; /* Используем Flexbox */
+        justify-content: space-between;
+    }
+    .modal-content ul li::after {
+        content: ""; /* Создаем пустой псевдоэлемент */
+        display: block; /* Делаем его блочным элементом */
+        border-bottom: 1px solid #000; /* Горизонтальная граница */
+        margin-left: 5px; /* Отступ слева от границы */
+        width: calc(100% - 50px); /* Ширина границы, учитывая длину текста "Киев:" */
+    }
+
+    .modal-content ul {
+        list-style-type: none; /* Убираем круги впереди текста */
+        padding: 0;
+        margin: 0;
+        margin-bottom: 4px;   }
+    .left-column {
+        width: 100%; /* Ширина левой колонки */
+    }
+
+    .context-container {
+
+        flex-direction: column;
+        align-items: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px; /* Расстояние между колонками */
+    }
+
+    .context-container > div {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    .context-container h2 {
+        margin: 0;
+        font-size: 16px;
+    }
+    .context-container ol {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    .context-container ol li {
+        font-size: 14px;
+        margin-left: 20px;
+    }
+    /*1******************************/
+
+    .contain1,
+    .conta  {
+        justify-content: space-between;
+        width: 1000px;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        display: grid;
+        grid-template-columns: 2fr 2fr 1fr;
+        gap: 350px; /* Расстояние между колонками */
+
+    }
+
+    .contain1   .column,
+    .conta   .column1{
+        position: relative;
+        max-width: 450px;
+        margin: 10px;
+        padding: 15px;
+        display: flex;
+    }
+    .contain1   .column .ima
+    {
+        max-width: 150px;
+        flex:0 0 150px;
+    }
+
+    .conta   .column1 .ima1{
+        max-width: 150px;
+        flex:0 0 150px;
+    }
+    .conta   .column1 .ima1 img{
+        max-width: 400%;
+        margin-left: 150px;
+    }
+    .contain1   .column .ima  img{
+        max-width: 400%;
+        margin-left: 150px;
+    }
+    .contain1   .column .textcolumn, .conta   .column1 .textcolumn1{
+        margin-left: 450px;
+
+    }
+    /*2******************************/
+    .conta2   .column2{
+        position: relative;
+        max-width: 450px;
+        margin: 10px;
+        padding: 15px;
+        display: flex;
+    }
+    .conta2   .column2 .ima2
+    {
+        max-width: 150px;
+        flex:0 0 150px;
+    }
+    .conta2{ justify-content: space-between;
+        width: 1000px;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        display: grid;
+        grid-template-columns: 2fr 2fr 1fr;
+        gap: 350px; /* Расстояние между колонками */
+    }
+    .conta2   .column2 .ima2 img{
+        max-width: 400%;
+        margin-left: 150px;
+    }
+
+    .conta2   .column2 .textcolumn2{
+        margin-left: 450px;
+
+    }
+    /*3*********************/
+    .conta3{ justify-content: space-between;
+        width: 1000px;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        display: grid;
+        grid-template-columns: 2fr 2fr 1fr;
+        gap: 350px; /* Расстояние между колонками */
+    }
+    .conta3   .column3{
+        position: relative;
+        max-width: 450px;
+        margin: 10px;
+        padding: 15px;
+        display: flex;
+    }
+    .conta3   .column3 .ima3
+    {
+        max-width: 150px;
+        flex:0 0 150px;
+    }
+
+    .conta3   .column3 .ima3 img{
+        max-width: 400%;
+        margin-left: 250px;
+    }
+
+    .conta3   .column3 .textcolumn3{
+        margin-left: 550px;
+
+    }
+.row2{
+    width: 2000px;
+}
+    .button-row {
+        display: flex;
+        justify-content: center; /* Центрирование кнопок */
+        align-items: flex-start; /* Выравнивание по верхнему краю */
+        color: black;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+
+
+    .button-row  :hover {
+        background-color: #cccccc;
+    }
+    .date-button {
+        background-color: #888888;
+        border: none;
+        color: black;
+        width: 177px;
+        height: 85px;
+        padding: 0;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        margin-right: 50px; /* Отступ между кнопками */
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; /* Выравнивание текста по центру */
+        border-radius: 10px; /* Закругление углов */
+    }
+
+    /**knopa*/
+    .button {
+        width: 178px;
+        height: 41px;
+        line-height: 41px; /* Выравнивание текста по вертикали внутри кнопки */
+        font-size: 16px;
+        background-color: #f1f1f1;
+        color: black;
+        text-align: center;
+        text-decoration: none;
+        border: none;
+        border-radius: 4px;
+        display: inline-block; /* Делаем кнопку блочным элементом */
+        cursor: pointer;
+        position: absolute; /* Устанавливаем абсолютное позиционирование */
+        bottom: 0; /* Выравниваем кнопку по нижнему краю */
+        margin-top: 127px; /* Задаем отступ сверху */
+    }
+
+    /***концовка***/
+    .left-side {
+        display: flex;
+        justify-content: center;
+        display: grid;
+        grid-template-columns: 2fr 2fr 1fr;
+        gap: 350px;
+    }
+
+    .leside {
+        margin-left: 550px;
+    }
+
+    .right-side {
+        text-align: left;
+    }
+
+    .gray-circles {
+        display: flex;
+        margin-bottom: 20px;
+    }
+
+    .circle {
+        width: 73px;
+        height: 73px;
+        background-color: #888888;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    .subscribe-button a {
+        display: inline-block;
+        width: 573px;
+        height: 59px;
+        line-height: 59px;
+        background-color: #888888;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        border: none;
+        border-radius: 2px;
+        font-size: 16px;
+    }
+/********************************/
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        width: 1350px; /* Установите желаемую ширину контейнера */
+        text-align: left; /* Выравнивание по левому краю */
+        margin-left: -350px; /* Сдвигаем контейнер влево на половину его ширины */
+        left: 50%; /* Позиционируем контейнер по центру */
+        z-index: 1;
+        height: 1000px; /* Высота полосы */
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+    .vertical-line {
+        border-left: 1px solid black;
+        height: 100px; /* Высота полосы */
+        position: absolute;
+        top: 0; /* Положение полосы по верхнему краю */
+    }
+    /* Отступы между вертикальными полосами */
+    .vertical-line:not(:last-child) {
+        margin-right: 10px;
+    }
+    /* Треугольник сверху */
+    .vertical-line::before {
+        content: '';
+        border-bottom: 10px solid black; /* Изменение только здесь: border-bottom вместо border-top */
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        position: absolute;
+        top: -10px; /* Расположение треугольника сверху */
+        left: 50%; /* Положение по горизонтали */
+        transform: translateX(-50%) rotate(180deg); /* Поворот на 180 градусов */
+    }
+
+    /* Треугольник снизу */
+    .vertical-line::after {
+        content: '';
+        border-top: 10px solid black; /* Изменение только здесь: border-top вместо border-bottom */
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        position: absolute;
+        bottom: -10px; /* Расположение треугольника снизу */
+        left: 50%; /* Положение по горизонтали */  transform: translateX(-50%) rotate(180deg); /* Поворот на 180 градусов */
+    }
+
+    .column {
+        flex: 25%;
+        padding: 20px;
+        position: relative;
+    }
+    .dropbtn {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+
+
+
+    .dropdown-content .column {
+        float: left;
+        padding: 10px;
+    }
+
+    .dropdown-content h3 {
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+    .dropdown-content a {
+        display: block;
+        color: #333;
+        text-decoration: none;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #ddd;
+    }
+    .row {
+        display: flex;
+    }
+
+    .vertical-line {
+        border-left: 1px solid black;
+        height: 254px; /* Высота полосы */
+        position: absolute;
+        top: 0; /* Положение полосы по вертикали */
+    }
+
+
+
+    .show {
+        display: block;
+    }
+</style>
+
 <body>
 
+
+<div class="container"style="background-color: #e0e0e0;">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+        <div>
+            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                <li><a class="nav-link px-2 link-secondary" href="/">LOGO</a></li>
+                <li><a href="#" class="nav-link px-2">Сейчас в кино</a></li>
+                <li><a href="/action" class="nav-link px-2">Акции и скидки</a></li>
+                <li><a href="/cinema" class="nav-link px-2">Кинотеатры</a></li>
+            </ul>
+        </div>
+
+        <!--city---->
+
+        <div class="col-md-3 text-end">
+            <button type="button" class="btn btn-outline-primary me-2" onclick="toggleCityModal()" id="cityButton">Выбрать город</button>
+            <div id="cityModal" class="modal" style="width: 393px; height: 833px;">
+                <div class="modal-content">
+                    <span class="close" onclick="toggleCityModal()">&times;</span>
+                    <ul>
+                        <li> <b class="left-column">Киев: </b><div class="right-column">адрес</div></li>
+                        <li> <b class="left-column">Днепр: </b><div class="right-column">адрес</div></li>
+                        <li><b  class="left-column">Львов: </b> <div class="right-column">адрес</div></li>
+                        <li><b class="left-column">Одесса:  </b><div class="right-column">адрес</div></li>
+                        <li><b class="left-column">Николаев:</b> <div class="right-column">адрес</div></li>
+                        <li><b class="left-column">Херсон:  </b> <div class="right-column">адрес</div></li>
+                        <li><b class="left-column">Харьков:</b> <div class="right-column">адрес</div></li>
+                        <li><b class="left-column">Житомир:</b> <div class="right-column">адрес</div></li>
+                        <li><b class="left-column">Чернигов:</b> <div class="right-column">адрес</div></li>
+                        <li><b class="left-column">Полтава:</b> <div class="right-column">адрес</div></li>
+                        <li><b class="left-column">Луцк:</b> <div class="right-column">адрес</div></li>
+                        <li><b class="left-column">Черкассы:</b><div class="right-column">адрес</div></li>
+                        <li><b class="left-column">Ужгород:</b> <div class="right-column">адрес</div></li>
+                        <li><b class="left-column">Кривой рог:</b> <div class="right-column">адрес</div></li>
+                        <li><b class="left-column">Хмельницкий:</b><div class="right-column">адрес</div></li>
+                        <li><b class="left-column">Запорожье:</b> <div class="right-column">адрес</div></li>
+                    </ul>
+                </div>
+            </div>  <script>function toggleCityModal() {
+            var modal = document.getElementById("cityModal");
+            modal.style.display = modal.style.display === "block" ? "none" : "block";
+        }
+
+        window.onclick = function(event) {
+            var modal = document.getElementById("cityModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        document.getElementById("closeButton").addEventListener("mouseenter", function() {
+            toggleCityModal();
+
+
+        });
+
+
+        </script>
+        </div>
+
+        <div class="text-center">
+            <div class="container">
+                <div class="text-center">
+                    <!-- Иконка "SIGN UP" с ссылкой и классом для открытия dropdown -->
+                    <a href="#" class="d-block link-body-emphasis text-decoration-none" aria-expanded="false" id="dropdownMenuLink">
+                        <img src="https://t3.ftcdn.net/jpg/05/53/79/60/360_F_553796090_XHrE6R9jwmBJUMo9HKl41hyHJ5gqt9oz.jpg"  width="32" height="32" class="rounded-circle">
+                    </a>
+                    <span class="mt-1">SIGN UP</span>
+                </div>
+                <!-- Dropdown меню -->
+                <div class="dropdown text-end">
+                    <ul class="dropdown-menu text-small" aria-labelledby="dropdownMenuLink">
+                        <li><a class="dropdown-item" href="/konsol">Консультация</a></li>
+                        <li><a class="dropdown-item" href="/delete">Удаление аккаунта</a></li>
+                        <li><a class="dropdown-item" href="/texnik">Технические сложности</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="/registration">Вход</a></li>
+
+
+                    </ul>
+                </div>
+            </div>
+            <!-- JavaScript код для открытия dropdown по клику на иконку "SIGN UP" -->
+            <script>
+                document.getElementById("dropdownMenuLink").addEventListener("click", function(event) {
+                    event.preventDefault(); // Предотвращаем переход по ссылке
+                    var dropdownMenu = document.querySelector(".dropdown-menu");
+                    dropdownMenu.classList.toggle("show"); // Переключаем класс для отображения/скрытия dropdown
+                });
+            </script>
+        </div>
+
+    </header>
+</div>
+<br><br>
+<div class="row2">
+    <div class="button-row">
+        <button class="date-button" data-date="20 декабря">20 декабря<p>сегодня</p></button>
+        <button class="date-button" data-date="21 декабря">21 декабря<p>пятница</p></button>
+        <button class="date-button" data-date="22 декабря">22 декабря<p>суббота</p></button>
+        <button class="date-button" data-date="23 декабря">23 декабря<p>воскресенье</p></button>
+        <button class="date-button" data-date="24 декабря">24 декабря<p>понедельник</p></button>
+        <button class="date-button" data-date="24 декабря">выбрать<p>день</p></button>
+  <script>document.getElementById('myButton').addEventListener('click', function() {
+      this.style.backgroundColor = 'lightgrey';
+  });
+
+  document.getElementById('myButton2').addEventListener('click', function() {
+      this.style.backgroundColor = 'lightgrey';
+  });</script>  </div> </div>
+<br><br>
+
+
+
+<p style="text-align: left;padding-left: 200px;font-weight: bold; padding-right: 300px;color: black;">Билеты в кино</p>
+<hr style="border: 0; border-top: 1px solid black; width: 1700px;"class="triangle-line">
+<!-- Контент страницы -->
+<div class="container-fluid text-center custom-container" style="padding-left: 100px; padding-right: 100px;">
+    <button type="button" class="btn btn-outline-dark  custom-btn"style="height: 39px; width: 178px;">Боевик</button>
+    <!-- тема secondary -->
+    <button type="button" class="btn btn-outline-dark  custom-btn"style="height: 39px; width: 178px;">Вестерн</button>
+    <!-- тема success -->
+    <button type="button" class="btn btn-outline-dark  custom-btn"style="height: 39px; width: 178px;">Детектив</button>
+    <!-- тема danger -->
+    <button type="button" class="btn btn-outline-dark  custom-btn"style="height: 39px; width: 178px;">Драма</button>
+    <!-- тема warning -->
+    <button type="button" class="btn btn-outline-dark  custom-btn"style="height: 39px; width: 178px;">Комедия</button>
+    <!-- тема info -->
+    <button type="button" class="btn btn-outline-dark  custom-btn"style="height: 39px; width: 178px;">Мелодрама</button>
+</div> <div class="row mt-3">
+
+    <div class="container-fluid text-center custom-container" style="padding-left: 100px; padding-right: 290px;">
+        <div class="row">
+            <div class="col">
+                <button type="button" class="btn btn-outline-dark custom-btn"style="height: 39px; width: 178px;">Сказка</button>
+                <button type="button" class="btn btn-outline-dark custom-btn"style="height: 39px; width: 178px;">Исторический</button>
+                <button type="button" class="btn btn-outline-dark custom-btn" style="height: 39px; width: 178px;">Музыкальный</button>
+                <button type="button" class="btn btn-outline-dark custom-btn" style="height: 39px; width: 178px;">Приключенческий</button>
+                <button type="button" class="btn btn-outline-dark custom-btn" style="height: 39px; width: 178px;">Мультики</button>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br>
+
+
+
+<!----картины с кнопкой---->
+<div class="contain1">
+    <div class="column">
+        <div class="ima">
+            <a href="/film1">
+                <img src="https://yt3.googleusercontent.com/ytc/AIdro_nHv3NnFpDnyr4YsHTzly2vM5YzB2guOD8d6tU_=s900-c-k-c0x00ffffff-no-rj" width="375" height="315">
+            </a>
+        </div>
+        <div class="textcolumn">
+            <p>16+ ФЕРРАРИ</p>
+            <div style="display: grid; grid-template-columns: repeat(3, 100px); gap: 10px; padding: 10px;">
+                <div style="color:red; width: 100%; height: 50px;">10:40<br><p style="color:black;">SDH</p></div>
+                <div style="color:red; width: 100%; height: 50px;">11:30<br><p style="color:black;">3D SDH</p></div>
+                <div style="color:red; width: 100%; height: 50px;">12:40<br><p style="color:black;">SDH</p></div>
+                <div style="color:red; width: 100%; height: 50px;">13:30<br><p style="color:black;">3D SDH</p></div>
+                <div style="color:red; width: 100%; height: 50px;">14:40<br><p style="color:black;">SDH</p></div>
+                <div style="color:red; width: 100%; height: 50px;">15:30<br><p style="color:black;">3D SDH</p></div>
+                <div style="color:red; width: 100%; height: 50px;">16:40<br><p style="color:black;">SDH</p></div>
+                <div style="color:red; width: 100%; height: 50px;">17:30<br><p style="color:black;">3D SDH</p></div>
+                <div style="color:red; width: 100%; height: 50px;">18:40<br><p style="color:black;">SDH</p></div>
+                <div style="color:red; width: 100%; height: 40px;">19:30<br><p style="color:black;">3D SDH</p></div>
+            </div>
+
+        </div></div>
+
+            <div class="column">
+        <div class="ima">
+            <a href="/film1">
+                <img src="https://yt3.googleusercontent.com/ytc/AIdro_nHv3NnFpDnyr4YsHTzly2vM5YzB2guOD8d6tU_=s900-c-k-c0x00ffffff-no-rj" width="375" height="315">
+            </a>   </div>
+                <div class="textcolumn">
+                    <p>16+ ФЕРРАРИ</p>
+                    <div style="display: grid; grid-template-columns: repeat(3, 100px); gap: 10px; padding: 10px;">
+                        <div style="color:red; width: 100%; height: 50px;">10:40<br><p style="color:black;">SDH</p></div>
+                        <div style="color:red; width: 100%; height: 50px;">11:30<br><p style="color:black;">3D SDH</p></div>
+                        <div style="color:red; width: 100%; height: 50px;">12:40<br><p style="color:black;">SDH</p></div>
+                        <div style="color:red; width: 100%; height: 50px;">13:30<br><p style="color:black;">3D SDH</p></div>
+                        <div style="color:red; width: 100%; height: 50px;">14:40<br><p style="color:black;">SDH</p></div>
+                        <div style="color:red; width: 100%; height: 50px;">15:30<br><p style="color:black;">3D SDH</p></div>
+                        <div style="color:red; width: 100%; height: 50px;">16:40<br><p style="color:black;">SDH</p></div>
+                        <div style="color:red; width: 100%; height: 50px;">17:30<br><p style="color:black;">3D SDH</p></div>
+                        <div style="color:red; width: 100%; height: 50px;">18:40<br><p style="color:black;">SDH</p></div>
+                        <div style="color:red; width: 100%; height: 40px;">19:30<br><p style="color:black;">3D SDH</p></div>
+                    </div>
+
+                </div>
+    </div>
+
+</div>
+<!-2--->
+<div class="conta">
+    <div class="column1">
+        <div class="ima1">
+            <a href="/film1">
+                <img src="https://yt3.googleusercontent.com/ytc/AIdro_nHv3NnFpDnyr4YsHTzly2vM5YzB2guOD8d6tU_=s900-c-k-c0x00ffffff-no-rj" width="375" height="315">
+            </a> </div>
+        <div class="textcolumn1">
+            <p>16+ ФЕРРАРИ</p>
+            <div style="display: grid; grid-template-columns: repeat(3, 100px); gap: 10px; padding: 10px;">
+                <div style="color:red; width: 100%; height: 50px;">10:40<br><p style="color:black;">SDH</p></div>
+                <div style="color:red; width: 100%; height: 50px;">11:30<br><p style="color:black;">3D SDH</p></div>
+                <div style="color:red; width: 100%; height: 50px;">12:40<br><p style="color:black;">SDH</p></div>
+                <div style="color:red; width: 100%; height: 50px;">13:30<br><p style="color:black;">3D SDH</p></div>
+                <div style="color:red; width: 100%; height: 50px;">14:40<br><p style="color:black;">SDH</p></div>
+                <div style="color:red; width: 100%; height: 50px;">15:30<br><p style="color:black;">3D SDH</p></div>
+                <div style="color:red; width: 100%; height: 50px;">16:40<br><p style="color:black;">SDH</p></div>
+                <div style="color:red; width: 100%; height: 50px;">17:30<br><p style="color:black;">3D SDH</p></div>
+                <div style="color:red; width: 100%; height: 50px;">18:40<br><p style="color:black;">SDH</p></div>
+                <div style="color:red; width: 100%; height: 40px;">19:30<br><p style="color:black;">3D SDH</p></div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="column1">
+        <div class="ima1">
+            <a href="/film1">
+                <img src="https://yt3.googleusercontent.com/ytc/AIdro_nHv3NnFpDnyr4YsHTzly2vM5YzB2guOD8d6tU_=s900-c-k-c0x00ffffff-no-rj" width="375" height="315">
+            </a>  </div>
+        <div class="textcolumn1">
+            <p>16+ ФЕРРАРИ</p>
+            <div style="display: grid; grid-template-columns: repeat(3, 100px); gap: 10px; padding: 10px;">
+                <div style="color:red; width: 100%; height: 50px;">10:40<br><p style="color:black;">SDH</p></div>
+                <div style="color:red; width: 100%; height: 50px;">11:30<br><p style="color:black;">3D SDH</p></div>
+                <div style="color:red; width: 100%; height: 50px;">12:40<br><p style="color:black;">SDH</p></div>
+                <div style="color:red; width: 100%; height: 50px;">13:30<br><p style="color:black;">3D SDH</p></div>
+                <div style="color:red; width: 100%; height: 50px;">14:40<br><p style="color:black;">SDH</p></div>
+                <div style="color:red; width: 100%; height: 50px;">15:30<br><p style="color:black;">3D SDH</p></div>
+                <div style="color:red; width: 100%; height: 50px;">16:40<br><p style="color:black;">SDH</p></div>
+                <div style="color:red; width: 100%; height: 50px;">17:30<br><p style="color:black;">3D SDH</p></div>
+                <div style="color:red; width: 100%; height: 50px;">18:40<br><p style="color:black;">SDH</p></div>
+                <div style="color:red; width: 100%; height: 40px;">19:30<br><p style="color:black;">3D SDH</p></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-3--->
+<div class="conta2">
+    <div class="column2">
+        <div class="ima2">
+            <a href="/film1">
+                <img src="https://yt3.googleusercontent.com/ytc/AIdro_nHv3NnFpDnyr4YsHTzly2vM5YzB2guOD8d6tU_=s900-c-k-c0x00ffffff-no-rj" width="375" height="315">
+            </a> </div>
+        <div class="textcolumn2">
+            <p>16+ ФЕРРАРИ</p>
+            <div style="display: grid; grid-template-columns: repeat(3, 100px); gap: 10px; padding: 10px;">
+                <div style="color:red; width: 100%; height: 50px;">10:40<br><p style="color:black;">SDH</p></div>
+                <div style="color:red; width: 100%; height: 50px;">11:30<br><p style="color:black;">3D SDH</p></div>
+                <div style="color:red; width: 100%; height: 50px;">12:40<br><p style="color:black;">SDH</p></div>
+                <div style="color:red; width: 100%; height: 50px;">13:30<br><p style="color:black;">3D SDH</p></div>
+                <div style="color:red; width: 100%; height: 50px;">14:40<br><p style="color:black;">SDH</p></div>
+                <div style="color:red; width: 100%; height: 50px;">15:30<br><p style="color:black;">3D SDH</p></div>
+                <div style="color:red; width: 100%; height: 50px;">16:40<br><p style="color:black;">SDH</p></div>
+                <div style="color:red; width: 100%; height: 50px;">17:30<br><p style="color:black;">3D SDH</p></div>
+                <div style="color:red; width: 100%; height: 50px;">18:40<br><p style="color:black;">SDH</p></div>
+                <div style="color:red; width: 100%; height: 40px;">19:30<br><p style="color:black;">3D SDH</p></div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="column2">
+        <div class="ima2">
+            <a href="/film1">
+                <img src="https://yt3.googleusercontent.com/ytc/AIdro_nHv3NnFpDnyr4YsHTzly2vM5YzB2guOD8d6tU_=s900-c-k-c0x00ffffff-no-rj" width="375" height="315">
+            </a> </div>
+        <div class="textcolumn2">
+            <p>16+ ФЕРРАРИ</p>
+            <div style="display: grid; grid-template-columns: repeat(3, 100px); gap: 10px; padding: 10px;">
+                <div style="color:red; width: 100%; height: 50px;">10:40<br><p style="color:black;">SDH</p></div>
+                <div style="color:red; width: 100%; height: 50px;">11:30<br><p style="color:black;">3D SDH</p></div>
+                <div style="color:red; width: 100%; height: 50px;">12:40<br><p style="color:black;">SDH</p></div>
+                <div style="color:red; width: 100%; height: 50px;">13:30<br><p style="color:black;">3D SDH</p></div>
+                <div style="color:red; width: 100%; height: 50px;">14:40<br><p style="color:black;">SDH</p></div>
+                <div style="color:red; width: 100%; height: 50px;">15:30<br><p style="color:black;">3D SDH</p></div>
+                <div style="color:red; width: 100%; height: 50px;">16:40<br><p style="color:black;">SDH</p></div>
+                <div style="color:red; width: 100%; height: 50px;">17:30<br><p style="color:black;">3D SDH</p></div>
+                <div style="color:red; width: 100%; height: 50px;">18:40<br><p style="color:black;">SDH</p></div>
+                <div style="color:red; width: 100%; height: 40px;">19:30<br><p style="color:black;">3D SDH</p></div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<br><br><br><br>
+<div class="cor">
+    <div class="text3">
+        <p>Показано 1-6 из 22 мероприятий</p>
+    </div>
+    <div class="button-group">
+        <button class="button1 left-arrow-icon"></button>
+        <button class="button1 right-arrow-icon"></button>
+    </div>
+
+
+</div>
+<br><br>
+<div>
+    <hr style="border: 0; border-top: 1px solid black; width: 1700px;" class="triangle-line">
+</div>
+<div class="left-side">
+    <div class="leside">
+        <p>Бронируйте билеты на мероприятия.<br> Мы в соц.сетях</p>
+        <div class="gray-circles">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+        </div>
+    </div>
+    <div class="right-side">
+        <p>Подпишитесь на новости</p>
+        <p>Подпишитесь на нашу рассылку новостей и анонсов мероприятий</p>
+        <div class="subscribe-button">
+            <a href="#"></a>
+        </div>
+    </div>
+</div>
+
 </body>
+
+
 </html>
