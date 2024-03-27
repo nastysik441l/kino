@@ -1,10 +1,418 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+    <title th:text="${title}"></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <!-- Подключаем CSS слайдера -->
+    <link rel="stylesheet" href="/examples/libs/simple-adaptive-slider/simple-adaptive-slider.min.css">
+    <!-- Подключение jQuery (необходимо для работы Bootstrap JavaScript) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Подключаем JS слайдера -->
+    <script defer src="/examples/libs/simple-adaptive-slider/simple-adaptive-slider.min.js"></script>
+    <style>
+        /***концовка***/
+        .left-side {
+            justify-content: flex-end; /* Изменено на flex-end */
+            display: grid;
+            grid-template-columns: 2fr 2fr 1fr;
+            gap: 350px;
+        }
+
+        .leside {
+            margin-right: 0px;
+        }
+
+        .right-side {
+            text-align: right;
+        }
+
+        .gray-circles {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        body, html {
+            height: 1000%;
+        }
+        .circle {
+            width: 73px;
+            height: 73px;
+            background-color: #888888;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .subscribe-button a {
+            display: inline-block;
+            width: 573px;
+            height: 59px;
+            line-height: 59px;
+            background-color: #888888;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            border-radius: 2px;
+            font-size: 16px;
+        }
+
+        /*****************************/
+    .contain {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; /* Выравнивание контента по левому краю */
+        padding: 20px; /* Добавим отступы */
+        position: absolute;
+        width: 1530px;
+        height: 539px;
+        left: 0px;
+        top: 82px;
+
+        background: #626262;
+    }
+
+    .title {
+        font-size: 24px;
+        font-weight: bold;
+        margin: 0; /* Уберем отступы сверху и снизу */
+        color: white;
+    }
+
+    .icon {
+        margin: 200px auto 0; /* Выравнивание иконки по центру по горизонтали */
+    }
+
+
+
+    /******************/
+    .nav-link {
+        color: black; /* Черный цвет текста */
+    }
+
+    #cityButton {
+        width: 200px; /* Ширина кнопки */
+        height: 40px; /* Высота кнопки */
+        border-radius: 20px; /* Радиус скругления для создания эффекта овальной формы */
+        background-color: #ffffff; /* Белый цвет фона */
+        color: #000000; /* Черный цвет текста */
+        font-size: 16px; /* Размер шрифта */
+        border: none; /* Убираем границы */
+        cursor: pointer; /* Задаем курсор при наведении */
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Добавляем тень */
+    }
+
+
+    .triangle-line {
+        position: relative;
+        border: none;
+        height: 0;
+    }
+
+    .triangle-line::before,
+    .triangle-line::after {
+        content: "";
+        position: absolute;
+        top: -5px; /* Регулирует положение по вертикали */
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 5px; /* Регулирует размер треугольника */
+    }
+
+    .triangle-line::before {
+        left: 0; /* Треугольник смотрит влево */
+        border-color: transparent transparent transparent black;
+    }
+
+    .triangle-line::after {
+        right: 0; /* Треугольник смотрит вправо */
+        border-color: transparent black transparent transparent;
+    }
+
+
+
+    .city-list__poster img {
+        width: 375px;
+        height: 215px;
+        object-fit: cover;
+    }
+
+
+    /* Links inside the dropdown */
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    /* Change color of dropdown links on hover */
+    .dropdown-content a:hover {background-color: #f1f1f1;}
+
+    /* Show the dropdown menu on hover */
+    .dropdown:hover .dropdown-content {display: block;}
+
+    /* Change the background color of the dropdown button when the dropdown content is shown */
+
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+
+    }
+
+    .modal-content {
+        background-color: black;
+        color: white;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+    }
+
+    .close {
+
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .modal-content ul li {
+        border-bottom: 1px solid #000; /* Горизонтальная граница между каждым элементом списка */
+        padding-bottom: 4px; /* Отступ вниз от границы */
+        margin-bottom: 4px; /* Отступ между каждым элементом списка */
+        display: flex; /* Используем Flexbox */
+        justify-content: space-between;
+    }
+    .modal-content ul li::after {
+        content: ""; /* Создаем пустой псевдоэлемент */
+        display: block; /* Делаем его блочным элементом */
+        border-bottom: 1px solid #000; /* Горизонтальная граница */
+        margin-left: 5px; /* Отступ слева от границы */
+        width: calc(100% - 50px); /* Ширина границы, учитывая длину текста "Киев:" */
+    }
+
+    .modal-content ul {
+        list-style-type: none; /* Убираем круги впереди текста */
+        padding: 0;
+        margin: 0;
+        margin-bottom: 4px;   }
+    .left-column {
+        width: 100%; /* Ширина левой колонки */
+    }
+
+
+    .context-container > div {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    .context-container h2 {
+        margin: 0;
+        font-size: 16px;
+    }
+    .context-container ol {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    .context-container ol li {
+        font-size: 14px;
+        margin-left: 20px;
+    }
+
+    /***концовка***/
+    .left-side {
+        display: flex;
+        justify-content: center;
+        display: grid;
+        grid-template-columns: 2fr 2fr 1fr;
+        gap: 350px;
+    }
+
+    .leside {
+        margin-left: 550px;
+    }
+    .left-side {
+        display: flex;
+        justify-content: center; /* Центрируем по горизонтали */
+    }
+
+
+    .gray-circles {
+        display: flex;
+        margin-bottom: 20px;
+    }
+
+    .circle {
+        width: 73px;
+        height: 73px;
+        background-color: #888888;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    .subscribe-button a {
+        display: inline-block;
+        width: 573px;
+        height: 59px;
+        line-height: 59px;
+        background-color: #888888;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        border: none;
+        border-radius: 2px;
+        font-size: 16px;
+    }
+    /********************************/
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+  .dropdown-content h3 {
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+    .dropdown-content a {
+        display: block;
+        color: #333;
+        text-decoration: none;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #ddd;
+    }
+
+
+</style>
+
 <body>
 
+
+<div class="container"style="background-color: #e0e0e0;">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+        <div>
+            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                <li><a class="nav-link px-2 link-secondary" href="/">LOGO</a></li>
+                <li><a href="#" class="nav-link px-2">Сейчас в кино</a></li>
+                <li><a href="/action" class="nav-link px-2">Акции и скидки</a></li>
+                <li><a href="/cinema" class="nav-link px-2">Кинотеатры</a></li>
+            </ul>
+        </div>
+
+        <!--city---->
+
+        <div class="col-md-3 text-end">
+            <button type="button" class="btn btn-outline-primary me-2" onclick="toggleCityModal()" id="cityButton">Выбрать город</button>
+            <div id="cityModal" class="modal" style="width: 393px; height: 833px;">
+                <div class="modal-content">
+                    <span class="close" onclick="toggleCityModal()">&times;</span>
+                    <ul>
+                        <li> <b class="left-column">Киев: </b><div class="right-column">адрес</div></li>
+                        <li> <b class="left-column">Днепр: </b><div class="right-column">адрес</div></li>
+                        <li><b  class="left-column">Львов: </b> <div class="right-column">адрес</div></li>
+                        <li><b class="left-column">Одесса:  </b><div class="right-column">адрес</div></li>
+                        <li><b class="left-column">Николаев:</b> <div class="right-column">адрес</div></li>
+                        <li><b class="left-column">Херсон:  </b> <div class="right-column">адрес</div></li>
+                        <li><b class="left-column">Харьков:</b> <div class="right-column">адрес</div></li>
+                        <li><b class="left-column">Житомир:</b> <div class="right-column">адрес</div></li>
+                        <li><b class="left-column">Чернигов:</b> <div class="right-column">адрес</div></li>
+                        <li><b class="left-column">Полтава:</b> <div class="right-column">адрес</div></li>
+                        <li><b class="left-column">Луцк:</b> <div class="right-column">адрес</div></li>
+                        <li><b class="left-column">Черкассы:</b><div class="right-column">адрес</div></li>
+                        <li><b class="left-column">Ужгород:</b> <div class="right-column">адрес</div></li>
+                        <li><b class="left-column">Кривой рог:</b> <div class="right-column">адрес</div></li>
+                        <li><b class="left-column">Хмельницкий:</b><div class="right-column">адрес</div></li>
+                        <li><b class="left-column">Запорожье:</b> <div class="right-column">адрес</div></li>
+                    </ul>
+                </div>
+            </div>  <script>function toggleCityModal() {
+            var modal = document.getElementById("cityModal");
+            modal.style.display = modal.style.display === "block" ? "none" : "block";
+        }
+
+        window.onclick = function(event) {
+            var modal = document.getElementById("cityModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        document.getElementById("closeButton").addEventListener("mouseenter", function() {
+            toggleCityModal();
+
+
+        });
+
+
+        </script>
+        </div>
+
+        <div class="text-center">
+            <div class="container">
+                <div class="text-center">
+                    <!-- Иконка "SIGN UP" с ссылкой и классом для открытия dropdown -->
+                    <a href="#" class="d-block link-body-emphasis text-decoration-none" aria-expanded="false" id="dropdownMenuLink">
+                        <img src="https://t3.ftcdn.net/jpg/05/53/79/60/360_F_553796090_XHrE6R9jwmBJUMo9HKl41hyHJ5gqt9oz.jpg"  width="32" height="32" class="rounded-circle">
+                    </a>
+                    <span class="mt-1">SIGN UP</span>
+                </div>
+                <!-- Dropdown меню -->
+                <div class="dropdown text-end">
+                    <ul class="dropdown-menu text-small" aria-labelledby="dropdownMenuLink">
+                        <li><a class="dropdown-item" href="/konsol">Консультация</a></li>
+                        <li><a class="dropdown-item" href="/delete">Удаление аккаунта</a></li>
+                        <li><a class="dropdown-item" href="/texnik">Технические сложности</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="/registration">Вход</a></li>
+
+
+                    </ul>
+                </div>
+            </div>
+            <!-- JavaScript код для открытия dropdown по клику на иконку "SIGN UP" -->
+            <script>
+                document.getElementById("dropdownMenuLink").addEventListener("click", function(event) {
+                    event.preventDefault(); // Предотвращаем переход по ссылке
+                    var dropdownMenu = document.querySelector(".dropdown-menu");
+                    dropdownMenu.classList.toggle("show"); // Переключаем класс для отображения/скрытия dropdown
+                });
+            </script>
+        </div>
+
+    </header>
+</div>
+
+ <div class="contain">
+    <div class="title">Название фильма</div>
+    <div class="icon">
+        <svg width="82" height="82" viewBox="0 0 82 82" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="41" cy="41" r="41" fill="#D9D9D9"/>
+            <path d="M52 41L35.5 50.5263L35.5 31.4737L52 41Z" fill="#626262"/>
+        </svg>
+    </div>
+ </div>
+
+
+
+
 </body>
+
+
 </html>
