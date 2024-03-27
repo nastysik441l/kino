@@ -23,7 +23,8 @@
         }
 
         .leside {
-            margin-right: 0px;
+            margin-left: -500px;
+            margin-right: -200px;
         }
 
         .right-side {
@@ -32,11 +33,9 @@
 
         .gray-circles {
             display: flex;
-            margin-bottom: 20px;
+            margin-bottom: 70px;
         }
-        body, html {
-            height: 1000%;
-        }
+
         .circle {
             width: 73px;
             height: 73px;
@@ -298,7 +297,32 @@
     .dropdown-content a:hover {
         background-color: #ddd;
     }
+/*********************/
 
+        /* Установка высоты страницы */
+        body, html {
+            height: 100%;
+        }
+
+        /* Исправления для текстового блока */
+        .text-container {
+            position: absolute;
+            width: 546px; /* Изменена ширина */
+            left: 100px;
+            top: 734px; /* Изменено значение top */
+            padding: 10px; /* Добавим небольшие отступы */
+            margin-top: 20px; /* Добавим верхний отступ */
+            overflow-y: auto; /* Добавим вертикальную прокрутку */
+        }
+
+
+
+        /* Стиль текста */
+        .text-container p {
+            margin: 0;
+            font-size: 14px; /* Уменьшаем размер шрифта */
+            line-height: 1.3; /* Уменьшаем интерлиньяж */
+        }
 
 </style>
 
@@ -398,8 +422,7 @@
 
     </header>
 </div>
-
- <div class="contain">
+<div class="contain" style="position: absolute; top: 100px; left: 100px;">
     <div class="title">Название фильма</div>
     <div class="icon">
         <svg width="82" height="82" viewBox="0 0 82 82" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -407,10 +430,133 @@
             <path d="M52 41L35.5 50.5263L35.5 31.4737L52 41Z" fill="#626262"/>
         </svg>
     </div>
- </div>
+</div>
+<div style="
+    position: absolute;
+    width: 423px; /* Изменена ширина контейнера */
+    height: 725px; /* Изменена высота контейнера */
+    top: 100px; /* Подравняем по верхнему краю */
+    left: 1210px; /* Помещаем справа от контейнера с названием фильма */
+    background-color: #333333; /* Темно-серый цвет */
+    display: flex;
+    flex-wrap: wrap; /* Разрешаем перенос элементов на новую строку */
+    justify-content: space-between; /* Равномерно распределяем элементы по горизонтали */
+    padding: 10px; /* Добавляем отступы внутри блока */
+">    <!-- Первый столбец -->
+    <div style="margin-bottom: 10px; width: 100px; height: 40px; position: absolute; left: 0;"> <!-- Добавим отступ снизу для разделения строк -->
+        <p style="color: white; margin: 0; border-bottom: 1px solid white; padding-bottom: 2px;">Житомир</p>
+    </div>
+    <!-- Отступ между столбцами -->
+    <div style="width: 100px;"></div>
+    <!-- Второй столбец -->
+    <div style="margin-bottom: 10px; width: 100px; height: 40px; position: absolute; right: 0;"> <!-- Добавим отступ снизу для разделения строк -->
+        <p style="color: white; margin: 0; border-bottom: 1px solid white; padding-bottom: 2px;">Вся неделя</p>
+    </div>
+</div>
 
 
 
+
+
+
+
+<div style="
+        position: absolute;
+        width: 244px;
+        left: 100px;
+        top: 686px;
+        background: #08ABF1;
+        padding: 10px; /* Добавим внутренние отступы */
+        margin-bottom: 20px; /* Добавим нижний отступ */
+    ">
+    <p style="color: white; text-align: left; margin: 0;">ПРО ФІЛЬМ</p>
+</div>
+
+<div class="text-container">
+    <p>Lorem ipsum dolor sit amet consectetur. Praesent placerat enim sit aliquet nunc mauris vulputate.
+        Velit habitasse nunc potenti purus magna nec est vivamus et. Amet quam mauris dui hendrerit tincidunt nunc.
+        Augue habitasse purus fringilla ultricies habitasse egestas. Orci neque id ornare sit.
+        Facilisis arcu donec ut cursus massa aenean suscipit amet. Congue ac pulvinar diam venenatis erat magna.
+        Est non urna faucibus euismod non fames proin adipiscing. Lobortis arcu mi tortor a.
+        Neque faucibus vulputate praesent sed diam duis nunc tincidunt purus.
+        Sagittis diam elit rhoncus velit faucibus maecenas risus.
+        Nibh sed non velit pharetra neque.
+        Vestibulum odio hac tincidunt et nec sit porttitor.
+        Ut sed dolor scelerisque diam. Elementum eget pharetra maecenas id.
+        Faucibus faucibus scelerisque morbi habitant ipsum purus est facilisis.
+        Habitant sit nibh faucibus id porttitor. In mi pharetra eget dolor massa.
+        Consectetur venenatis risus nulla elementum odio maecenas in quis faucibus.
+        Sollicitudin euismod imperdiet velit volutpat egestas eu nullam.
+        Tristique egestas libero amet montes pharetra ornare faucibus.
+        Hac quam quis mauris euismod elementum.
+        Aliquam ullamcorper quis enim pellentesque.
+        Maecenas nulla nisl sagittis facilisi.
+        Massa in a amet in sed tincidunt sed.
+        Tellus nisi dignissim eget suspendisse.
+        Elit commodo nisi malesuada mattis dolor sagittis libero duis libero. </p>
+</div>
+
+</div>
+<div style="
+    position: absolute;
+    width: 244px;
+    left: 100px;
+    top: 1100px;
+    background: #08ABF1;
+    padding: 10px; /* Добавим внутренние отступы */
+    margin-bottom: 20px; /* Добавим нижний отступ */
+    height: 40px; /* Установим высоту */
+">
+    <p style="color: white; text-align: left; margin: 0;">КАТЕГОРІЇ</p>
+</div>
+
+<div class="text-container" style="
+    position: absolute;
+    width: 644px;
+    left: 100px;    top: 1130px;
+    padding: 10px; /* Добавим внутренние отступы */
+    margin-bottom: 20px; /* Добавим нижний отступ */
+">
+    <ul style="margin-top: 5px; font-size: 14px;
+            line-height: 1.3; ">
+        <li style="margin-bottom: 5px;">Возраст: 12+</li>
+        <li style="margin-bottom: 5px;">Год: 2023</li>
+        <li style="margin-bottom: 5px;">Оригинальное название: Aquaman and the Lost Kingdom</li>
+        <li style="margin-bottom: 5px;">Режиссер: Джеймс Ван</li>
+        <li style="margin-bottom: 5px;">Период проката: 20.12.2023 - 17.01.2024</li>
+        <li style="margin-bottom: 5px;">Язык: Украинский язык</li>
+        <li style="margin-bottom: 5px;">Жанр: Приключения, Фантастика, Экшн</li>
+        <li style="margin-bottom: 5px;">Длительность: 2:04</li>
+        <li style="margin-bottom: 5px;">Производство: США</li>
+        <li style="margin-bottom: 5px;">Студия: Warner Bros. Pictures, An Atomic Monster, A Peter Safran Production</li>
+        <li style="margin-bottom: 5px;">Сценарий:</li><li> Дэвид Лесли Джонсон-Макголдрик, Пол Норрис, Морт Вейзингер</li>
+        <li>В главных ролях:</li><li> Темуэра Моррисон, Николь Кидман, Яхья Абдул-Матин II, Эмбер Хёрд,<p> Джейсон Момоа, Патрик Уилсон, Дольф Лундгрен</p></li>
+    </ul>
+</div><hr style="border: 0; border-top: 1px solid black; width: 1900px; bottom: 0;" class="triangle-line">
+
+<style>
+    .triangle-line {top: 1550px;
+        position: absolute;
+    }
+</style>
+
+<div class="left-side" style="position: absolute; bottom: 0;top: 1600px;">
+    <div class="leside">
+        <p>Бронируйте билеты на мероприятия.<br> Мы в соц.сетях</p>
+        <div class="gray-circles">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+        </div>
+    </div>
+    <div class="right-side">
+        <p>Подпишитесь на новости</p>
+        <p>Подпишитесь на нашу рассылку новостей и анонсов мероприятий</p>
+        <div class="subscribe-button">
+            <a href="#">     </a>
+        </div>
+    </div>
+</div>
 
 </body>
 
