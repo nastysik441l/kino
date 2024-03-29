@@ -70,5 +70,30 @@ public class MainController {
     public String theatersAdd(Model model){
         return "theaters-add";
     }
+    @GetMapping("/enterfilm")
+    public String enterfilms(Model model) {
+        model.addAttribute("title", "выбор мест-кино");
+        return "enterfilm";
+    }
+    @GetMapping("/sechazkino")
+    public String sechazkinos(Model model) {
+        model.addAttribute("title", " Скoро в прокате-кино");
+        return "sechazkino";
+    }
+    @GetMapping("/popkorn")
+    public String popkorns(Model model) {
+        model.addAttribute("title", " попкорн билеты - кино");
+        return "popkorn";
+    }
+    @GetMapping("/oplata")
+    public String oplatas(Model model) {
+        model.addAttribute("title", " оплата -кино");
+        return "oplata";
+    }
+    @GetMapping("/afishakon")
+    public String afishakons(Model model) {
+        model.addAttribute("title", " оплата -кино");
+        return "afishakon";
+    }
 }
 
