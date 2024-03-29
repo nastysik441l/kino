@@ -95,5 +95,30 @@ public class MainController {
         model.addAttribute("title", " оплата -кино");
         return "afishakon";
     }
+    @GetMapping("/mestastol")
+    public String mestastols(Model model) {
+        model.addAttribute("title", " места стол- концерт");
+        return "mestastol";
+    }
+
+    @GetMapping("/mestastol2")
+    public String mestastol2s(Model model) {
+        model.addAttribute("title", "количество мест- концерт");
+        return "mestastol2";
+    }  @GetMapping("/kolmest")
+    public String kolmests(Model model) {
+        model.addAttribute("title", "размещение стол- концерт");
+        return "kolmest";
+    }
+    @GetMapping("/oplatakon")
+    public String oplatakons(Model model) {
+        model.addAttribute("title", "оплата кoнцерт");
+        return "oplatakon";
+    }
+    @GetMapping("/fan")
+    public String fans(Model model) {
+        model.addAttribute("title", "фанклуб- концерт");
+        return "fan";
+    }
 }
 
