@@ -134,7 +134,7 @@
     .show {
         display: block;
     }
-    /**********************************/
+    /*****************/
     .nav-link {
         color: black; /* Черный цвет текста */
     }
@@ -592,7 +592,6 @@
         margin-bottom: 20px;
     }
 
-
     .circle {
         width: 73px;
         height: 73px;
@@ -660,84 +659,6 @@
     }
 
 
-    .calendar-container {
-        width: 400px;
-        height: 400px;
-
-        border-radius: 10px;
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
-
-    }
-
-    .calendar-container header {
-        display: flex;
-        align-items: center;
-        padding: 10px 15px;
-        justify-content: space-between;
-    }
-
-    header .calendar-navigation {
-        display: flex;
-    }
-
-    header .calendar-navigation span {
-        height: 30px;
-        width: 30px;
-        margin: 0 5px;
-        cursor: pointer;
-        text-align: center;
-        line-height: 30px;
-        border-radius: 50%;
-        user-select: none;
-        color: #aeabab;
-        font-size: 1.3rem;
-    }
-
-    header .calendar-navigation span:last-child {
-        margin-right: 0;
-    }
-
-    header .calendar-navigation span:hover {
-        background: #f2f2f2;
-    }
-
-    header .calendar-current-date {
-        font-weight: 500;
-        font-size: 1.1rem;
-    }
-
-    .calendar-body {
-        padding: 10px 15px;
-        max-height: 240px; /* Устанавливаем максимальную высоту для содержимого календаря */
-
-    }
-
-    .calendar-body ul {
-        list-style: none;
-        flex-wrap: wrap;
-        display: flex;
-        text-align: center;
-        padding: 0; /* Убираем внутренние отступы у списков */
-        margin: 0; /* Убираем внешние отступы у списков */
-    }
-
-    .calendar-body .calendar-dates {
-        margin-bottom: 20px;
-        padding: 0; /* Убираем внутренние отступы у списка дат */
-    }
-
-    .calendar-body li {
-        width: calc(100% / 7);
-        font-size: 1rem;
-        color: #414141;
-        padding: 10px 0; /* Устанавливаем внутренние отступы для цифр */
-        box-sizing: border-box; /* Учитываем padding в расчетах ширины элемента */
-    }
-
-    .calendar-body .calendar-weekdays li {
-        cursor: default;
-        font-weight: 500;
-    }
 
 </style>
 
@@ -745,14 +666,14 @@
 
 
 <div class="container"style="background-color: #e0e0e0;">
-    <header class="d-flex flex-wrap align-items-center justify-content-between py-3 mb-4 border-bottom">
-        <div class="col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <ul class="nav">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+        <div>
+            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                 <li><a class="nav-link px-2 link-secondary" href="/">LOGO</a></li>
 
             </ul>
-        </div>
 
+        </div>
         <div class="dropdown">
             <button class="dropbtn">
                 <img src="https://img.icons8.com/material-sharp/24/menu--v1.png" alt="menu--v1"/>
@@ -834,7 +755,6 @@
                 </div>
             </div>
         </div>
-
 
 
 
@@ -987,325 +907,15 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only"></span>
     </a>
-</div>
-
-<!---текст-->
-<div class="t474">
-    <div class="t-container">
-        <div class="row">
-            <div class="col-10 offset-1" style="padding-left: 200px; padding-right: 1015px;">
-                <div class="t474__descr t-descr t-descr_xxxl t-margin_auto" field="descr">
-                    <br>Билеты на концерт</br>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<hr style="border: 0; border-top: 1px solid black; width: 1500px;"class="triangle-line">
-<!-- Контент страницы -->
-<div class="container-fluid text-center custom-container" style="padding-left: 100px; padding-right: 100px;">
-    <button type="button" class="btn btn-outline-dark  custom-btn"style="height: 39px; width: 178px;">Все</button>
-    <!-- тема secondary -->
-    <button type="button" class="btn btn-outline-dark  custom-btn"style="height: 39px; width: 178px;">Рок</button>
-    <!-- тема success -->
-    <button type="button" class="btn btn-outline-dark  custom-btn"style="height: 39px; width: 178px;">Шансон</button>
-    <!-- тема danger -->
-    <button type="button" class="btn btn-outline-dark  custom-btn"style="height: 39px; width: 178px;">Поп и Эстрада</button>
-    <!-- тема warning -->
-    <button type="button" class="btn btn-outline-dark  custom-btn"style="height: 39px; width: 178px;">Джаз</button>
-    <!-- тема info -->
-    <button type="button" class="btn btn-outline-dark  custom-btn"style="height: 39px; width: 178px;">Блюз</button>
-</div> <div class="row mt-3">
-
-    <div class="container-fluid text-center custom-container" style="padding-left: 200px; padding-right: 600px;">
-        <div class="row">
-            <div class="col">
-                <button type="button" class="btn btn-outline-dark custom-btn"style="height: 39px; width: 178px;">Hip - Hop</button>
-                <button type="button" class="btn btn-outline-dark custom-btn"style="height: 39px; width: 178px;">Rap</button>
-                <button type="button" class="btn btn-outline-dark custom-btn" style="height: 39px; width: 178px;">Фестивали</button>
-                <button type="button" class="btn btn-outline-dark custom-btn" style="height: 39px; width: 178px;">Рок-н-Ролл</button>
-            </div>
-        </div>
-    </div>
-</div>
-</div> <hr style="border: 0; border-top: 1px solid black; width: 1500px;"class="triangle-line">
-
-
-<!------kartin------>
-<div class="conta3">
-    <div class="column3">
-        <div class="ima3">
-            <img src="https://yt3.googleusercontent.com/ytc/AIdro_nHv3NnFpDnyr4YsHTzly2vM5YzB2guOD8d6tU_=s900-c-k-c0x00ffffff-no-rj" alt="Image" width="375" height="215">
-        </div>
-        <div class="textcolumn3">
-            <p class="per"><sub>Мумий Тролль Music Bar
-                BAGMET. ДНЕВНИК ТРУБАДУРЫ
-                "ДНЕВНИК ТРУБАДУРЫ" - театрализованное концертное шоу музыкального проекта актрисы, певицы - Анны Багмет, которое сама артистка называет mono</sub></p>
-
-
-            <div class="button">
-                <a href="/afishakon">Купить</a>
-            </div>
-
-        </div>
-        <div class="date">  <p ><sub>8 февраля 20:00, четверг</sub></p>   </div>
-    </div>
-
-    <div class="calendar-container" >
-        <header class="calendar-header">
-            <p class="calendar-current-date"></p>
-            <div class="calendar-navigation">
-                <span id="calendar-next" class="material-symbols-rounded">chevron_right</span>
-            </div>
-        </header>
-
-        <div class="calendar-body">
-            <ul class="calendar-weekdays">
-                <li>ПН</li>
-                <li>ВТ</li>
-                <li>СР</li>
-                <li>ЧТ</li>
-                <li>ПТ</li>
-                <li>СБ</li>
-                <li>ВС</li>
-            </ul>
-            <ul class="calendar-dates"></ul>
-        </div>
-        <script>let date = new Date();
-        let year = date.getFullYear();
-        let month = date.getMonth();
-
-        const day = document.querySelector(".calendar-dates");
-
-        const currdate = document
-            .querySelector(".calendar-current-date");
-
-        const prenexIcons = document
-            .querySelectorAll(".calendar-navigation span");
-
-
-        months = [
-            "ЯНВАРЬ",
-            "ФЕВРАЛЬ",
-            "МАРТ",
-            "АПРЕЛЬ",
-            "МАЙ",
-            "ИЮНЬ",
-            "ИЮЛЬ",
-            "АВГУСТ",
-            "СЕНТЯБРЬ",
-            "ОКТЯБРЬ",
-            "НОЯБРЬ",
-            "ДЕКАБРЬ"
-        ];
-
-
-        // Function to generate the calendar
-        const manipulate = () => {
-
-            // Get the first day of the month
-            let dayone = new Date(year, month, 1).getDay();
-
-            // Get the last date of the month
-            let lastdate = new Date(year, month + 1, 0).getDate();
-
-            // Get the day of the last date of the month
-            let dayend = new Date(year, month, lastdate).getDay();
-
-            // Get the last date of the previous month
-            let monthlastdate = new Date(year, month, 0).getDate();
-
-            // Variable to store the generated calendar HTML
-            let lit = "";
-
-            // Loop to add the last dates of the previous month
-            for (let i = dayone; i > 0; i--) {
-                lit +=
-                    `<li class="inactive">${monthlastdate - i + 1}</li>`;
-            }
-
-            // Loop to add the dates of the current month
-            for (let i = 1; i <= lastdate; i++) {
-
-                // Check if the current date is today
-                let isToday = i === date.getDate()
-                && month === new Date().getMonth()
-                && year === new Date().getFullYear()
-                    ? "active"
-                    : "";
-                lit += `<li class="${isToday}">${i}</li>`;
-            }
-
-            // Loop to add the first dates of the next month
-            for (let i = dayend; i < 6; i++) {
-                lit += `<li class="inactive">${i - dayend + 1}</li>`
-            }
-
-            // Update the text of the current date element
-            // with the formatted current month and year
-            currdate.innerText = `${months[month]} ${year}`;
-
-            // update the HTML of the dates element
-            // with the generated calendar
-            day.innerHTML = lit;
-        }
-
-        manipulate();
-
-        // Attach a click event listener to each icon
-        prenexIcons.forEach(icon => {
-
-            // When an icon is clicked
-            icon.addEventListener("click", () => {
-
-                // Check if the icon is "calendar-prev"
-                // or "calendar-next"
-                month = icon.id === "calendar-prev" ? month - 1 : month + 1;
-
-                // Check if the month is out of range
-                if (month < 0 || month > 11) {
-
-                    // Set the date to the first day of the
-                    // month with the new year
-                    date = new Date(year, month, new Date().getDate());
-
-                    // Set the year to the new year
-                    year = date.getFullYear();
-
-                    // Set the month to the new month
-                    month = date.getMonth();
-                }
-
-                else {
-
-                    // Set the date to the current date
-                    date = new Date();
-                }
-
-                // Call the manipulate function to
-                // update the calendar display
-                manipulate();
-            });
-        });</script>
-    </div>   </div>
-
-</div>
-
-<!---2--->
-<div class="conta4">
-    <div class="column4">
-        <div class="ima4">
-            <img src="https://yt3.googleusercontent.com/ytc/AIdro_nHv3NnFpDnyr4YsHTzly2vM5YzB2guOD8d6tU_=s900-c-k-c0x00ffffff-no-rj" alt="Image" width="375" height="215">
-        </div>
-        <div class="textcolumn4">
-            <p class="per"><sub>Мумий Тролль Music Bar
-                BAGMET. ДНЕВНИК ТРУБАДУРЫ
-                "ДНЕВНИК ТРУБАДУРЫ" - театрализованное концертное шоу музыкального проекта актрисы, певицы - Анны Багмет, которое сама артистка называет mono</sub></p>
-
-            <div class="button">
-                <a href="/afishakon">Купить</a>
-            </div>
-        </div>
-
-        <div class="date">  <p ><sub>8 февраля 20:00, четверг</sub></p>   </div>
-    </div>
-
-</div>
-<!--3--->
-<div class="conta5">
-    <div class="column5">
-        <div class="ima5">
-            <img src="https://yt3.googleusercontent.com/ytc/AIdro_nHv3NnFpDnyr4YsHTzly2vM5YzB2guOD8d6tU_=s900-c-k-c0x00ffffff-no-rj" alt="Image" width="375" height="215">
-        </div>
-        <div class="textcolumn5">
-            <p class="per"><sub>Мумий Тролль Music Bar
-                BAGMET. ДНЕВНИК ТРУБАДУРЫ
-                "ДНЕВНИК ТРУБАДУРЫ" - театрализованное концертное шоу музыкального проекта актрисы, певицы - Анны Багмет, которое сама артистка называет mono</sub></p>
-
-            <div class="button">
-                <a href="/afishakon">Купить</a>
-            </div>
-        </div>
-
-        <div class="date">  <p ><sub>8 февраля 20:00, четверг</sub></p>   </div>
-    </div>
-
-</div>
-<!--4--->
-<div class="conta6">
-    <div class="column6">
-        <div class="ima6">
-            <img src="https://yt3.googleusercontent.com/ytc/AIdro_nHv3NnFpDnyr4YsHTzly2vM5YzB2guOD8d6tU_=s900-c-k-c0x00ffffff-no-rj" alt="Image" width="375" height="215">
-        </div>
-        <div class="textcolumn6">
-            <p class="per"><sub>Мумий Тролль Music Bar
-                BAGMET. ДНЕВНИК ТРУБАДУРЫ
-                "ДНЕВНИК ТРУБАДУРЫ" - театрализованное концертное шоу музыкального проекта актрисы, певицы - Анны Багмет, которое сама артистка называет mono</sub></p>
-
-
-            <div class="button">
-                <a href="/afishakon">Купить</a>
-            </div>
-        </div>
-        <div class="date">  <p ><sub>8 февраля 20:00, четверг</sub></p>   </div>
-    </div>
-
-</div>
-<!--5--->
-<div class="conta7">
-    <div class="column7">
-        <div class="ima7">
-            <img src="https://yt3.googleusercontent.com/ytc/AIdro_nHv3NnFpDnyr4YsHTzly2vM5YzB2guOD8d6tU_=s900-c-k-c0x00ffffff-no-rj" alt="Image" width="375" height="215">
-        </div>
-        <div class="textcolumn7">
-            <p class="per"><sub>Мумий Тролль Music Bar
-                BAGMET. ДНЕВНИК ТРУБАДУРЫ
-                "ДНЕВНИК ТРУБАДУРЫ" - театрализованное концертное шоу музыкального проекта актрисы, певицы - Анны Багмет, которое сама артистка называет mono</sub></p>
-
-            <div class="button">
-                <a href="/afishakon">Купить</a>
-            </div>
-        </div>
-
-        <div class="date">  <p ><sub>8 февраля 20:00, четверг</sub></p>   </div>
-    </div>
-
-</div>
-<!--6--->
-<div class="conta8">
-    <div class="column8">
-        <div class="ima8">
-            <img src="https://yt3.googleusercontent.com/ytc/AIdro_nHv3NnFpDnyr4YsHTzly2vM5YzB2guOD8d6tU_=s900-c-k-c0x00ffffff-no-rj" alt="Image" width="375" height="215">
-        </div>
-        <div class="textcolumn8">
-            <p class="per"><sub>Мумий Тролль Music Bar
-                BAGMET. ДНЕВНИК ТРУБАДУРЫ
-                "ДНЕВНИК ТРУБАДУРЫ" - театрализованное концертное шоу музыкального проекта актрисы, певицы - Анны Багмет, которое сама артистка называет mono</sub></p>
-
-            <div class="button">
-                <a href="/afishakon">Купить</a>
-            </div>
-        </div>
-
-        <div class="date">  <p ><sub>8 февраля 20:00, четверг</sub></p>   </div>
-    </div>
-
-</div>
-
-
-<div class="cor">
-    <div class="text3">
-        <p>Показано 1-6 из 22 мероприятий</p>
-    </div>
-    <div class="button-group">
-        <button class="button1 left-arrow-icon"></button>
-        <button class="button1 right-arrow-icon"></button>
-    </div>
 
 
 </div>
+<svg width="1278" height="1294" viewBox="0 0 1278 1294" fill="none" xmlns="http://www.w3.org/2000/svg">
+</svg>
 
-<hr style="border: 0; border-top: 1px solid black; width: 1500px;"class="triangle-line">
+
+
+<hr style="border: 0; border-top: 1px solid black;top: 1200%; width: 1500px;"class="triangle-line">
 <div class="left-side">
     <div class="leside">
         <p>Бронируйте билеты на мероприятия.<br> Мы в соц.сетях</p>

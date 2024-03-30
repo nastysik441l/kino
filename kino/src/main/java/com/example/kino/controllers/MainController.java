@@ -154,6 +154,43 @@ public class MainController {
         return "priceteat";
     }
 
+    @GetMapping("/kolrukte")
+    public String kolruktes(Model model) {
+        model.addAttribute("title", " Колектив руководство театр");
+        return "kolrukte";
+    }
 
+    @GetMapping("/oteat")
+    public String oteats(Model model) {
+        model.addAttribute("title", "  О театр");
+        return "oteat";
+    }
+    @GetMapping("/news")
+    public String newss(Model model) {
+        model.addAttribute("title", " новости- театр ");
+        return "news";
+    }
+    @GetMapping("/kolruktesoper")
+    public String kolruktesoper(Model model) {
+        model.addAttribute("title", " Колектив оперная труппа театр");
+        return "kolruktesoper";
+    }@GetMapping("/kolruktesbal")
+    public String kolruktesbal(Model model) {
+        model.addAttribute("title", " Колектив балетная труппа театр");
+        return "kolruktesbal";
+    }@GetMapping("/kolruktesork")
+    public String kolruktesorks(Model model) {
+        model.addAttribute("title", " Колектив оркестр театр");
+        return "kolruktesork";
+    }
+    @GetMapping("/galerbalet")
+    public String galerbalets(Model model) {
+        model.addAttribute("title", " Галерея- театр");
+        return "galerbalet";
+    }@GetMapping("/galerbalet1")
+    public String galerbalet1s(Model model) {
+        model.addAttribute("title", "Галерея- театр 2");
+        return "galerbalet1";
+    }
 }
 
