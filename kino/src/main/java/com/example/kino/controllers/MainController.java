@@ -105,14 +105,29 @@ public class MainController {
     public String mestastol2s(Model model) {
         model.addAttribute("title", "количество мест- концерт");
         return "mestastol2";
-    }  @GetMapping("/kolmest")
+    }  @GetMapping("/pricekonchert")
+    public String pricekoncherts(Model model) {
+        model.addAttribute("title", "оплата концерт");
+        return "pricekonchert";
+    }
+
+    @GetMapping("/galerrykon")
+    public String gallerykons(Model model) {
+        model.addAttribute("title", "Галерея- концерты");
+        return "galerrykon";
+    }@GetMapping("/galerryteather")
+    public String gallerryteathers(Model model) {
+        model.addAttribute("title", "Галерея- концерт2");
+        return "galerryteather";
+    }
+    @GetMapping("/kolmest")
     public String kolmests(Model model) {
         model.addAttribute("title", "размещение стол- концерт");
         return "kolmest";
     }
     @GetMapping("/oplatakon")
     public String oplatakons(Model model) {
-        model.addAttribute("title", "оплата кoнцерт");
+        model.addAttribute("title", "места стол- концерт");
         return "oplatakon";
     }
     @GetMapping("/fan")
@@ -120,5 +135,25 @@ public class MainController {
         model.addAttribute("title", "фанклуб- концерт");
         return "fan";
     }
+
+    @GetMapping("/afishateather")
+    public String afishatheaters(Model model) {
+        model.addAttribute("title", "Афиша - Театр");
+        return "afishateather";
+    }
+    @GetMapping("/mestoteat")
+    public String mestoteats(Model model) {
+        model.addAttribute("title", "выбор мест - Театр");
+        return "mestoteat";
+    }
+
+
+    @GetMapping("/priceteat")
+    public String priceteats(Model model) {
+        model.addAttribute("title", "оплата - Театр");
+        return "priceteat";
+    }
+
+
 }
 
