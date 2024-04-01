@@ -611,23 +611,101 @@
         margin-left: 250px;">Кинотеатры</div><br>
 
 <div class="column-container">
-    <div class="column">
+    <div id="gallery" class="column">
         <div class="image-container">
-            <img src="https://yt3.googleusercontent.com/ytc/AIdro_nHv3NnFpDnyr4YsHTzly2vM5YzB2guOD8d6tU_=s900-c-k-c0x00ffffff-no-rj" class="column-image" width="375" height="492">
+            <img src="https://kor.ill.in.ua/m/610x385/2206372.jpg" class="column-image" width="375" height="492">
             <div class="column-content">
-                <p>
-                  <a href="/action2"> Специальные тарифы школьникам,<br> студентам и пенсионерам!</a> </p>
+                <p><a href="/action2">Специальные тарифы школьникам,<br> студентам и пенсионерам!</a></p>
             </div>
         </div>
     </div>
     <div class="column">
-        <img src="https://yt3.googleusercontent.com/ytc/AIdro_nHv3NnFpDnyr4YsHTzly2vM5YzB2guOD8d6tU_=s900-c-k-c0x00ffffff-no-rj" class="column-image" width="375" height="492">
+        <img src="https://kor.ill.in.ua/a/610x0/2206335.jpg?v=636745948280040611" class="column-image" width="375" height="492">
     </div>
     <div class="column">
-        <img src="https://yt3.googleusercontent.com/ytc/AIdro_nHv3NnFpDnyr4YsHTzly2vM5YzB2guOD8d6tU_=s900-c-k-c0x00ffffff-no-rj" class="column-image" width="375" height="492">
-        <a href="#next-section" class="next-arrow">&#8594;</a>
+        <img src="https://kor.ill.in.ua/a/610x0/2206366.jpeg?v=636745959433704862" class="column-image" width="375" height="492">
     </div>
+    <div class="column">
+        <img src="https://example.com/image1.jpg" class="additional-image" width="375" height="492">
+    </div>
+    <div class="column">
+        <img src="https://example.com/image2.jpg" class="additional-image" width="375" height="492">
+    </div>
+    <div class="column">
+        <img src="https://example.com/image3.jpg" class="additional-image" width="375" height="492">
+    </div>
+    <a href="#" id="prev-arrow" class="prev-arrow">&#8592;</a>
+    <a href="#" id="next-arrow" class="next-arrow">&#8594;</a>
 </div>
+
+<style>
+    .column-container {
+        position: relative;
+    }
+
+    .column {
+        display: inline-block;
+        vertical-align: top;
+        width: 375px;
+        margin-right: 10px;
+    }
+
+    .prev-arrow, .next-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 50px;
+        height: 50px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        text-align: center;
+        line-height: 50px;
+        font-size: 24px;
+        text-decoration: none;
+    }
+
+    .prev-arrow {
+        left: 0;
+    }
+
+    .next-arrow {
+        right: 0;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var images = document.querySelectorAll('#gallery .column-image, #gallery .additional-image');
+        var currentIndex = 0;
+
+        function showImage(index) {
+            if (index < 0) {
+                index = images.length - 1;
+            } else if (index >= images.length) {
+                index = 0;
+            }
+            images.forEach(function(image) {
+                image.style.display = 'none';
+            });
+            images[index].style.display = 'block';
+            currentIndex = index;
+        }
+
+        document.getElementById('prev-arrow').addEventListener('click', function(event) {
+            event.preventDefault();
+            showImage(currentIndex - 1);
+        });
+
+        document.getElementById('next-arrow').addEventListener('click', function(event) {
+            event.preventDefault();
+            showImage(currentIndex + 1);
+        });
+
+        showImage(currentIndex);
+    });
+</script>
+
+
 <!---Концерт-холл----->
 
 <div style=" flex: 1;
