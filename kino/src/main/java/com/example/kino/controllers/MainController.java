@@ -42,7 +42,7 @@ public class MainController {
     }
     @GetMapping("/action")
     public String actions(Model model) {
-        model.addAttribute("title", "Технические сложности");
+        model.addAttribute("title", "Акции и скидки ");
         return "action";
     }
     @GetMapping("/registration")
