@@ -1,7 +1,63 @@
 <style>
     .nav-item {
         /* Убираем выравнивание текста по центру */
-        text-align: left;
+        text-align: center;
+        width:246px; height:14px;
+        /* Концерты */
+
+        position: absolute;
+        width: 68px;
+        height: 34px;
+        left: 303px;
+        top: 97px;
+
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 34px;
+        /* identical to box height, or 243% */
+
+        color: #000000;
+
+
+
+        /* Театр */
+
+        position: absolute;
+        width: 40px;
+        height: 34px;
+        left: 218px;
+        top: 97px;
+
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 34px;
+        /* identical to box height, or 243% */
+
+        color: #000000;
+
+
+
+        /* Кино */
+
+        position: absolute;
+        width: 34px;
+        height: 34px;
+        left: 123px;
+        top: 97px;
+
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 34px;
+        /* identical to box height, or 243% */
+
+        color: #000000;
+
     }
 
     .nav-link {
@@ -11,7 +67,7 @@
     }
 </style>
 
-<div  th:fragment="header" class="list">
+<div  th:fragment="header" class="list" >
     <header class="d-flex justify-content-start align-items-center py-2"> <!-- Изменено на justify-content-start -->
         <ul   class="nav col-12 col-md-auto mb-2 justify-content-between mb-md-0">
             <li><a class="nav-item nav-link link-body-emphasis active" href="/film">Кино</a></li>
@@ -20,3 +76,5 @@
         </ul>
     </header>
 </div>
+
+
