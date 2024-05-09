@@ -1,508 +1,85 @@
+
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html lang="en">
 <head>
-    <title th:text="${title}"></title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <!-- Подключаем CSS слайдера -->
-    <link rel="stylesheet" href="/examples/libs/simple-adaptive-slider/simple-adaptive-slider.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход в личный кабинет</title>
 </head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<!-- Bootstrap JavaScript Bundle -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Подключаем JS слайдера -->
-<script defer src="/examples/libs/simple-adaptive-slider/simple-adaptive-slider.min.js"></script>
+<body><svg width="1366" height="897" viewBox="0 0 1366 897" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g clip-path="url(#clip0_117_1442)">
+        <rect width="1366" height="897" fill="white"/>
+        <path d="M314.657 269H309.714L317.246 247.182H323.19L330.712 269H325.768L320.303 252.168H320.133L314.657 269ZM314.348 260.424H326.024V264.025H314.348V260.424ZM333.252 269V252.636H340.23C342.248 252.636 343.842 253.02 345.014 253.787C346.186 254.554 346.772 255.644 346.772 257.058C346.772 257.945 346.441 258.684 345.781 259.273C345.12 259.863 344.204 260.261 343.032 260.467C344.012 260.538 344.847 260.761 345.536 261.138C346.232 261.507 346.761 261.987 347.123 262.576C347.493 263.165 347.677 263.819 347.677 264.536C347.677 265.467 347.429 266.266 346.931 266.933C346.441 267.601 345.721 268.112 344.769 268.467C343.824 268.822 342.67 269 341.306 269H333.252ZM337.482 265.602H341.306C341.939 265.602 342.432 265.452 342.787 265.154C343.15 264.849 343.331 264.433 343.331 263.908C343.331 263.325 343.15 262.867 342.787 262.533C342.432 262.2 341.939 262.033 341.306 262.033H337.482V265.602ZM337.482 259.369H340.326C340.781 259.369 341.168 259.305 341.488 259.178C341.814 259.043 342.063 258.851 342.233 258.602C342.411 258.354 342.5 258.059 342.5 257.718C342.5 257.214 342.297 256.82 341.892 256.536C341.488 256.251 340.934 256.109 340.23 256.109H337.482V259.369ZM349.685 256.205V252.636H364.515V256.205H359.241V269H354.916V256.205H349.685ZM374.074 269.32C372.419 269.32 370.988 268.968 369.78 268.265C368.58 267.555 367.653 266.567 367 265.303C366.346 264.032 366.02 262.558 366.02 260.882C366.02 259.192 366.346 257.714 367 256.45C367.653 255.179 368.58 254.192 369.78 253.489C370.988 252.778 372.419 252.423 374.074 252.423C375.729 252.423 377.156 252.778 378.356 253.489C379.564 254.192 380.494 255.179 381.148 256.45C381.801 257.714 382.128 259.192 382.128 260.882C382.128 262.558 381.801 264.032 381.148 265.303C380.494 266.567 379.564 267.555 378.356 268.265C377.156 268.968 375.729 269.32 374.074 269.32ZM374.095 265.804C374.848 265.804 375.476 265.591 375.981 265.165C376.485 264.732 376.865 264.142 377.121 263.396C377.383 262.651 377.515 261.802 377.515 260.85C377.515 259.898 377.383 259.05 377.121 258.304C376.865 257.558 376.485 256.969 375.981 256.536C375.476 256.102 374.848 255.886 374.095 255.886C373.335 255.886 372.696 256.102 372.177 256.536C371.666 256.969 371.279 257.558 371.016 258.304C370.76 259.05 370.633 259.898 370.633 260.85C370.633 261.802 370.76 262.651 371.016 263.396C371.279 264.142 371.666 264.732 372.177 265.165C372.696 265.591 373.335 265.804 374.095 265.804ZM385.079 275.136V252.636H389.553V255.385H389.756C389.954 254.945 390.242 254.497 390.618 254.043C391.002 253.581 391.499 253.197 392.11 252.892C392.728 252.58 393.495 252.423 394.411 252.423C395.604 252.423 396.705 252.736 397.714 253.361C398.722 253.979 399.528 254.913 400.132 256.163C400.736 257.406 401.037 258.964 401.037 260.839C401.037 262.665 400.743 264.206 400.153 265.463C399.571 266.713 398.775 267.661 397.767 268.308C396.765 268.947 395.643 269.266 394.4 269.266C393.52 269.266 392.77 269.121 392.153 268.83C391.542 268.538 391.041 268.173 390.65 267.732C390.26 267.285 389.961 266.834 389.756 266.379H389.617V275.136H385.079ZM389.521 260.818C389.521 261.791 389.656 262.64 389.926 263.364C390.196 264.089 390.586 264.653 391.098 265.058C391.609 265.456 392.231 265.655 392.962 265.655C393.701 265.655 394.326 265.452 394.837 265.048C395.349 264.636 395.736 264.067 395.998 263.343C396.268 262.612 396.403 261.77 396.403 260.818C396.403 259.874 396.272 259.043 396.009 258.325C395.746 257.608 395.359 257.047 394.848 256.642C394.336 256.237 393.708 256.035 392.962 256.035C392.224 256.035 391.599 256.23 391.087 256.621C390.583 257.011 390.196 257.565 389.926 258.283C389.656 259 389.521 259.845 389.521 260.818ZM408.399 263.013L414.29 252.636H418.765V269H414.439V258.592L408.569 269H404.063V252.636H408.399V263.013ZM421.561 264.366H425.961C425.982 264.906 426.224 265.332 426.686 265.644C427.147 265.957 427.744 266.113 428.475 266.113C429.214 266.113 429.835 265.942 430.34 265.602C430.844 265.254 431.096 264.756 431.096 264.11C431.096 263.712 430.997 263.368 430.798 263.077C430.599 262.778 430.322 262.544 429.967 262.374C429.612 262.203 429.2 262.118 428.731 262.118H426.377V259.146H428.731C429.434 259.146 429.974 258.982 430.35 258.656C430.734 258.329 430.926 257.92 430.926 257.43C430.926 256.876 430.727 256.433 430.329 256.099C429.938 255.758 429.409 255.587 428.742 255.587C428.067 255.587 427.506 255.74 427.058 256.045C426.618 256.344 426.391 256.734 426.377 257.217H421.998C422.012 256.237 422.307 255.388 422.882 254.671C423.465 253.954 424.246 253.4 425.226 253.009C426.213 252.619 427.318 252.423 428.539 252.423C429.874 252.423 431.025 252.612 431.991 252.988C432.964 253.357 433.71 253.886 434.228 254.575C434.754 255.264 435.017 256.085 435.017 257.036C435.017 257.903 434.732 258.627 434.164 259.21C433.596 259.792 432.801 260.207 431.778 260.456V260.626C432.453 260.669 433.063 260.85 433.61 261.17C434.157 261.489 434.594 261.93 434.921 262.491C435.247 263.045 435.411 263.702 435.411 264.462C435.411 265.477 435.112 266.347 434.516 267.072C433.926 267.796 433.11 268.354 432.066 268.744C431.029 269.128 429.839 269.32 428.497 269.32C427.19 269.32 426.018 269.131 424.981 268.755C423.951 268.371 423.131 267.81 422.52 267.072C421.916 266.333 421.597 265.431 421.561 264.366ZM442.86 269.309C441.816 269.309 440.886 269.128 440.069 268.766C439.252 268.396 438.606 267.853 438.13 267.136C437.661 266.411 437.427 265.509 437.427 264.43C437.427 263.521 437.594 262.757 437.928 262.139C438.261 261.521 438.716 261.024 439.291 260.648C439.866 260.271 440.52 259.987 441.251 259.795C441.99 259.604 442.764 259.469 443.574 259.391C444.526 259.291 445.293 259.199 445.875 259.114C446.457 259.021 446.88 258.886 447.143 258.709C447.406 258.531 447.537 258.268 447.537 257.92V257.857C447.537 257.182 447.324 256.66 446.898 256.29C446.479 255.921 445.882 255.737 445.108 255.737C444.291 255.737 443.641 255.918 443.158 256.28C442.675 256.635 442.356 257.082 442.2 257.622L438.002 257.281C438.215 256.287 438.634 255.428 439.259 254.703C439.884 253.972 440.69 253.411 441.678 253.02C442.672 252.622 443.822 252.423 445.129 252.423C446.038 252.423 446.908 252.53 447.739 252.743C448.577 252.956 449.32 253.286 449.966 253.734C450.619 254.181 451.134 254.756 451.511 255.46C451.887 256.156 452.075 256.99 452.075 257.963V269H447.771V266.731H447.643C447.381 267.242 447.029 267.693 446.589 268.084C446.148 268.467 445.619 268.769 445.001 268.989C444.384 269.202 443.67 269.309 442.86 269.309ZM444.16 266.177C444.827 266.177 445.417 266.045 445.928 265.783C446.44 265.513 446.841 265.151 447.132 264.696C447.423 264.241 447.569 263.727 447.569 263.151V261.415C447.427 261.507 447.232 261.592 446.983 261.67C446.741 261.741 446.468 261.809 446.163 261.873C445.857 261.93 445.552 261.983 445.246 262.033C444.941 262.075 444.664 262.114 444.415 262.15C443.883 262.228 443.418 262.352 443.02 262.523C442.622 262.693 442.313 262.924 442.093 263.215C441.873 263.499 441.763 263.854 441.763 264.281C441.763 264.898 441.987 265.371 442.434 265.697C442.888 266.017 443.464 266.177 444.16 266.177ZM469.904 252.636V265.868H472.514V274.263H468.103V269H455.596V252.636H459.932V265.431H465.621V252.636H469.904ZM479.649 263.013L485.54 252.636H490.015V269H485.689V258.592L479.819 269H475.313V252.636H479.649V263.013ZM503.241 269V256.195H500.173C499.342 256.195 498.71 256.386 498.276 256.77C497.843 257.153 497.63 257.608 497.637 258.134C497.63 258.666 497.836 259.117 498.255 259.487C498.681 259.849 499.306 260.03 500.13 260.03H504.754V263.098H500.13C498.731 263.098 497.52 262.885 496.497 262.459C495.475 262.033 494.686 261.44 494.132 260.68C493.578 259.913 493.305 259.021 493.312 258.006C493.305 256.94 493.578 256.006 494.132 255.204C494.686 254.394 495.478 253.766 496.508 253.318C497.545 252.864 498.767 252.636 500.173 252.636H507.47V269H503.241ZM492.843 269L497.392 260.477H501.728L497.19 269H492.843Z" fill="black"/>
+        <rect width="1366" height="83" fill="#D9D9D9"/>
+        <path d="M654.233 47V36.8182H655.466V45.9062H660.199V47H654.233ZM670.302 41.9091C670.302 42.983 670.108 43.911 669.721 44.6932C669.333 45.4754 668.801 46.0786 668.125 46.5028C667.449 46.9271 666.676 47.1392 665.808 47.1392C664.94 47.1392 664.167 46.9271 663.491 46.5028C662.815 46.0786 662.283 45.4754 661.895 44.6932C661.508 43.911 661.314 42.983 661.314 41.9091C661.314 40.8352 661.508 39.9072 661.895 39.125C662.283 38.3428 662.815 37.7396 663.491 37.3153C664.167 36.8911 664.94 36.679 665.808 36.679C666.676 36.679 667.449 36.8911 668.125 37.3153C668.801 37.7396 669.333 38.3428 669.721 39.125C670.108 39.9072 670.302 40.8352 670.302 41.9091ZM669.109 41.9091C669.109 41.0275 668.962 40.2834 668.667 39.6768C668.375 39.0703 667.979 38.6113 667.479 38.2997C666.981 37.9882 666.425 37.8324 665.808 37.8324C665.192 37.8324 664.633 37.9882 664.133 38.2997C663.635 38.6113 663.239 39.0703 662.944 39.6768C662.653 40.2834 662.507 41.0275 662.507 41.9091C662.507 42.7907 662.653 43.5348 662.944 44.1413C663.239 44.7479 663.635 45.2069 664.133 45.5185C664.633 45.83 665.192 45.9858 665.808 45.9858C666.425 45.9858 666.981 45.83 667.479 45.5185C667.979 45.2069 668.375 44.7479 668.667 44.1413C668.962 43.5348 669.109 42.7907 669.109 41.9091ZM679.336 40C679.226 39.6652 679.082 39.3653 678.903 39.1001C678.728 38.8317 678.517 38.603 678.272 38.4141C678.03 38.2251 677.755 38.081 677.447 37.9815C677.138 37.8821 676.8 37.8324 676.432 37.8324C675.829 37.8324 675.281 37.9882 674.787 38.2997C674.293 38.6113 673.9 39.0703 673.608 39.6768C673.317 40.2834 673.171 41.0275 673.171 41.9091C673.171 42.7907 673.318 43.5348 673.613 44.1413C673.908 44.7479 674.308 45.2069 674.812 45.5185C675.315 45.83 675.882 45.9858 676.512 45.9858C677.095 45.9858 677.609 45.8615 678.053 45.6129C678.501 45.361 678.849 45.0064 679.097 44.549C679.349 44.0883 679.475 43.5464 679.475 42.9233L679.853 43.0028H676.79V41.9091H680.668V43.0028C680.668 43.8414 680.489 44.5705 680.131 45.1903C679.777 45.8101 679.286 46.2907 678.66 46.6321C678.037 46.9702 677.321 47.1392 676.512 47.1392C675.61 47.1392 674.818 46.9271 674.135 46.5028C673.456 46.0786 672.926 45.4754 672.545 44.6932C672.167 43.911 671.978 42.983 671.978 41.9091C671.978 41.1037 672.086 40.3795 672.301 39.7365C672.52 39.0902 672.828 38.54 673.226 38.0859C673.623 37.6319 674.094 37.2839 674.638 37.0419C675.181 36.8 675.779 36.679 676.432 36.679C676.969 36.679 677.47 36.7602 677.934 36.9226C678.401 37.0817 678.817 37.3087 679.182 37.6037C679.55 37.8954 679.856 38.245 680.101 38.6527C680.347 39.0571 680.516 39.5062 680.608 40H679.336ZM691.371 41.9091C691.371 42.983 691.177 43.911 690.789 44.6932C690.401 45.4754 689.869 46.0786 689.193 46.5028C688.517 46.9271 687.745 47.1392 686.876 47.1392C686.008 47.1392 685.236 46.9271 684.56 46.5028C683.884 46.0786 683.352 45.4754 682.964 44.6932C682.576 43.911 682.382 42.983 682.382 41.9091C682.382 40.8352 682.576 39.9072 682.964 39.125C683.352 38.3428 683.884 37.7396 684.56 37.3153C685.236 36.8911 686.008 36.679 686.876 36.679C687.745 36.679 688.517 36.8911 689.193 37.3153C689.869 37.7396 690.401 38.3428 690.789 39.125C691.177 39.9072 691.371 40.8352 691.371 41.9091ZM690.178 41.9091C690.178 41.0275 690.03 40.2834 689.735 39.6768C689.443 39.0703 689.047 38.6113 688.547 38.2997C688.05 37.9882 687.493 37.8324 686.876 37.8324C686.26 37.8324 685.701 37.9882 685.201 38.2997C684.704 38.6113 684.308 39.0703 684.013 39.6768C683.721 40.2834 683.575 41.0275 683.575 41.9091C683.575 42.7907 683.721 43.5348 684.013 44.1413C684.308 44.7479 684.704 45.2069 685.201 45.5185C685.701 45.83 686.26 45.9858 686.876 45.9858C687.493 45.9858 688.05 45.83 688.547 45.5185C689.047 45.2069 689.443 44.7479 689.735 44.1413C690.03 43.5348 690.178 42.7907 690.178 41.9091Z" fill="black"/>
+        <!-- Логин -->
+        <foreignObject x="245" y="359" width="329" height="37">
+            <input id="loginInput" type="text" style="width:100%;height:100%;border-radius:1px;border:none;background-color:#E9E9E9;padding:5px;" placeholder="Логин">
+        </foreignObject>
+        <!-- Пароль -->
+        <foreignObject x="245" y="407" width="329" height="37">
+            <input id="passwordInput" type="password" style="width:100%;height:100%;border-radius:1px;border:none;background-color:#E9E9E9;padding:5px;" placeholder="Пароль">
+        </foreignObject>
 
+        <!-- Кнопка -->
+        <foreignObject x="245" y="455" width="329" height="37">
+            <button type="button" onclick="submitForm()" style="width:100%;height:100%;border:none;background-color:#525252;color:#fff;">
 
-<style>
-    /* Стилизация текста placeholder */
-    input::placeholder {
-        text-align: left;
-        vertical-align: baseline;
-        margin-top: 10px;
-        margin-left: 50px;
-        color: #999; /* Цвет текста placeholder */
-        font-size: 14px; /* Размер шрифта текста placeholder */
-    }
-    .red-text {
-        color: red;
-    }
-    .wait-text{
-        color: white;
-    }
-    .center-text {
-        text-align: center;
-    }
-    .rules {
-        max-width: 1000px;
-        margin: 0 auto;
-        text-align: left;
-    }
-    .carousel-item img {
-        height: 550px;
-        object-fit: cover;
-    }
+            </button>
+        </foreignObject>
 
-    #cityButton {
-        width: 200px;
-        height: 40px;
-        border-radius: 20px;
-        background-color: #ffffff;
-        color: #000000;
-        font-size: 16px;
-        border: none;
-        cursor: pointer;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    }
+        <script>
+            function submitForm() {
+                var login = document.getElementById("loginInput").value;
+                var password = document.getElementById("passwordInput").value;
 
-    .nav-link {
-        color: black;
-    }
+                // Проверка наличия данных
+                if (!login || !password) {
+                    alert("Пожалуйста, введите логин и пароль.");
+                    return;
+                }
 
-    .learn-more-button {
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        color: darkred;
-        padding: 5px 10px;
-        border-radius: 5px;
-        display: none;
-        font-size: 16px;
-        padding: 10px 20px;
-        text-decoration: none;
-        border-radius: 5px;
-    }
-
-    .movie-poster img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 9999;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-    }
-
-    .close {
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-    }
-
-    .modal-content {
-        background-color: black;
-        color: white;
-        margin: 15% auto;
-        padding: 20px;
-        border: 1px solid #888;
-        width: 80%;
-    }
-
-    .modal-content ul li {
-        border-bottom: 1px solid #000;
-        padding-bottom: 4px;
-        margin-bottom: 4px;
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .modal-content ul li::after {
-        content: "";
-        display: block;
-        border-bottom: 1px solid #000;
-        margin-left: 5px;
-        width: calc(100% - 50px);
-    }
-
-    .modal-content ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-        margin-bottom: 4px;
-    }
-
-    .left-column {
-        width: 100%;
-    }
-
-    .right-column {
-        width: 100%;
-        text-align: right;
-    }
-    .contaer {
-        position: relative;
-        width: 968px;
-        height: 325px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        border-radius: 10px;
-        background-color: #f2f2f2;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .title {
-        position: absolute;
-        top: 20px; /* Расстояние от верхнего края контейнера */
-        color: red;
-        font-size: 20px;
-        font-weight: bold;
-    }
-
-    .circles {
-        display: flex;
-    }
-
-    .circle {
-        width: 140px;
-        height: 140px;
-        background-color: #ccc;
-        border-radius: 50%;
-        margin: 0 31px; /* Расстояние между кругами */
-    }
-    .container2 {
-        width:  968px;
-        height: 621px;
-        background-color: #f2f2f2; /* светло-серый цвет */
-        border-radius: 10px; /* скругление углов */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .photo-container img {
-        width: 178px;
-        height: 178px;
-        border-radius: 50%; /* чтобы сделать круглое фото */
-    }
-    .triangle-line {
-        position: relative;
-        border: none;
-        height: 0;
-    }
-
-    .triangle-line::before,
-    .triangle-line::after {
-        content: "";
-        position: absolute;
-        top: -5px; /* Регулирует положение по вертикали */
-        width: 0;
-        height: 0;
-        border-style: solid;
-        border-width: 5px; /* Регулирует размер треугольника */
-    }
-
-    .triangle-line::before {
-        left: 0; /* Треугольник смотрит влево */
-        border-color: transparent transparent transparent black;
-    }
-
-    .triangle-line::after {
-        right: 0; /* Треугольник смотрит вправо */
-        border-color: transparent black transparent transparent;
-    }
-    /***концовка***/
-    .left-side {
-        display: flex;
-        justify-content: center;
-        display: grid;
-        grid-template-columns: 2fr 2fr 1fr;
-        gap: 350px;
-    }
-
-    .leside {
-        margin-left: 550px;
-    }
-
-    .right-side {
-        text-align: left;
-    }
-    .gray-circles {
-        display: flex;
-        margin-bottom: 20px;
-    }
-
-    .circle {
-        width: 73px;
-        height: 73px;
-        background-color: #888888;
-        border-radius: 50%;
-        margin-right: 10px;
-    }
-
-    .subscribe-button a {
-        display: inline-block;
-        width: 573px;
-        height: 59px;
-        line-height: 59px;
-        background-color: #888888;
-        color: white;
-        text-align: center;
-        text-decoration: none;
-        border: none;
-        border-radius: 2px;
-        font-size: 16px;
-    }
-</style>
-
-</head>
-<body>
-
-<div class="container"style="background-color: #e0e0e0;">
-    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-        <div>
-            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                <li><a class="nav-link px-2 link-secondary" href="/">LOGO</a></li>
-                <li><a href="/sechazkino" class="nav-link px-2">Сейчас в кино</a></li>
-                <li><a href="/action" class="nav-link px-2">Акции и скидки</a></li>
-                <li><a href="/cinema" class="nav-link px-2">Кинотеатры</a></li>
-            </ul>
-        </div>
-
-        <!--city---->
-
-        <div class="col-md-3 text-end">
-            <button type="button" class="btn btn-outline-primary me-2" onclick="toggleCityModal()" id="cityButton">Город</button>
-            <div id="cityModal" class="modal" style="width: 393px; height: 833px;">
-                <div class="modal-content">
-                    <span class="close" onclick="toggleCityModal()">&times;</span>
-                    <ul>
-                        <li> <b class="left-column">Киев: </b><div class="right-column">адрес</div></li>
-                        <li> <b class="left-column">Днепр: </b><div class="right-column">адрес</div></li>
-                        <li><b  class="left-column">Львов: </b> <div class="right-column">адрес</div></li>
-                        <li><b class="left-column">Одесса:  </b><div class="right-column">адрес</div></li>
-                        <li><b class="left-column">Николаев:</b> <div class="right-column">адрес</div></li>
-                        <li><b class="left-column">Херсон:  </b> <div class="right-column">адрес</div></li>
-                        <li><b class="left-column">Харьков:</b> <div class="right-column">адрес</div></li>
-                        <li><b class="left-column">Житомир:</b> <div class="right-column">адрес</div></li>
-                        <li><b class="left-column">Чернигов:</b> <div class="right-column">адрес</div></li>
-                        <li><b class="left-column">Полтава:</b> <div class="right-column">адрес</div></li>
-                        <li><b class="left-column">Луцк:</b> <div class="right-column">адрес</div></li>
-                        <li><b class="left-column">Черкассы:</b><div class="right-column">адрес</div></li>
-                        <li><b class="left-column">Ужгород:</b> <div class="right-column">адрес</div></li>
-                        <li><b class="left-column">Кривой рог:</b> <div class="right-column">адрес</div></li>
-                        <li><b class="left-column">Хмельницкий:</b><div class="right-column">адрес</div></li>
-                        <li><b class="left-column">Запорожье:</b> <div class="right-column">адрес</div></li>
-                    </ul>
-                </div>
-            </div>  <script>function toggleCityModal() {
-            var modal = document.getElementById("cityModal");
-            modal.style.display = modal.style.display === "block" ? "none" : "block";
-        }
-
-        window.onclick = function(event) {
-            var modal = document.getElementById("cityModal");
-            if (event.target == modal) {
-                modal.style.display = "none";
+                // Отправка данных на сервер
+                fetch('/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ login: login, password: password })
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Ошибка при отправке данных.');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        console.log('Данные успешно отправлены:', data);
+                        window.location.href = '/'; // Перенаправление на другую страницу после успешной отправки
+                    })
+                    .catch(error => {
+                        console.error('Ошибка при отправке данных:', error);
+                    });
             }
-        }
-
-        document.getElementById("closeButton").addEventListener("mouseenter", function() {
-            toggleCityModal();
-
-
-        });
-
-
         </script>
-        </div>
 
-        <div class="text-center">
-            <div class="container">
-                <div class="text-center">
-                    <!-- Иконка "SIGN UP" с ссылкой и классом для открытия dropdown -->
-                    <a href="#" class="d-block link-body-emphasis text-decoration-none" aria-expanded="false" id="dropdownMenuLink">
-                        <img src="https://t3.ftcdn.net/jpg/05/53/79/60/360_F_553796090_XHrE6R9jwmBJUMo9HKl41hyHJ5gqt9oz.jpg"  width="32" height="32" class="rounded-circle">
-                    </a>
-                    <span class="mt-1">SIGN UP</span>
-                </div>
-                <!-- Dropdown меню -->
-                <div class="dropdown text-end">
-                    <ul class="dropdown-menu text-small" aria-labelledby="dropdownMenuLink">
-                        <li><a class="dropdown-item" href="/konsol">Консультация</a></li>
-                        <li><a class="dropdown-item" href="/delete">Удаление аккаунта</a></li>
-                        <li><a class="dropdown-item" href="/texnik">Технические сложности</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="/registration">Вход</a></li>
+        <path d="M394.352 479V468.818H397.788C398.451 468.818 399.002 468.934 399.443 469.166C399.887 469.398 400.22 469.715 400.442 470.116C400.665 470.517 400.776 470.973 400.776 471.483C400.776 471.907 400.704 472.27 400.562 472.572C400.419 472.873 400.225 473.117 399.98 473.303C399.735 473.488 399.461 473.622 399.16 473.705V473.785C399.488 473.808 399.806 473.924 400.114 474.133C400.423 474.338 400.676 474.627 400.875 474.998C401.074 475.369 401.173 475.813 401.173 476.33C401.173 476.844 401.059 477.303 400.83 477.707C400.602 478.108 400.25 478.425 399.776 478.657C399.306 478.886 398.706 479 397.977 479H394.352ZM395.282 478.165H397.977C398.762 478.165 399.342 477.991 399.717 477.643C400.094 477.295 400.283 476.857 400.283 476.33C400.283 475.942 400.189 475.591 400 475.276C399.814 474.958 399.551 474.706 399.21 474.521C398.871 474.335 398.474 474.242 398.016 474.242H395.282V478.165ZM395.282 473.417H397.872C398.273 473.417 398.625 473.334 398.926 473.168C399.228 473.003 399.463 472.774 399.632 472.482C399.801 472.191 399.886 471.857 399.886 471.483C399.886 470.943 399.71 470.504 399.359 470.165C399.007 469.824 398.484 469.653 397.788 469.653H395.282V473.417ZM403.78 471.364L405.748 474.62L407.717 471.364H408.746L406.29 475.182L408.746 479H407.717L405.748 475.848L403.78 479H402.756L405.182 475.182L402.756 471.364H403.78ZM413.256 479.159C412.596 479.159 412.013 478.992 411.506 478.657C411.002 478.322 410.607 477.86 410.322 477.27C410.037 476.677 409.895 475.992 409.895 475.217C409.895 474.434 410.037 473.747 410.322 473.153C410.607 472.557 411.002 472.093 411.506 471.761C412.013 471.427 412.596 471.259 413.256 471.259C413.915 471.259 414.497 471.427 415.001 471.761C415.504 472.096 415.899 472.56 416.184 473.153C416.472 473.747 416.616 474.434 416.616 475.217C416.616 475.992 416.474 476.677 416.189 477.27C415.904 477.86 415.508 478.322 415.001 478.657C414.497 478.992 413.915 479.159 413.256 479.159ZM413.256 478.349C413.786 478.349 414.235 478.206 414.603 477.921C414.971 477.636 415.249 477.257 415.438 476.783C415.63 476.309 415.726 475.787 415.726 475.217C415.726 474.647 415.63 474.123 415.438 473.646C415.249 473.168 414.971 472.786 414.603 472.497C414.235 472.209 413.786 472.065 413.256 472.065C412.729 472.065 412.279 472.209 411.908 472.497C411.54 472.786 411.26 473.168 411.068 473.646C410.879 474.123 410.785 474.647 410.785 475.217C410.785 475.787 410.879 476.309 411.068 476.783C411.26 477.257 411.54 477.636 411.908 477.921C412.276 478.206 412.725 478.349 413.256 478.349ZM417.654 481.173V478.165H418.315C418.481 477.979 418.625 477.779 418.748 477.563C418.871 477.348 418.977 477.103 419.066 476.827C419.159 476.549 419.237 476.226 419.3 475.858C419.363 475.487 419.416 475.054 419.459 474.56L419.737 471.364H424.256V478.165H425.39V481.173H424.505V479H418.544V481.173H417.654ZM419.335 478.165H423.371V472.199H420.562L420.334 474.56C420.254 475.362 420.142 476.062 419.996 476.658C419.85 477.255 419.629 477.757 419.335 478.165Z" fill="white"/>
+       <a href="/"><path d="M83.6464 39.6464C83.4512 39.8417 83.4512 40.1583 83.6464 40.3536L86.8284 43.5355C87.0237 43.7308 87.3403 43.7308 87.5355 43.5355C87.7308 43.3403 87.7308 43.0237 87.5355 42.8284L84.7071 40L87.5355 37.1716C87.7308 36.9763 87.7308 36.6597 87.5355 36.4645C87.3403 36.2692 87.0237 36.2692 86.8284 36.4645L83.6464 39.6464ZM101 39.5L84 39.5L84 40.5L101 40.5L101 39.5Z" fill="black"/>
+        </a><rect x="792" y="82" width="574" height="815" fill="#D9D9D9"/>
+        <path d="M411.204 567.516C409.172 569.468 406.953 569.16 404.817 568.235C402.557 567.289 400.484 567.248 398.099 568.235C395.113 569.509 393.537 569.139 391.754 567.516C381.635 557.177 383.128 541.434 394.615 540.858C397.415 541.002 399.364 542.379 401.002 542.503C403.449 542.009 405.792 540.591 408.405 540.776C411.536 541.023 413.9 542.256 415.455 544.476C408.985 548.319 410.52 556.766 416.45 559.13C415.268 562.213 413.734 565.275 411.183 567.536L411.204 567.516ZM400.795 540.735C400.484 536.152 404.237 532.37 408.55 532C409.151 537.303 403.698 541.249 400.795 540.735Z" fill="black"/>
+        <path d="M320.746 550.015H305.203V554.519H316.237C315.678 560.806 310.305 563.496 305.22 563.496C298.729 563.496 293.034 558.512 293.034 551.5C293.034 544.735 298.458 539.504 305.237 539.504C310.475 539.504 313.542 542.755 313.542 542.755L316.763 539.488C316.763 539.488 312.627 535 305.068 535C295.441 535 288 542.92 288 551.5C288 559.833 295 568 305.322 568C314.39 568 321 561.944 321 553.001C321 551.104 320.746 550.015 320.746 550.015Z" fill="black"/>
+        <path d="M516 553.541C516 544.411 508.608 537 499.5 537C490.392 537 483 544.411 483 553.541C483 561.547 488.676 568.214 496.2 569.752V558.504H492.9V553.541H496.2V549.406C496.2 546.214 498.79 543.617 501.975 543.617H506.1V548.579H502.8C501.892 548.579 501.15 549.323 501.15 550.233V553.541H506.1V558.504H501.15V570C509.483 569.173 516 562.126 516 553.541Z" fill="black"/>
+        <path d="M1009.78 579C1004.34 579 999.681 577.062 995.805 573.185C991.928 569.309 989.993 564.654 990 559.222V420.778C990 415.339 991.938 410.681 995.815 406.805C999.691 402.928 1004.35 400.993 1009.78 401H1148.22C1153.66 401 1158.32 402.938 1162.2 406.815C1166.07 410.691 1168.01 415.345 1168 420.778V559.222C1168 564.661 1166.06 569.319 1162.19 573.195C1158.31 577.072 1153.65 579.007 1148.22 579H1009.78ZM1019.67 539.444H1138.33L1101.25 490L1071.58 529.556L1049.33 499.889L1019.67 539.444Z" fill="#BBB6B6"/>
+    </g>
+    <defs>
+        <clipPath id="clip0_117_1442">
+            <rect width="1366" height="897" fill="white"/>
+        </clipPath>
+    </defs>
+</svg>
 
-                    </ul>
-                </div>
-            </div>
-            <!-- JavaScript код для открытия dropdown по клику на иконку "SIGN UP" -->
-            <script>
-                document.getElementById("dropdownMenuLink").addEventListener("click", function(event) {
-                    event.preventDefault(); // Предотвращаем переход по ссылке
-                    var dropdownMenu = document.querySelector(".dropdown-menu");
-                    dropdownMenu.classList.toggle("show"); // Переключаем класс для отображения/скрытия dropdown
-                });
-            </script>
-        </div>
-
-    </header>
-</div>
-
-
-
-<div style="text-align: center; color: red;">
-    <h4>Вход в личный кабинет</h4>
-</div>
-<br>
-<div style="text-align: center; color: black;">
-    <h5>Здесь все ваши заказы и личная информация</h5>
-</div>
-<br><br><br>
-<h7 style="color: black; margin-left: 400px;">Номер мобильного</h7>
-<br><br><br>
-<div id="error"></div>
-<form id="loginForm" style="display: flex; flex-direction: column; align-items: center;" onsubmit="return handleSubmit()">
-
-    <div style="display: flex; align-items: center;">
-        <input style="width: 500px; height: 60px; margin-bottom: 20px; border-radius: 14px; background-color: #e0e0e0; color: #888888;" type="text" id="phone" required>
-        <button style="margin-left: 200px; width: 200px; height: 60px; margin-bottom: 20px; border-radius: 14px; background-color: #e0e0e0; color: #888888; margin-right: 200px;" type="submit">продолжить</button>
-    </div><br><br><br>
-    <div class="contaer"><br><br>
-        <div class="title">Войти с помощью</div>
-        <div class="circles">
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-        </div>
-    </div>
-    <br><br><br>
-    <div class="container2">
-        <div>
-            <div class="photo-container" style="  width: 198px; margin-bottom: 32px; border-radius: 20px; padding: 20px;text-align: center;margin-left: 100px; ">
-                <svg width="178" height="178" viewBox="0 0 178 178" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M19.7778 178C14.3389 178 9.68124 176.062 5.80479 172.185C1.92835 168.309 -0.0065758 163.654 1.67893e-05 158.222V19.7778C1.67893e-05 14.3389 1.93824 9.68124 5.81468 5.80479C9.69113 1.92835 14.3455 -0.0065758 19.7778 1.67893e-05H158.222C163.661 1.67893e-05 168.319 1.93824 172.195 5.81468C176.072 9.69113 178.007 14.3455 178 19.7778V158.222C178 163.661 176.062 168.319 172.185 172.195C168.309 176.072 163.654 178.007 158.222 178H19.7778ZM29.6667 138.444H148.333L111.25 89L81.5833 128.556L59.3333 98.8889L29.6667 138.444Z" fill="#C2C2C2"/>
-                </svg>
-
-            </div><br>
-            <div style="text-align: center;">
-                <p style="margin: 0; color: #000000; font-weight: bold;">Не нужно качать или печатать!</p>
-                <br><br>
-                <p style="margin: 0;color: #000000;">Билеты уже в Вашем кабинете - просто авторизуйтесь</p><p> сейчас и предъявите штрих-код при входе в кинозал.</p>
-            </div>
-        </div>
-    </div>
-    <br><br><br>
-    <button style="margin-left: auto; margin-right: 200px; width: 200px; height: 60px; margin-bottom: 20px; border-radius: 14px; background-color: #e0e0e0; color: #888888;" onclick="window.location.href='/';">Вернуться на сайт</button>
-
-</form>
-
-<hr style="border: 0; border-top: 1px solid black; width: 1500px;"class="triangle-line">
-<div class="left-side">
-    <div class="leside">
-        <p>Бронируйте билеты на мероприятия.<br> Мы в соц.сетях</p>
-        <div class="gray-circles">
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-        </div>
-    </div>
-    <div class="right-side">
-        <p>Подпишитесь на новости</p>
-        <p>Подпишитесь на нашу рассылку новостей и анонсов мероприятий</p>
-        <div class="subscribe-button">
-            <a href="#">     </a>
-        </div>
-    </div>
-</div>
-<script>
-    function handleSubmit() {
-        var phone = document.getElementById("phone").value;
-
-        fetch('/registration', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ phone: phone })
-        })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Ошибка при отправке данных.');
-                }
-                return response.json();
-            })
-            .then(data => {
-
-                console.log('Данные успешно отправлены:', data);
-            })
-            .catch(error => {
-
-                console.error('Ошибка при отправке данных:', error);
-            });
-
-        return false;
-    }
-    function handleSubmit() {
-        var phone = document.getElementById("phone").value;
-
-        fetch('/registration', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ phone: phone })
-        })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Ошибка при отправке данных.');
-                }
-                return response.json();
-            })
-            .then(data => {
-     console.log('Данные успешно отправлены:', data);
-                window.location.href = '/';
-            })
-            .catch(error => {
-               console.error('Ошибка при отправке данных:', error);
-            });
-  return false;
-    }
-
-</script>
-<script>
-    function redirectToLogin() {
-        window.location.href = '/registration';
-    }
-
-    document.getElementById("loginForm").addEventListener("submit", function(event) {
-        event.preventDefault();
-        var phone = document.getElementById("phone").value;
-        var password = document.getElementById("password").value;
-        var data = { phone: phone, password: password };
-
-        fetch('/registration', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Неправильный номер телефона или пароль.');
-                }
-                return response.json();
-            })
-            .then(data => {
-                window.location.href = '/dashboard/' + data;
-            })
-            .catch(error => {
-                document.getElementById("error").innerText = error.message;
-            });
-    });
-</script>
 </body>
 </html>
+
+

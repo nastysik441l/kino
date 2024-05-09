@@ -23,16 +23,18 @@ class UserController {
 
     @PostMapping("/registration")
     public Long registerUser(@RequestBody Map<String, String> userData) {
-        String phone = userData.get("phone");
+        String login = userData.get("login");
+        String password = userData.get("password");
 
         // Вставляем данные нового пользователя в таблицу users
-        String sql = "INSERT INTO users (phone) VALUES (?)";
-        jdbcTemplate.update(sql, phone);
+        String sql = "INSERT INTO users (login, password) VALUES (?, ?)";
+        jdbcTemplate.update(sql, login, password);
 
         // Получаем id только что зарегистрированного пользователя
         Long userId = jdbcTemplate.queryForObject("SELECT LAST_INSERT_ID()", Long.class);
 
         return userId;
     }
+
 }
 
