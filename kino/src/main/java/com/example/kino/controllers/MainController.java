@@ -39,7 +39,12 @@ public class MainController {
     public String delete(Model model) {
         model.addAttribute("title", "Удаление аккаунта");
         return "delete";
+    }  @GetMapping("/abouttwo")
+    public String abouttwos(Model model) {
+        model.addAttribute("title", "Главная - концерты 2");
+        return "abouttwo";
     }
+
     @GetMapping("/action")
     public String actions(Model model) {
         model.addAttribute("title", "Акции и скидки ");
