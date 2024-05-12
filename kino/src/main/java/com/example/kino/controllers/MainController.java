@@ -79,6 +79,10 @@ public class MainController {
     public String enterfilms(Model model) {
         model.addAttribute("title", "выбор мест-кино");
         return "enterfilm";
+    }@GetMapping("/film1")
+    public String film1s(Model model) {
+        model.addAttribute("title", "переход в кино - кино");
+        return "film1";
     }
     @GetMapping("/sechazkino")
     public String sechazkinos(Model model) {

@@ -31,11 +31,7 @@ public class MainscreenController {
         return "film";
     }
 
-    @GetMapping("/film1")
-    public String film1s(Model model) {
-        model.addAttribute("title", "Кино");
-        return "film1";
-    }
+
 
 }
 
