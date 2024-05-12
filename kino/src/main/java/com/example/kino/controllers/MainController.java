@@ -144,7 +144,11 @@ public class MainController {
         model.addAttribute("title", "фанклуб- концерт");
         return "fan";
     }
-
+    @GetMapping("/teather2")
+    public String teather2s(Model model) {
+        model.addAttribute("title", "  Театр2");
+        return "teather2";
+    }
     @GetMapping("/afishateather")
     public String afishatheaters(Model model) {
         model.addAttribute("title", "Афиша - Театр");
