@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.List;
+
 import java.util.Map;
 
 @SpringBootApplication
@@ -15,7 +16,7 @@ public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
-}
+
 @RestController
 class UserController {
     @Autowired
@@ -35,6 +36,9 @@ class UserController {
 
         return userId;
     }
+
+
+}
 
 }
 

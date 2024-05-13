@@ -1,0 +1,7 @@
+com\example\kino\models\Post.class
+com\example\kino\controllers\MainController.class
+com\example\kino\repo\PostRepository.class
+com\example\kino\controllers\Application$UserController.class
+com\example\kino\KinoApplication.class
+com\example\kino\controllers\MainscreenController.class
+com\example\kino\controllers\Application.class

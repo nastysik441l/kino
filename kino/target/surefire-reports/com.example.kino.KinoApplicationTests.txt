@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.example.kino.KinoApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.734 s - in com.example.kino.KinoApplicationTests

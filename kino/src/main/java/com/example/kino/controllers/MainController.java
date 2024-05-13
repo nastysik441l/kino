@@ -101,7 +101,7 @@ public class MainController {
     }
     @GetMapping("/afishakon")
     public String afishakons(Model model) {
-        model.addAttribute("title", " оплата -кино");
+        model.addAttribute("title", " оплата концерт");
         return "afishakon";
     }
     @GetMapping("/mestastol")
