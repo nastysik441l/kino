@@ -71,10 +71,7 @@ public class MainController {
         model.addAttribute("title", "Акции и скидки");
         return "action2";
     }
-    @GetMapping("/theaters/add")
-    public String theatersAdd(Model model){
-        return "theaters-add";
-    }
+   
     @GetMapping("/enterfilm")
     public String enterfilms(Model model) {
         model.addAttribute("title", "выбор мест-кино");

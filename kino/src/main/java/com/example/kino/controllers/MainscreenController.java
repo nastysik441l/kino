@@ -12,7 +12,16 @@ public class MainscreenController {
         model.addAttribute("title", "Главная страница");
         return "mainscreen";
     }
-
+    @GetMapping("/film2")
+    public String film2s(Model model) {
+        model.addAttribute("title", " Кино");
+        return "film2";
+    }
+    @GetMapping("/history")
+    public String historys(Model model) {
+        model.addAttribute("title", " История заказов");
+        return "history";
+    }
     @GetMapping("/about")
     public String about(Model model) {
         model.addAttribute("title", "Концерты");
