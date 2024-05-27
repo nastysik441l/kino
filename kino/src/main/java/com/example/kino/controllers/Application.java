@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.List;
-
 import java.util.Map;
 
 @SpringBootApplication
@@ -17,28 +16,40 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 
-@RestController
-class UserController {
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
+    @RestController
+    class UserController {
+        @Autowired
+        private JdbcTemplate jdbcTemplate;
 
-    @PostMapping("/registration")
-    public Long registerUser(@RequestBody Map<String, String> userData) {
-        String login = userData.get("login");
-        String password = userData.get("password");
+        @PostMapping("/registration")
+        public Long registerUser(@RequestBody Map<String, String> userData) {
+            String login = userData.get("login");
+            String password = userData.get("password");
 
-        // Вставляем данные нового пользователя в таблицу users
-        String sql = "INSERT INTO users (login, password) VALUES (?, ?)";
-        jdbcTemplate.update(sql, login, password);
+            // Вставляем данные нового пользователя в таблицу users
+            String sql = "INSERT INTO users (login, password) VALUES (?, ?)";
+            jdbcTemplate.update(sql, login, password);
 
-        // Получаем id только что зарегистрированного пользователя
-        Long userId = jdbcTemplate.queryForObject("SELECT LAST_INSERT_ID()", Long.class);
+            // Получаем id только что зарегистрированного пользователя
+            Long userId = jdbcTemplate.queryForObject("SELECT LAST_INSERT_ID()", Long.class);
 
-        return userId;
+            return userId;
+        }
+
+        @PostMapping("/registr1")
+        public Long registerUser2(@RequestBody Map<String, String> userData) {
+            String fullName = userData.get("full_name");
+            String email = userData.get("email");
+            String password = userData.get("password");
+
+            // Вставляем данные нового пользователя в таблицу register
+            String sql = "INSERT INTO register (full_name, email, password) VALUES (?, ?, ?)";
+            jdbcTemplate.update(sql, fullName, email, password);
+
+            // Получаем id только что зарегистрированного пользователя
+            Long userId = jdbcTemplate.queryForObject("SELECT LAST_INSERT_ID()", Long.class);
+
+            return userId;
+        }
     }
-
-
 }
-
-}
-

@@ -25,6 +25,10 @@ public class MainController {
     public String cinemas(Model model) {
         model.addAttribute("title", "Кинотеатры");
         return "cinema";
+    } @GetMapping("/registr1")
+    public String registr1s(Model model) {
+        model.addAttribute("title", "вход в личный кабинет 1");
+        return "registr1";
     }
     @GetMapping("/konsol")
     public String konsols(Model model) {
