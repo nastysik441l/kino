@@ -52,4 +52,25 @@ public class Application {
             return userId;
         }
     }
+
+    @RestController
+    @RequestMapping("/seats")
+    class SeatController {
+        @Autowired
+        private JdbcTemplate jdbcTemplate;
+
+        @PostMapping("/select")
+        public String selectSeat(@RequestBody Map<String, Integer> seatData) {
+            int x = seatData.get("x");
+            int y = seatData.get("y");
+            int width = seatData.get("width");
+            int height = seatData.get("height");
+
+            // Вставляем данные о выбранном месте в таблицу selected_seats
+            String sql = "INSERT INTO selected_seats (x, y, width, height) VALUES (?, ?, ?, ?)";
+            jdbcTemplate.update(sql, x, y, width, height);
+
+            return "Seat selected successfully";
+        }
+    }
 }

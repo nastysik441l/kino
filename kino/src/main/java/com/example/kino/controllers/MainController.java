@@ -30,6 +30,11 @@ public class MainController {
         model.addAttribute("title", "вход в личный кабинет 1");
         return "registr1";
     }
+    @GetMapping("/login")
+    public String logis(Model model) {
+        model.addAttribute("title", "вход в личный кабинет 1");
+        return "login";
+    }
     @GetMapping("/konsol")
     public String konsols(Model model) {
         model.addAttribute("title", "Консультация");
