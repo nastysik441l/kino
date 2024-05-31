@@ -360,26 +360,19 @@
         <script>
             document.getElementById('sendTicketButton').addEventListener('click', function() {
                 // Проверяем, авторизован ли пользователь
-                fetch('/checkAuth')
-                    .then(response => response.json())
-                    .then(data => {
-                        if(data.authenticated) {
-                            // Если пользователь авторизован, отправляем запрос на отправку билета
-                            fetch('/sendTicket')
-                                .then(response => response.json())
-                                .then(result => {
-                                    if(result.success) {
-                                        alert('Билет отправлен на вашу электронную почту!');
-                                    } else {
-                                        alert('Произошла ошибка при отправке билета.');
-                                    }
-                                });
-                        }else {
-                            // Если пользователь не авторизован, перенаправляем на страницу оплаты
-                            window.location.href = '/oplata';
-                        }
-                    });
+                var isAuthenticated = localStorage.getItem('authenticated');
+
+                if (isAuthenticated === 'true') {
+                   simulateSendTicket();
+                } else {
+                   alert('Билет  будет отправлен на вашу электронную почту');
+                }
             });
+
+
+            function simulateSendTicket() {
+               alert('Билет отправлен на вашу электронную почту!');
+            }
         </script>
 
 

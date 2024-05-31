@@ -360,26 +360,24 @@
         <script>
             document.getElementById('sendTicketButton').addEventListener('click', function() {
                 // Проверяем, авторизован ли пользователь
-                fetch('/checkAuth')
-                    .then(response => response.json())
-                    .then(data => {
-                        if(data.authenticated) {
-                            // Если пользователь авторизован, отправляем запрос на отправку билета
-                            fetch('/sendTicket')
-                                .then(response => response.json())
-                                .then(result => {
-                                    if(result.success) {
-                                        alert('Билет отправлен на вашу электронную почту!');
-                                    } else {
-                                        alert('Произошла ошибка при отправке билета.');
-                                    }
-                                });
-                        }else {
-                            // Если пользователь не авторизован, перенаправляем на страницу оплаты
-                            window.location.href = '/oplata';
-                        }
-                    });
+                var isAuthenticated = localStorage.getItem('authenticated');
+
+                if (isAuthenticated === 'true') {
+                    // Если пользователь авторизован, отправляем запрос на отправку билета
+                    simulateSendTicket(); // Симуляция отправки билета
+                } else {
+                    // Если пользователь не авторизован, перенаправляем на страницу регистрации
+                    alert('Билет  будет отправлен на вашу электронную почту');
+                    // Здесь можно добавить перенаправление на страницу регистрации
+                }
             });
+
+            // Симуляция отправки билета
+            function simulateSendTicket() {
+                // В реальном приложении здесь должен быть запрос на сервер для отправки билета
+                // Но поскольку у нас нет сервера, просто выводим сообщение об успешной отправке
+                alert('Билет отправлен на вашу электронную почту!');
+            }
         </script>
 
 

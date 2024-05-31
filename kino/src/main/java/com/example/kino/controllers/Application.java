@@ -60,11 +60,11 @@ public class Application {
         private JdbcTemplate jdbcTemplate;
 
         @PostMapping("/select")
-        public String selectSeat(@RequestBody Map<String, Integer> seatData) {
-            int x = seatData.get("x");
-            int y = seatData.get("y");
-            int width = seatData.get("width");
-            int height = seatData.get("height");
+        public String selectSeat(@RequestBody Map<String, String> seatData) {
+            String x = seatData.get("x");
+            String y = seatData.get("y");
+            String width = seatData.get("width");
+            String height = seatData.get("height");
 
             // Вставляем данные о выбранном месте в таблицу selected_seats
             String sql = "INSERT INTO selected_seats (x, y, width, height) VALUES (?, ?, ?, ?)";
@@ -73,4 +73,5 @@ public class Application {
             return "Seat selected successfully";
         }
     }
+
 }
